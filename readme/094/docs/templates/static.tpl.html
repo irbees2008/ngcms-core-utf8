@@ -1,0 +1,54 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../highlighter/scripts/shCore.js"></script>
+		<script type="text/javascript" src="../highlighter/scripts/shBrushXml.js"></script>
+		<link type="text/css" rel="stylesheet" href="../highlighter/styles/shCoreDefault.css"/>
+		<script type="text/javascript">SyntaxHighlighter.all();</script>
+		<link media="screen" href="../style/styles.css" type="text/css" rel="stylesheet" />
+	</head>
+	<body style="border-left: #edece4 1px solid;">
+		<div class="content">
+			<h3>Шаблон static/default.tpl</h3>
+			<div class="text">
+				Шаблон отвечает за вывод статической страницы (статьи).<br />
+				Указываемый здесь шаблон - шаблон по умолчанию для отображения статических страниц.<br />
+				Если для каких-то страниц вы хотите создать собственный шаблон, то достаточно создать любой файл с расширением <b>.tpl</b> в каталоге <b>static/</b> и сразу после создания вы сможете выбрать этот файл в настройках статической страницы в качестве шаблона.
+			</div>
+			<h3>Доступные блоки/переменные</h3>
+			<div class="text">
+				Блоки:
+				<ul class="level-1">
+					<li><b>[edit-static]</b> ... <b>[/edit-static]</b> - Если у вас есть права на редактирование этой статической страницы, то содержимое этого блока "оборачивается" в ссылку на редактирование.</li>
+					<li><b>[del-static]</b> ... <b>[/del-static]</b> - Если у вас есть права на редактирование этой статической страницы, то содержимое этого блока "оборачивается" в ссылку на удаление.</li>
+					<li><b>[print-link]</b> ... <b>[/print-link]</b> - Содержимое этого блока "оборачивается" в ссылку на страницу печати для данной статической страницы.</li>
+				</ul>
+				Переменные:
+				<ul class="level-1">
+					<li><b>{title}</b> - Заголовок статической страницы.</li>
+					<li><b>{content}</b> - Содержимое статической страницы.</li>
+					<li><b>{postdate}</b> - Дата публикации статической страницы.</li>
+				</ul>
+				Доступные языковые переменные:
+				<ul class="level-1">
+					<li><b>{l_editstatic}</b> - Текст для блока [edit-static]..[/edit-static] ("редактировать").</li>
+					<li><b>{l_delstatic}</b> - Текст для блока [del-static]..[/del-static] ("удалить").</li>
+					<li><b>{l_print}</b> - Текст для блока [print-link]..[/print-link] ("распечатать").</li>
+				</ul>
+			</div>
+			<h3>Пример заполнения шаблона</h3>
+			<div class="text">
+				В примере показан минимально набор для полнофункциональной работы:
+				
+<pre class="brush: html;">
+&lt;h2>{title}&lt;/h2>
+{content}
+</pre>
+				
+			</div>
+			<div id="footer">
+				<b>Документация находится на стадии разработки!</b> Если вы хотите помочь с наполнением, обращайтесь:<br/>
+				ICQ: <b>145368811</b> (Виталий) | Jabber: <b>vitaly@ngcms.ru</b>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,1 @@
+<a href="#" onclick="insertext(':{smile}: ','', {area})" class="btn btn-default btn-sm" data-dismiss="modal"><img alt="{smile}" src="{skins_url}/smilies/{smile}.png"/></a>

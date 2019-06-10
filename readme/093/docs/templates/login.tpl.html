@@ -1,0 +1,67 @@
+<html>
+<head>
+ <link href="../style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<h3>Шаблон login.tpl</h3>
+<br/>
+Шаблон отвечает за вывод отдельного меню авторизации.<br/>
+Меню выводится в двух случаях:
+<ul>
+<li>При заходе на выделенную страницу авторизации (по умолчанию: <b>/login/</b>)</li>
+<li>В случае неуспешной авторизации (как через краткую форму из <b>usermenu.tpl</b> так и через шаблон <b>login.tpl</b>)</li>
+</ul>
+<br/>
+
+<h3>Доступные блоки/переменные</h3>
+Блоки:
+<ul>
+ <li><b>[error]</b> ... <b>[/error]</b> - содержимое блока отображается в случае ошибки авторизации</li>
+ <li><b>[banned]</b> ... <b>[/banned]</b> - содержимое блоко отображается в случае, если конкретному пользователю или его IP адресу/подсети с которой заходит пользователь запрещен доступ</li>
+</ul>
+
+Переменные:
+<ul>
+ <li><b>{form_action}</b> - URL формы-обработчика</li>
+ <li><b>{redirect}</b> - значение, которое необходимо передать в скрытом поле ввода redirect, позволяет вернуться обратно на страницу (внутри сайта), с которой пользователь авторизовывался</li>
+</ul>
+<br/>
+Шаблон должен содержать форму (тег <b>&lt;form></b>, метод запроса - <b>POST</b>), которая позволит пользователю авторизоваться.<br/>
+В форму должны передаваться следующие переменные:
+<ul>
+<li><b>redirect</b> (тип: hidden) - поле, в которое помещается значение переменной <b>{redirect}</b></li>
+<li><b>username</b> (обычно тип: text) - поле для ввода логина пользователя</li>
+<li><b>password</b> (обычно тип: hidden) - поле для ввода пароля пользователя</li>
+</ul>
+<br/>
+Доступные языковые переменные:
+<ul>
+<li><b>{l_login.title}</b> - заголовок блока авторизации</li>
+<li><b>{l_login.error}</b> - стандартное сообщение об ошибке авторизации</li>
+<li><b>{l_login.banned}</b> - стандартное сообщение о том, что пользователю запрещен вход</li>
+<li><b>{l_login.name}</b> - текст-описание для поля формы <b>username</b></li>
+<li><b>{l_login.password}</b> - текст-описание для поля формы <b>password</b></li>
+<li><b>{l_login.submit}</b> - текст описание для кнопки типа "submit"</li>
+</ul>
+<br/>
+<br/>
+
+
+<h3>Пример заполнения шаблона</h3>
+<br/>
+В примере показан минимально набор для полнофункциональной работы:
+<div class="pre">
+<pre>
+&lt;form name="login" method="post" action="{form_action}">
+&lt;input type="hidden" name="redirect" value="{redirect}"/>
+[error]{l_login.error}&lt;br/>[/error]
+[banned]{l_login.banned}&lt;br/>[/banned]
+{l_login.name}: &lt;input type="text" name="username" />&lt;br/>
+{l_login.password}: &lt;input type="password" name="password" />&lt;br/>
+&lt;input type="submit" value="{l_login.submit}"/>
+&lt;/form>
+</pre>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+#
+#
+# Copyright (C) 2006-2014 Next Generation CMS (http://ngcms.ru)
+# Name: .htaccess
+# Description: mod_rewrite htaccess file
+# Author: NGCMS project team
+#
+
+DirectoryIndex index.php
+
+<files .htaccess>
+order allow,deny 
+deny from all
+</files>
+
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [S=35]
+
+# Editable links
+RewriteRule ^.+$ index.php?$1 [QSA,L]
