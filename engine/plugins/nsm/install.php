@@ -17,23 +17,23 @@ function plugin_nsm_install($action) {
 	// Apply requested action
 	switch ($action) {
 		case 'confirm':
-			generate_install_page('nsm', "Р Р€РЎРѓРЎвЂљР В°Р Р…Р С•Р Р†Р С”Р В° NSM");
+			generate_install_page('nsm', "РЈСЃС‚Р°РЅРѕРІРєР° NSM");
 			break;
 		case 'autoapply':
 		case 'apply':
 			$ULIB = new urlLibrary();
 			$ULIB->loadConfig();
 			$ULIB->registerCommand('nsm', '',
-				array('descr' => array('russian' => 'Р РЋР С—Р С‘РЎРѓР С•Р С”'))
+				array('descr' => array('russian' => 'РЎРїРёСЃРѕРє'))
 			);
 			$ULIB->registerCommand('nsm', 'add',
-				array('descr' => array('russian' => 'Р вЂќР С•Р В±Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ'))
+				array('descr' => array('russian' => 'Р”РѕР±Р°РІР»РµРЅРёРµ'))
 			);
 			$ULIB->registerCommand('nsm', 'edit',
-				array('descr' => array('russian' => 'Р В Р ВµР Т‘Р В°Р С”РЎвЂљР С‘РЎР‚Р С•Р Р†Р В°Р Р…Р С‘Р Вµ'))
+				array('descr' => array('russian' => 'Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ'))
 			);
 			$ULIB->registerCommand('nsm', 'del',
-				array('descr' => array('russian' => 'Р Р€Р Т‘Р В°Р В»Р ВµР Р…Р С‘Р Вµ'))
+				array('descr' => array('russian' => 'РЈРґР°Р»РµРЅРёРµ'))
 			);
 			$ULIB->saveConfig();
 			plugin_mark_installed('nsm');

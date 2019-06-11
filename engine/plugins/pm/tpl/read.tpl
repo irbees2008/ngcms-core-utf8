@@ -17,7 +17,7 @@
 
 			<tr>
 				<td width="100%" class="contentHead">
-					<img src="{admin_url}/plugins/pm/img/nav.gif" hspace="8">{{ subject }} {% if (ifinbox) %}Р С•РЎвЂљ{% endif %} {% if not (ifinbox) %}Р Т‘Р В»РЎРЏ{% endif %} {{ author }} {{ pmdate|date('Y-m-d H:i') }}
+					<img src="{admin_url}/plugins/pm/img/nav.gif" hspace="8">{{ subject }} {% if (ifinbox) %}РѕС‚{% endif %} {% if not (ifinbox) %}РґР»СЏ{% endif %} {{ author }} {{ pmdate|date('Y-m-d H:i') }}
 				</td>
 			</tr>
 

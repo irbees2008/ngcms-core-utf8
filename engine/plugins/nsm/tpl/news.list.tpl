@@ -1,13 +1,13 @@
-<div class="block-title">Р РЋР С—Р С‘РЎРѓР С•Р С” Р Р†Р В°РЎв‚¬Р С‘РЎвЂ¦ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР ВµР в„–:</div>
+<div class="block-title">РЎРїРёСЃРѕРє РІР°С€РёС… РЅРѕРІРѕСЃС‚РµР№:</div>
 <table class="table table-striped table-bordered">
 	<tr>
-		<th colspan="4"><a href="{{ addURL }}">Р вЂќР С•Р В±Р В°Р Р†Р С‘РЎвЂљРЎРЉ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљРЎРЉ..</a></th>
+		<th colspan="4"><a href="{{ addURL }}">Р”РѕР±Р°РІРёС‚СЊ РЅРѕРІРѕСЃС‚СЊ..</a></th>
 	</tr>
 	<tr align="center">
-		<td width="40">Р РЋРЎвЂљР В°РЎвЂљРЎС“РЎРѓ</td>
-		<td width="60">Р вЂќР В°РЎвЂљР В°</td>
+		<td width="40">РЎС‚Р°С‚СѓСЃ</td>
+		<td width="60">Р”Р°С‚Р°</td>
 		<td>&nbsp;</td>
-		<td>Р вЂ”Р В°Р С–Р С•Р В»Р С•Р Р†Р С•Р С”</td>
+		<td>Р—Р°РіРѕР»РѕРІРѕРє</td>
 	</tr>
 	{% for entry in entries %}
 		<tr>
@@ -25,11 +25,11 @@
 			</td>
 			<td width="48" cellspacing=0 cellpadding=0 align="center">
 				{% if entry.flags.mainpage %}
-					<img src="{{ skins_url }}/images/mainpage.png" border="0" width="16" height="16" title="Р СњР В° Р С–Р В»Р В°Р Р†Р Р…Р С•Р в„–"/> {% endif %}
+					<img src="{{ skins_url }}/images/mainpage.png" border="0" width="16" height="16" title="РќР° РіР»Р°РІРЅРѕР№"/> {% endif %}
 				{% if (entry.attach_count > 0) %}
-					<img src="{{ skins_url }}/images/attach.png" border="0" width="16" height="16" title="Р В¤Р В°Р в„–Р В»Р С•Р Р†: {{ entry.attach_count }}"/> {% endif %}
+					<img src="{{ skins_url }}/images/attach.png" border="0" width="16" height="16" title="Р¤Р°Р№Р»РѕРІ: {{ entry.attach_count }}"/> {% endif %}
 				{% if (entry.images_count > 0) %}
-					<img src="{{ skins_url }}/images/img_group.png" border="0" width="16" height="16" title="Р С™Р В°РЎР‚РЎвЂљР С‘Р Р…Р С•Р С”: {{ entry.images_count }}"/> {% endif %}
+					<img src="{{ skins_url }}/images/img_group.png" border="0" width="16" height="16" title="РљР°СЂС‚РёРЅРѕРє: {{ entry.images_count }}"/> {% endif %}
 			</td>
 			<td>
 				{% if entry.flags.status %}
@@ -38,7 +38,7 @@
 		</tr>
 	{% else %}
 		<tr>
-			<td colspan="4">Р Р€ Р Р†Р В°РЎРѓ Р Р…Р ВµРЎвЂљ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР ВµР в„–</td>
+			<td colspan="4">РЈ РІР°СЃ РЅРµС‚ РЅРѕРІРѕСЃС‚РµР№</td>
 		</tr>
 	{% endfor %}
 </table>

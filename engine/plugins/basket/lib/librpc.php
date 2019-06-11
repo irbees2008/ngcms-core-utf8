@@ -24,13 +24,13 @@ function basket_add_item($linked_ds, $linked_id, $title, $price, $count, $xfld =
 		$tCount = $res['count'];
 		$tPrice = $res['price'];
 	}
-	// Р вЂњР С•РЎвЂљР С•Р Р†Р С‘Р С� Р С—Р ВµРЎР‚Р ВµР С�Р ВµР Р…Р Р…РЎвЂ№Р Вµ
+	// Р“РѕС‚РѕРІРёРј РїРµСЂРµРјРµРЅРЅС‹Рµ
 	$tVars = array(
 		'count'      => $tCount,
 		'price'      => $tPrice,
 		'ajaxUpdate' => 1,
 	);
-	// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� РЎв‚¬Р В°Р В±Р В»Р С•Р Р… РЎРѓ Р С•Р В±РЎвЂ°Р С‘Р С� Р С‘РЎвЂљР С•Р С–Р С•Р С�
+	// Р’С‹РІРѕРґРёРј С€Р°Р±Р»РѕРЅ СЃ РѕР±С‰РёРј РёС‚РѕРіРѕРј
 	$xt = $twig->loadTemplate('plugins/basket/total.tpl');
 
 	return array('status' => 1, 'errorCode' => 0, 'data' => 'Item added into basket', 'update' => arrayCharsetConvert(0, $xt->render($tVars)));

@@ -3,16 +3,16 @@
 ;
  
 ID: ggg_recaptcha
-Name: РђРЅС‚Рё Р±РѕС‚
+Name: Анти бот
 Version: 0.4
 Acts: core, comments, comments:add, action.ppages.feedback, feedback, feedback:post
 File: ggg_recaptcha.php
 Config: config.php
 Type: plugin
-Description: Р—Р°С‰РёС‚Р° С„РѕСЂРј СЃР°Р№С‚Р° РѕС‚ РёРЅС‚РµСЂРЅРµС‚-Р±РѕС‚РѕРІ СЃ reCAPTCHA v3. РџСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РїР»Р°РіРёРЅРѕРІ comments, feedback Рё СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅРѕР№ С„РѕСЂРјС‹.
+Description: Защита форм сайта от интернет-ботов с reCAPTCHA v3. Предназначен для плагинов comments, feedback и регистрационной формы.
 Author: rusiq
 Author_URI: https://github.com/russsiq
 Title: reCAPTCHA v3
-Information: Р—Р°С‰РёС‚Р° С„РѕСЂРј СЃР°Р№С‚Р° РѕС‚ РёРЅС‚РµСЂРЅРµС‚-Р±РѕС‚РѕРІ СЃ reCAPTCHA v3. РџСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ РїР»Р°РіРёРЅРѕРІ comments, feedback Рё СЂРµРіРёСЃС‚СЂР°С†РёРѕРЅРЅРѕР№ С„РѕСЂРјС‹.
+Information: Защита форм сайта от интернет-ботов с reCAPTCHA v3. Предназначен для плагинов comments, feedback и регистрационной формы.
 Preinstall: no
 Library: lib; lib/common.php

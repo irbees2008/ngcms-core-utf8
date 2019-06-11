@@ -1,7 +1,7 @@
 {% extends localPath(0) ~ "site.body.tpl" %}
 {% block content %}
 	{% if (flags.link_news) %}
-		<b>Р вЂ”Р В°Р С—РЎР‚Р С•РЎРѓ Р С—Р С• Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР С‘ : <a href="{{ news.url }}">{{ news.title }}</a></b>
+		<b>Р—Р°РїСЂРѕСЃ РїРѕ РЅРѕРІРѕСЃС‚Рё : <a href="{{ news.url }}">{{ news.title }}</a></b>
 		<br/><br/>
 	{% endif %}
 	{{ description }}

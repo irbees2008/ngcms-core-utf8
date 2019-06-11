@@ -2,10 +2,10 @@
 	<tr>
 		<td colspan=2>
 			<fieldset class="admGroup">
-				<legend class="title">Р СњР В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р С‘</legend>
+				<legend class="title">РќР°СЃС‚СЂРѕР№РєРё</legend>
 				<table width="100%" border="0" class="content">
 					<tr>
-						<td class="contentEntry1" valign=top>Р В§Р С—РЎС“ Р Р†Р С”Р В»РЎР‹РЎвЂЎР ВµР Р…?<br/></td>
+						<td class="contentEntry1" valign=top>Р§РїСѓ РІРєР»СЋС‡РµРЅ?<br/></td>
 						<td class="contentEntry2" valign=top><select name="url">{info}</select></td>
 					</tr>
 				</table>
@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td width="100%" colspan="2" class="contentEdit" align="center">
-				<input name="submit" type="submit" value="Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…Р С‘РЎвЂљРЎРЉ" class="button"/>
+				<input name="submit" type="submit" value="РЎРѕС…СЂР°РЅРёС‚СЊ" class="button"/>
 			</td>
 		</tr>
 	</table>

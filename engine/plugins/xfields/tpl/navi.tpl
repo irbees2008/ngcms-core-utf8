@@ -3,11 +3,11 @@
 	<tr>
 		<td colspan="8" class="contNav" width="100%">
 			<div id="btnMenu">
-				<span class="{{ bclass['news'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=news";'>Р СњР С•Р Р†Р С•РЎРѓРЎвЂљР С‘: Р С—Р С•Р В»РЎРЏ</span><span class="btnSeparator">&nbsp;</span>
-				<span class="{{ bclass['grp.news'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=grp.news";'>Р СњР С•Р Р†Р С•РЎРѓРЎвЂљР С‘: Р С–РЎР‚РЎС“Р С—Р С—РЎвЂ№</span><span class="btnDelimiter">&nbsp;</span>
-				<span class="{{ bclass['tdata'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=tdata";'>Р СњР С•Р Р†Р С•РЎРѓРЎвЂљР С‘: РЎвЂљР В°Р В±Р В»Р С‘РЎвЂ РЎвЂ№</span><span class="btnSeparator">&nbsp;</span>
+				<span class="{{ bclass['news'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=news";'>РќРѕРІРѕСЃС‚Рё: РїРѕР»СЏ</span><span class="btnSeparator">&nbsp;</span>
+				<span class="{{ bclass['grp.news'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=grp.news";'>РќРѕРІРѕСЃС‚Рё: РіСЂСѓРїРїС‹</span><span class="btnDelimiter">&nbsp;</span>
+				<span class="{{ bclass['tdata'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=tdata";'>РќРѕРІРѕСЃС‚Рё: С‚Р°Р±Р»РёС†С‹</span><span class="btnSeparator">&nbsp;</span>
 				{% if (pluginIsActive('uprofile')) %}
-					<span class="{{ bclass['users'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=users";'>Р СџР С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р С‘: Р С—Р С•Р В»РЎРЏ</span>
+					<span class="{{ bclass['users'] }}" onclick='document.location="?mod=extra-config&plugin=xfields&section=users";'>РџРѕР»СЊР·РѕРІР°С‚РµР»Рё: РїРѕР»СЏ</span>
 					<span class="btnDelimiter">&nbsp;</span>
 				{% endif %}
 

@@ -46,7 +46,7 @@ function plug_calgen($month, $year, $overrideTemplateName = false, $categoryList
 		}
 	}
 	LoadPluginLang('calendar', 'main');
-	// Р В Р В°Р В·Р Р…РЎвЂ№Р Вµ Р В·Р В°Р С—РЎР‚Р С•РЎРѓРЎвЂ№ Р Р† Р В·Р В°Р Р†Р С‘РЎРѓР С‘Р С�Р С•РЎРѓРЎвЂљР С‘ Р С•РЎвЂљ РЎС“Р С”Р В°Р В·Р В°Р Р…Р С‘РЎРЏ Р С”Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘Р в„–
+	// Р Р°Р·РЅС‹Рµ Р·Р°РїСЂРѕСЃС‹ РІ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё РѕС‚ СѓРєР°Р·Р°РЅРёСЏ РєР°С‚РµРіРѕСЂРёР№
 	if (!is_array($categoryList)) {
 		$categoryList = intval($categoryList) ? array(intval($categoryList)) : array();
 	}
@@ -170,7 +170,7 @@ function plug_calgen($month, $year, $overrideTemplateName = false, $categoryList
 	$twigLoader->setConversion($tpath['entries'] . 'entries.tpl', $conversionConfigE);
 	// AJAX flag
 	$tVars['flags']['ajax'] = $flagAJAX ? 1 : 0;
-	// Р СџРЎР‚Р ВµР Т‘Р В·Р В°Р С–РЎР‚РЎС“Р В·Р С”Р В° РЎв‚¬Р В°Р В±Р В»Р С•Р Р…Р В° entries [ РЎвЂЎРЎвЂљР С•Р В±РЎвЂ№ Р С•РЎвЂљРЎР‚Р В°Р В±Р С•РЎвЂљР В°Р В» setConversion ] Р С—РЎР‚Р С‘ Р ВµР С–Р С• Р Р…Р В°Р В»Р С‘РЎвЂЎР С‘Р С‘
+	// РџСЂРµРґР·Р°РіСЂСѓР·РєР° С€Р°Р±Р»РѕРЅР° entries [ С‡С‚РѕР±С‹ РѕС‚СЂР°Р±РѕС‚Р°Р» setConversion ] РїСЂРё РµРіРѕ РЅР°Р»РёС‡РёРё
 	if (isset($tpath['entries']))
 		$twig->loadTemplate($tpath['entries'] . 'entries.tpl');
 	$xt = $twig->loadTemplate($tpath['calendar'] . 'calendar.tpl');

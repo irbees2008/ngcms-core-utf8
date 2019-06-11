@@ -29,16 +29,16 @@ function filter_bots($u_agent)
 }
 
 //
-// Р В¤РЎС“Р Р…Р С”РЎвЂ Р С‘РЎРЏ Р Р†РЎвЂ№Р В·РЎвЂ№Р Р†Р В°Р ВµР С�Р В°РЎРЏ Р С—Р С• Р С”РЎР‚Р С•Р Р…РЎС“
+// Р¤СѓРЅРєС†РёСЏ РІС‹Р·С‹РІР°РµРјР°СЏ РїРѕ РєСЂРѕРЅСѓ
 function plugin_site_stats_cron()
 {
     global $mysql;
 
-    // Р С›РЎвЂЎР С‘РЎвЂ°Р В°Р ВµР С� РЎвЂљР В°Р В±Р В»Р С‘РЎвЂ РЎС“ "site_stats" Р Т‘Р В»РЎРЏ Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„–
+    // РћС‡РёС‰Р°РµРј С‚Р°Р±Р»РёС†Сѓ "site_stats" РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
     $mysql->query('DELETE FROM ' . prefix . '_site_stats');
 }
 
-// Р СџР С•Р В»РЎС“РЎвЂЎР ВµР Р…Р С‘Р Вµ РЎРѓРЎвЂљР В°РЎвЂљР С‘РЎРѓРЎвЂљР С‘Р С”Р С‘ РЎРѓР В°Р в„–РЎвЂљР В°
+// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚РёСЃС‚РёРєРё СЃР°Р№С‚Р°
 function getSiteStats($templateName)
 {
 
@@ -68,7 +68,7 @@ function getSiteStats($templateName)
     }
 
     if ($site_exists) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р В° Р Т‘Р Р…Р ВµР в„– РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†Р С•Р Р†Р В°Р Р…Р С‘РЎРЏ РЎРѓР В°Р в„–РЎвЂљР В°
+        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РґРЅРµР№ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ СЃР°Р№С‚Р°
         $site_exists = explode('.', pluginGetVariable('site_stats', 'site_exists'));
         $site_exists = mktime(0, 0, 0, $site_exists[1], $site_exists[0], $site_exists[2]);
         $site_exists = floor((time() - $site_exists) / 86400);
@@ -77,61 +77,61 @@ function getSiteStats($templateName)
     }
     
     if (pluginGetVariable('site_stats', 'static')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р В° РЎРѓРЎвЂљР В°РЎвЂљР С‘РЎвЂЎР ВµРЎРѓР С”Р С‘РЎвЂ¦ РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ 
+        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚Р°С‚РёС‡РµСЃРєРёС… СЃС‚СЂР°РЅРёС†
         $stats['1'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_static");
         $stats['1']['title'] = $lang['site_stats:static'];
     }
 
     if (pluginGetVariable('site_stats', 'category')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р В° Р С”Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘Р в„–
+        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РєР°С‚РµРіРѕСЂРёР№
         $stats['2'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_category");
         $stats['2']['title'] = $lang['site_stats:category'];
     }
 
     if (pluginGetVariable('site_stats', 'news')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р В° Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР ВµР в„–
+        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РЅРѕРІРѕСЃС‚РµР№
         $stats['3'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_news");
         $stats['3']['title'] = $lang['site_stats:news'];
     }
 
     if (pluginGetVariable('site_stats', 'news_na')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р Р…Р ВµР С•Р С—РЎС“Р В±Р В»Р С‘Р С”Р С•Р Р†Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР ВµР в„–
+        // РџРѕРґСЃС‡РµС‚ РЅРµРѕРїСѓР±Р»РёРєРѕРІР°РЅРЅС‹С… РЅРѕРІРѕСЃС‚РµР№
         $stats['4'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_news WHERE approve='0'");
         $stats['4']['title'] = $lang['site_stats:news_na'];
     }
 
     if (pluginGetVariable('site_stats', 'comments') and getPluginStatusActive('comments')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р†
+        // РџРѕРґСЃС‡РµС‚ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ
         $stats['5'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_comments");
         $stats['5']['title'] = $lang['site_stats:comments'];
     }
 
     if (pluginGetVariable('site_stats', 'images')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р В·Р В°Р С–РЎР‚РЎС“Р В¶Р ВµР Р…Р Р…РЎвЂ№РЎвЂ¦ Р С‘Р В·Р С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘Р в„–
+        // РџРѕРґСЃС‡РµС‚ Р·Р°РіСЂСѓР¶РµРЅРЅС‹С… РёР·РѕР±СЂР°Р¶РµРЅРёР№
         $stats['6'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_images");
         $stats['6']['title'] = $lang['site_stats:images'];
     }
 
     if (pluginGetVariable('site_stats', 'files')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р В·Р В°Р С–РЎР‚РЎС“Р В¶Р ВµР Р…Р Р…РЎвЂ№РЎвЂ¦ РЎвЂћР В°Р в„–Р В»Р С•Р Р†
+        // РџРѕРґСЃС‡РµС‚ Р·Р°РіСЂСѓР¶РµРЅРЅС‹С… С„Р°Р№Р»РѕРІ
         $stats['7'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_files");
         $stats['7']['title'] = $lang['site_stats:files'];
     }
 
     if (pluginGetVariable('site_stats', 'users')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р В·Р В°РЎР‚Р ВµР С–Р ВµРЎРѓРЎвЂљРЎР‚Р С‘РЎР‚Р С•Р Р†Р В°Р Р…Р Р…РЎвЂ№РЎвЂ¦ Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„–
+        // РџРѕРґСЃС‡РµС‚ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
         $stats['8'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_users");
         $stats['8']['title'] = $lang['site_stats:users'];
     }
 
     if (pluginGetVariable('site_stats', 'users_na')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р Р…Р ВµР В°Р С”РЎвЂљР С‘Р Р†Р Р…РЎвЂ№РЎвЂ¦ Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„–
+        // РџРѕРґСЃС‡РµС‚ РЅРµР°РєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
         $stats['9'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_users WHERE activation != ''");
         $stats['9']['title'] = $lang['site_stats:users_na'];
     }
 
     if (pluginGetVariable('site_stats', 'ipban')) {
-        // Р СџР С•Р Т‘РЎРѓРЎвЂЎР ВµРЎвЂљ Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р В° Р В±Р В°Р Р…Р С•Р Р† Р С—Р С• Р В°Р в„–Р С—Р С‘
+        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° Р±Р°РЅРѕРІ РїРѕ Р°Р№РїРё
         $stats['10'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_ipban");
         $stats['10']['title'] = $lang['site_stats:ipban'];
     }

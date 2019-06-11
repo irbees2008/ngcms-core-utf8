@@ -25,10 +25,10 @@ function showlist()
 			'id' => $key,
 			'no' => $no ++,
 			'code' => $row['code'],
-			'title' => ($title?$title:'<font color="red">Р СћР В°Р С”Р С•Р в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎвЂ№ Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°РЎС“РЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ</font>'),
+			'title' => ($title?$title:'<font color="red">РўР°РєРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅРµ СЃСѓС‰СѓСЃС‚РІСѓРµС‚</font>'),
 			'error' => '',
 			);
-		if (in_array($row['code'], $t_values, true)) $pvars['vars']['error'] = '<font color="red">Р СџР С•Р Р†РЎвЂљР С•РЎР‚РЎРЏРЎР‹РЎвЂ°Р С‘Р в„–РЎРѓРЎРЏ Р С”Р С•Р Т‘</font>';
+		if (in_array($row['code'], $t_values, true)) $pvars['vars']['error'] = '<font color="red">РџРѕРІС‚РѕСЂСЏСЋС‰РёР№СЃСЏ РєРѕРґ</font>';
 		$t_values[] = $row['code'];
 		$tpl->template('conf.list.row', $tpath['conf.list.row']);
 		$tpl -> vars('conf.list.row', $pvars);
@@ -44,24 +44,24 @@ function editform()
 {
 	global $mysql, $tpl, $config;
 	if (!isset($_REQUEST['id'])) {
-		msg(array('type' => 'info', 'info' => '<font color="red">Р вЂ”Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ Р Т‘Р В»РЎРЏ РЎР‚Р ВµР Т‘Р В°Р С”РЎвЂљР С‘РЎР‚Р С•Р Р†Р В°Р Р…Р С‘РЎРЏ/Р Т‘Р С•Р В±Р В°Р Р†Р В»Р ВµР Р…Р С‘РЎРЏ Р Р…Р Вµ Р С•Р С—РЎР‚Р ВµР Т‘Р ВµР В»Р ВµР Р…Р С•!!!</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="red">Р—РЅР°С‡РµРЅРёРµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ/РґРѕР±Р°РІР»РµРЅРёСЏ РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ!!!</font>'));
 		showlist();	return false; }
 	$id = intval($_REQUEST['id']);
 	$values = pluginGetVariable('re_stat', 'values');
 	if ($id != -1 && !is_array($values)) {
-		msg(array('type' => 'info', 'info' => '<font color="red">Р вЂ™ Р В±Р В°Р В·Р Вµ Р С•РЎвЂљРЎРѓРЎС“РЎвЂљРЎРѓРЎвЂљР Р†РЎС“РЎР‹РЎвЂљ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ, РЎР‚Р ВµР Т‘Р В°Р С”РЎвЂљР С‘РЎР‚Р С•Р Р†Р В°РЎвЂљРЎРЉ Р Р…Р ВµРЎвЂЎР ВµР С–Р С•!!!</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="red">Р’ Р±Р°Р·Рµ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р·РЅР°С‡РµРЅРёСЏ, СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РЅРµС‡РµРіРѕ!!!</font>'));
 		showlist();	return false; }
 	if ($id != -1 && !array_key_exists($id, $values)) {
-		msg(array('type' => 'info', 'info' => '<font color="red">Р С™Р В»РЎР‹РЎвЂЎ id='.$id.' Р С•РЎвЂљРЎРѓРЎС“РЎвЂљРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ Р Р† Р В±Р В°Р В·Р Вµ</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="red">РљР»СЋС‡ id='.$id.' РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РІ Р±Р°Р·Рµ</font>'));
 		showlist(); return false; } 
 	$if_error = false; $idstat = 0; $code = '';
 	if (isset($_REQUEST['code']) && isset($_REQUEST['idstat'])){
 		$code = secure_html(convert($_REQUEST['code']));
 		if (!$code) { 
-			msg(array('type' => 'info', 'info' => '<font color="red">Р вЂ”Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ <b>Р С”Р С•Р Т‘</b> Р Р…Р Вµ Р С�Р С•Р В¶Р ВµРЎвЂљ Р В±РЎвЂ№РЎвЂљРЎРЉ Р С—РЎС“РЎРѓРЎвЂљРЎвЂ№Р С�</font>'));
+			msg(array('type' => 'info', 'info' => '<font color="red">Р—РЅР°С‡РµРЅРёРµ <b>РєРѕРґ</b> РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РїСѓСЃС‚С‹Рј</font>'));
 			$if_error = true; }
 		foreach ($values as $key => $row) if ($row['code'] === $code && $key != $id){
-			msg(array('type' => 'info', 'info' => '<font color="red">Р СћР В°Р С”Р С•Р Вµ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ <b>Р С”Р С•Р Т‘</b> РЎС“Р В¶Р Вµ Р С—РЎР‚Р С‘РЎРѓРЎС“РЎвЂљРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ Р Р† РЎРѓР С—Р С‘РЎРѓР С”Р Вµ</font>'));
+			msg(array('type' => 'info', 'info' => '<font color="red">РўР°РєРѕРµ Р·РЅР°С‡РµРЅРёРµ <b>РєРѕРґ</b> СѓР¶Рµ РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ РІ СЃРїРёСЃРєРµ</font>'));
 			$if_error = true; }
 		if (!$if_error){
 			$idstat = intval($_REQUEST['idstat']);
@@ -75,7 +75,7 @@ function editform()
 				$values[$id]['id'] = $idstat;}
 			pluginSetVariable('re_stat', 'values', $values);
 			pluginsSaveConfig();
-			$title = '<font color="red">Р СћР В°Р С”Р С•Р в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎвЂ№ Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°РЎС“РЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ</font>';
+			$title = '<font color="red">РўР°РєРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅРµ СЃСѓС‰СѓСЃС‚РІСѓРµС‚</font>';
 			foreach ($mysql->select('select `title` from '.prefix.'_static where `id`='.$idstat.' limit 1') as $page) $title = $page['title'];
 			$ULIB->registerCommand('re_stat', $code, array('vars' => array(), 'descr' => array ($config['default_lang'] => $title)));
 			$ULIB->saveConfig();
@@ -102,15 +102,15 @@ function editform()
 function delete()
 {
 	if (!isset($_REQUEST['id'])) {
-		msg(array('type' => 'info', 'info' => '<font color="red">Р вЂ”Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ Р Т‘Р В»РЎРЏ РЎС“Р Т‘Р В°Р В»Р ВµР Р…Р С‘РЎРЏ Р Р…Р Вµ Р С•Р С—РЎР‚Р ВµР Т‘Р ВµР В»Р ВµР Р…Р С•, РЎС“Р Т‘Р В°Р В»РЎРЏРЎвЂљРЎРЉ Р Р…Р ВµРЎвЂЎР ВµР С–Р С•!!!</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="red">Р—РЅР°С‡РµРЅРёРµ РґР»СЏ СѓРґР°Р»РµРЅРёСЏ РЅРµ РѕРїСЂРµРґРµР»РµРЅРѕ, СѓРґР°Р»СЏС‚СЊ РЅРµС‡РµРіРѕ!!!</font>'));
 		showlist();	return false; }
 	$id = intval($_REQUEST['id']);
 	$values = pluginGetVariable('re_stat', 'values');
 	if (!is_array($values)) {
-		msg(array('type' => 'info', 'info' => '<font color="red">Р вЂ™ Р В±Р В°Р В·Р Вµ Р С•РЎвЂљРЎРѓРЎС“РЎвЂљРЎРѓРЎвЂљР Р†РЎС“РЎР‹РЎвЂљ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ, РЎС“Р Т‘Р В°Р В»РЎРЏРЎвЂљРЎРЉ Р Р…Р ВµРЎвЂЎР ВµР С–Р С•!!!</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="red">Р’ Р±Р°Р·Рµ РѕС‚СЃСѓС‚СЃС‚РІСѓСЋС‚ Р·РЅР°С‡РµРЅРёСЏ, СѓРґР°Р»СЏС‚СЊ РЅРµС‡РµРіРѕ!!!</font>'));
 		showlist();	return false; }
 	if (!array_key_exists($id, $values)) {
-		msg(array('type' => 'info', 'info' => '<font color="red">Р С™Р В»РЎР‹РЎвЂЎ id='.$id.' Р С•РЎвЂљРЎРѓРЎС“РЎвЂљРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ Р Р† Р В±Р В°Р В·Р Вµ</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="red">РљР»СЋС‡ id='.$id.' РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РІ Р±Р°Р·Рµ</font>'));
 		showlist(); return false; }
 
 	$ULIB = new urlLibrary();
@@ -133,12 +133,12 @@ function re_map()
 		unset($ULIB->CMD['re_stat']);
 	$values = pluginGetVariable('re_stat', 'values');
 	foreach ($values as $key => $row){
-		$title = '<font color="red">Р СћР В°Р С”Р С•Р в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎвЂ№ Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°РЎС“РЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ</font>';
+		$title = '<font color="red">РўР°РєРѕР№ СЃС‚СЂР°РЅРёС†С‹ РЅРµ СЃСѓС‰СѓСЃС‚РІСѓРµС‚</font>';
 		foreach ($mysql->select('select `title` from '.prefix.'_static where `id`='.$row['id'].' limit 1') as $page) $title = $page['title'];
 		$ULIB->registerCommand('re_stat', $row['code'], array('vars' => array(), 'descr' => array ($config['default_lang'] => $title)));
 	}
 	$ULIB->saveConfig();
-	msg(array('type' => 'info', 'info' => '<font color="green">Р С™Р В°РЎР‚РЎвЂљР В° РЎРѓРЎРѓРЎвЂ№Р В»Р С•Р С” РЎС“РЎРѓР С—Р ВµРЎв‚¬Р Р…Р С• Р С—Р ВµРЎР‚Р ВµРЎРѓРЎвЂљРЎР‚Р С•Р ВµР Р…Р В°</font>'));
+	msg(array('type' => 'info', 'info' => '<font color="green">РљР°СЂС‚Р° СЃСЃС‹Р»РѕРє СѓСЃРїРµС€РЅРѕ РїРµСЂРµСЃС‚СЂРѕРµРЅР°</font>'));
 }
 
 function ver_ver()
@@ -164,7 +164,7 @@ function ver_ver()
 		pluginSetVariable('re_stat', 'values', $values);
 		pluginSetVariable('re_stat', 'version', '0.02');
 		pluginsSaveConfig();
-		msg(array('type' => 'info', 'info' => '<font color="green">Р вЂ�Р В°Р В·Р В° Р Р…Р В°РЎРѓРЎвЂљРЎР‚Р С•Р ВµР С” РЎС“РЎРѓР С—Р ВµРЎв‚¬Р Р…Р С• Р С•Р В±Р Р…Р С•Р Р†Р В»Р ВµР Р…Р Р…Р В° Р Т‘Р С• Р Р†Р ВµРЎР‚РЎРѓР С‘Р С‘ 0.02</font>'));
+		msg(array('type' => 'info', 'info' => '<font color="green">Р‘Р°Р·Р° РЅР°СЃС‚СЂРѕРµРє СѓСЃРїРµС€РЅРѕ РѕР±РЅРѕРІР»РµРЅРЅР° РґРѕ РІРµСЂСЃРёРё 0.02</font>'));
 		re_map();
 	}
 }

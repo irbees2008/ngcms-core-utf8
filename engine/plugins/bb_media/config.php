@@ -22,8 +22,8 @@ function getPlayersNames($path) {
 }
 
 $dirNames = getPlayersNames(__DIR__ . '/players/');
-array_push($cfgX, array('name' => 'player_name', 'title' => "Р вЂ™РЎвЂ№Р В±Р ВµРЎР‚Р С‘РЎвЂљР Вµ Р С—Р В»Р ВµР ВµРЎР‚", 'type' => 'select', 'values' => $dirNames, 'value' => pluginGetVariable($plugin, 'player_name')));
-array_push($cfg, array('mode' => 'group', 'title' => '<b>Р СњР В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р С‘ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘РЎРЏ</b>', 'entries' => $cfgX));
+array_push($cfgX, array('name' => 'player_name', 'title' => "Р’С‹Р±РµСЂРёС‚Рµ РїР»РµРµСЂ", 'type' => 'select', 'values' => $dirNames, 'value' => pluginGetVariable($plugin, 'player_name')));
+array_push($cfg, array('mode' => 'group', 'title' => '<b>РќР°СЃС‚СЂРѕР№РєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ</b>', 'entries' => $cfgX));
 // RUN
 if ($_REQUEST['action'] == 'commit') {
 	// If submit requested, do config save

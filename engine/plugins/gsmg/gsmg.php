@@ -25,10 +25,10 @@ function plugin_gsmg_screen() {
 	}
 	$output = '<?xml version="1.0" encoding="UTF-8"?>';
 	$output .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
-	// Р СњР В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р С‘ Р С—Р С•РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂЎР С”Р С‘
+	// РќР°СЃС‚СЂРѕР№РєРё РїРѕСЃС‚СЂР°РЅРёС‡РєРё
 	if ($config['number'] < 1)
 		$config['number'] = 5;
-	// Р СњР В°Р Т‘Р С• Р В»Р С‘ Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљРЎРЉ Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ РЎРѓ Р С–Р С•Р В»Р С•Р Р†Р Р…Р С•Р в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎвЂ№
+	// РќР°РґРѕ Р»Рё РІС‹РІРѕРґРёС‚СЊ РґР°РЅРЅС‹Рµ СЃ РіРѕР»РѕРІРЅРѕР№ СЃС‚СЂР°РЅРёС†С‹
 	if (extra_get_param('gsmg', 'main')) {
 		$output .= "<url>";
 		$output .= "<loc>" . generateLink('news', 'main', array(), array(), false, true) . "</loc>";
@@ -50,7 +50,7 @@ function plugin_gsmg_screen() {
 			}
 		}
 	}
-	// Р СњР В°Р Т‘Р С• Р В»Р С‘ Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљРЎРЉ Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ Р С—Р С• Р С”Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘РЎРЏР С�
+	// РќР°РґРѕ Р»Рё РІС‹РІРѕРґРёС‚СЊ РґР°РЅРЅС‹Рµ РїРѕ РєР°С‚РµРіРѕСЂРёСЏРј
 	if (extra_get_param('gsmg', 'cat')) {
 		foreach ($catmap as $id => $altname) {
 			$output .= "<url>";
@@ -73,7 +73,7 @@ function plugin_gsmg_screen() {
 			}
 		}
 	}
-	// Р СњР В°Р Т‘Р С• Р В»Р С‘ Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљРЎРЉ Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ Р С—Р С• Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљРЎРЏР С�
+	// РќР°РґРѕ Р»Рё РІС‹РІРѕРґРёС‚СЊ РґР°РЅРЅС‹Рµ РїРѕ РЅРѕРІРѕСЃС‚СЏРј
 	if (extra_get_param('gsmg', 'news')) {
 		$query = "select id, postdate, author, author_id, alt_name, editdate, catid from " . prefix . "_news where approve = 1 order by id desc";
 		foreach ($mysql->select($query, 1) as $rec) {
@@ -86,7 +86,7 @@ function plugin_gsmg_screen() {
 			$output .= "</url>";
 		}
 	}
-	// Р СњР В°Р Т‘Р С• Р В»Р С‘ Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљРЎРЉ Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ Р С—Р С• РЎРѓРЎвЂљР В°РЎвЂљР С‘РЎвЂЎР ВµРЎРѓР С”Р С‘Р С� РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р В°Р С�
+	// РќР°РґРѕ Р»Рё РІС‹РІРѕРґРёС‚СЊ РґР°РЅРЅС‹Рµ РїРѕ СЃС‚Р°С‚РёС‡РµСЃРєРёРј СЃС‚СЂР°РЅРёС†Р°Рј
 	if (extra_get_param('gsmg', 'static')) {
 		$query = "select id, alt_name from " . prefix . "_static where approve = 1";
 		foreach ($mysql->select($query, 1) as $rec) {

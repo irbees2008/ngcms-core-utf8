@@ -60,7 +60,7 @@ function show_list_subscribe() {
 	$tvars['vars'] = array(
 		'entries_cron' => '',
 		'entries'      => $tpl->show('list_subscribe'),
-		'global'       => 'Р РЋР С—Р С‘РЎРѓР С•Р С” Р С—Р С•Р Т‘Р С—Р С‘РЎРѓР С•Р С”'
+		'global'       => 'РЎРїРёСЃРѕРє РїРѕРґРїРёСЃРѕРє'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
@@ -104,7 +104,7 @@ function show_list_subscribe_post() {
 	$tvars['vars'] = array(
 		'entries_cron' => '',
 		'entries'      => $tpl->show('list_subscribe_post'),
-		'global'       => 'Р РЋРЎвЂћР С•РЎР‚Р С�Р С‘РЎР‚Р С•Р Р†Р В°Р Р…Р Р…РЎвЂ№Р Вµ Р С—Р С‘РЎРѓРЎРЉР С�Р В°'
+		'global'       => 'РЎС„РѕСЂРјРёСЂРѕРІР°РЅРЅС‹Рµ РїРёСЃСЊРјР°'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
@@ -118,7 +118,7 @@ function modify() {
 	$subaction = $_REQUEST['subaction'];
 	$id = implode(',', $selected_news);
 	if (empty($id)) {
-		return msg(array("type" => "error", "text" => "Р вЂ™РЎвЂ№ Р Р…Р Вµ Р Р†РЎвЂ№Р В±РЎР‚Р В°Р В»Р С‘ Р С•Р В±РЎР‰Р ВµР С”РЎвЂљР С•Р Р†"));
+		return msg(array("type" => "error", "text" => "Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё РѕР±СЉРµРєС‚РѕРІ"));
 	}
 	switch ($subaction) {
 		case 'mass_delete'       :
@@ -130,11 +130,11 @@ function modify() {
 	}
 	if (isset($del)) {
 		$mysql->query("delete from " . prefix . "_subscribe_comments where id in ({$id})");
-		msg(array("type" => "info", "info" => "Р СџР С•Р Т‘Р С—Р С‘РЎРѓР С”Р С‘ РЎРѓ ID${id} РЎС“Р Т‘Р В°Р В»Р ВµР Р…РЎвЂ№"));
+		msg(array("type" => "info", "info" => "РџРѕРґРїРёСЃРєРё СЃ ID${id} СѓРґР°Р»РµРЅС‹"));
 	}
 	if (isset($del_post)) {
 		$mysql->query("delete from " . prefix . "_subscribe_comments_temp where id in ({$id})");
-		msg(array("type" => "info", "info" => "Р СџР С‘РЎРЉРЎРѓР С�Р В° РЎРѓ ID${id} РЎС“Р Т‘Р В°Р В»Р ВµР Р…РЎвЂ№"));
+		msg(array("type" => "info", "info" => "РџРёСЊСЃРјР° СЃ ID${id} СѓРґР°Р»РµРЅС‹"));
 	}
 }
 
@@ -194,7 +194,7 @@ function main() {
 	}
 	$admin_count = pluginGetVariable('subscribe_comments', 'admin_count');
 	$delayed_send = pluginGetVariable('subscribe_comments', 'delayed_send');
-	$delayed_send = '<option value="0" ' . (empty($delayed_send) ? 'selected' : '') . '>Р СњР ВµРЎвЂљ</option><option value="1" ' . (!empty($delayed_send) ? 'selected' : '') . '>Р вЂќР В°</option>';
+	$delayed_send = '<option value="0" ' . (empty($delayed_send) ? 'selected' : '') . '>РќРµС‚</option><option value="1" ' . (!empty($delayed_send) ? 'selected' : '') . '>Р”Р°</option>';
 	$pvars['vars'] = array(
 		'admin_count'  => isset($admin_count) ? $admin_count : '10',
 		'delayed_send' => isset($delayed_send) ? $delayed_send : '10',
@@ -204,7 +204,7 @@ function main() {
 	$tvars['vars'] = array(
 		'entries_cron' => $tpl->show('list_subscribe_cron'),
 		'entries'      => $tpl->show('general.from'),
-		'global'       => 'Р С›Р В±РЎвЂ°Р С‘Р Вµ Р Р…Р В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р С‘'
+		'global'       => 'РћР±С‰РёРµ РЅР°СЃС‚СЂРѕР№РєРё'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);

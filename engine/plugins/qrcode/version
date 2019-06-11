@@ -9,7 +9,7 @@ Acts: news_full
 File: qrcode.php
 Config: config.php
 Type: plugin
-Description: Р“РµРЅРµСЂРёСЂСѓРµС‚ QRcode
+Description: Генерирует QRcode
 Author: Dzmitry Khadorkin (KhadeR)
 Author_URI: http://khadersg.com/me/
 Preinstall: no

@@ -37,18 +37,18 @@ function rss_import_block() {
 		if (!$newslength) {
 			$newslength = 100;
 		}
-		$url = extra_get_param('rss_import', $vv . '_url');       //Р В°Р Т‘РЎР‚Р ВµРЎРѓ RSS Р В»Р ВµР Р…РЎвЂљРЎвЂ№
-		$rss = simplexml_load_file($url);       //Р пїЅР Р…РЎвЂљР ВµРЎР‚Р С—РЎР‚Р ВµРЎвЂљР С‘РЎР‚РЎС“Р ВµРЎвЂљ XML-РЎвЂћР В°Р в„–Р В» Р Р† Р С•Р В±РЎР‰Р ВµР С”РЎвЂљ
+		$url = extra_get_param('rss_import', $vv . '_url');       //Р°РґСЂРµСЃ RSS Р»РµРЅС‚С‹
+		$rss = simplexml_load_file($url);       //Р�РЅС‚РµСЂРїСЂРµС‚РёСЂСѓРµС‚ XML-С„Р°Р№Р» РІ РѕР±СЉРµРєС‚
 		if (empty($rss))
-			return $template['vars'][$vv] = 'RSS Р Р…Р Вµ Р Т‘Р С•РЎРѓРЎвЂљРЎС“Р С—Р ВµР Р…';
-		//РЎвЂ Р С‘Р С”Р В» Р Т‘Р В»РЎРЏ Р С•Р В±РЎвЂ¦Р С•Р Т‘Р В° Р Р†РЎРѓР ВµР в„– RSS Р В»Р ВµР Р…РЎвЂљРЎвЂ№
+			return $template['vars'][$vv] = 'RSS РЅРµ РґРѕСЃС‚СѓРїРµРЅ';
+		//С†РёРєР» РґР»СЏ РѕР±С…РѕРґР° РІСЃРµР№ RSS Р»РµРЅС‚С‹
 		$j = 1;
 		foreach ($rss->xpath('//item') as $item) {
-			$title = $item->title;       //Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� Р В·Р В°Р С–Р С•Р В»Р С•Р Р†Р С•Р С” РЎРѓРЎвЂљР В°РЎвЂљРЎРЉР С‘
+			$title = $item->title;       //РІС‹РІРѕРґРёРј Р·Р°РіРѕР»РѕРІРѕРє СЃС‚Р°С‚СЊРё
 			if (strlen($title) > $maxlength) $tvars['vars']['title'] = iconv('utf-8', 'windows-1251', substr(secure_html($title), 0, $maxlength) . "");
 			else $tvars['vars']['title'] = iconv('utf-8', 'windows-1251', secure_html($title));
 			if (extra_get_param('rss_import', $vv . '_content')) {
-				$short_news = strip_tags(iconv('utf-8', 'windows-1251', $item->description));        //Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� РЎвЂљР ВµР С”РЎРѓРЎвЂљ РЎРѓРЎвЂљР В°РЎвЂљРЎРЉР С‘	
+				$short_news = strip_tags(iconv('utf-8', 'windows-1251', $item->description));        //РІС‹РІРѕРґРёРј С‚РµРєСЃС‚ СЃС‚Р°С‚СЊРё	
 				if ($config['blocks_for_reg']) $short_news = $parse->userblocks($short_news);
 				//if ($config['use_htmlformatter']) $short_news = $parse -> htmlformatter($short_news);
 				if ($config['use_bbcodes']) $short_news = $parse->bbcodes($short_news);

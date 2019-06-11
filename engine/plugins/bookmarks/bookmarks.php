@@ -31,7 +31,7 @@ LoadPluginLang('bookmarks', 'main', '', '', ':');
 $bookmarks_script = '
 <script type="text/javascript">
 
-	<!-- (РЎРѓ)habrahabr.ru -->
+	<!-- (СЃ)habrahabr.ru -->
 	function futu_alert(header, text, close, className) {
 		if (!document.getElementById(\'futu_alerts_holder\')) {
 			var futuAlertOuter = document.createElement(\'div\');

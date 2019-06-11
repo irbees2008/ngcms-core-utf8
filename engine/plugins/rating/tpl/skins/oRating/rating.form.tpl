@@ -15,8 +15,8 @@ function rating(rating, item, itemID){
 <div id="ratingdiv_{{ item }}_{{ itemID }}">
 	<div class="oRating">
 		<div class="oRating_btn">
-			<a href="#" onclick="rating('1', '{{ item }}', '{{ itemID }}');return false;" class="oRating_p" title="Р СњРЎР‚Р В°Р Р†Р С‘РЎвЂљРЎРѓРЎРЏ"></a>
-			<a href="#" onclick="rating('-1', '{{ item }}', '{{ itemID }}');return false;" class="oRating_m" title="Р СњР Вµ Р Р…РЎР‚Р В°Р Р†Р С‘РЎвЂљРЎРѓРЎРЏ"></a>
+			<a href="#" onclick="rating('1', '{{ item }}', '{{ itemID }}');return false;" class="oRating_p" title="РќСЂР°РІРёС‚СЃСЏ"></a>
+			<a href="#" onclick="rating('-1', '{{ item }}', '{{ itemID }}');return false;" class="oRating_m" title="РќРµ РЅСЂР°РІРёС‚СЃСЏ"></a>
 		</div>
 		<div class="oRating_num">
 			<a href="#" class="oRating_res">{{ rating_p }}</a>

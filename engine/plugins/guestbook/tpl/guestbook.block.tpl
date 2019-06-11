@@ -18,7 +18,7 @@
 				<div class="person-photo"><img src="{{ avatar }}" width="60" height="60"></div>
 				<div class="person-name">{% if entry.author == 'guest' %} {{ entry.fields.firstname.value }} {{ entry.fields.lastname.value }}{% else %}{{ entry.author }}{% endif %}</div>
 				<div class="review-date">{{ entry.date }}</div>
-				<div class="review-subject">Р В Р ВµР С�Р С•Р Р…РЎвЂљР С‘РЎР‚Р С•Р Р†Р В°Р В»Р С‘ - {{ entry.fields.item.value }}</div>
+				<div class="review-subject">Р РµРјРѕРЅС‚РёСЂРѕРІР°Р»Рё - {{ entry.fields.item.value }}</div>
 			</div>
 			<div class="review-caption"><p>{{ entry.message }}</p></div>
 			<div class="review-social">

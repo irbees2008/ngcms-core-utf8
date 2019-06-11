@@ -3,7 +3,7 @@
 ;
 
 ID: site_stats
-Name: РЎС‚Р°С‚РёСЃС‚РёРєР° СЃР°Р№С‚Р°
+Name: Статистика сайта
 Version: 0.1
 Acts: cron, index 
 File: site_stats.php
@@ -11,8 +11,8 @@ Install: install.php
 Deinstall: deinstall.php
 Config: config.php
 Type: plugin
-Description: Р’С‹РІРѕРґ РєРѕР»РёС‡РµСЃС‚РІРµРЅРЅРѕР№ СЃС‚Р°С‚РёСЃС‚РёРєРё СЃР°Р№С‚Р° РєРѕР»РёС‡РµСЃС‚РІРѕ РЅРѕРІРѕСЃС‚РµР№, РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№, СЃС‚СЂР°РЅРёС† Рё С‚.Рґ.
+Description: Вывод количественной статистики сайта количество новостей, пользователей, страниц и т.д.
 Author: Necronominicon &amp; Nail' R. Davydov (ROZARD) &amp; RusiQ
-Title: Р’С‹РІРѕРґ СЃС‚Р°С‚РёСЃС‚РёРєРё СЃР°Р№С‚Р°
-Information: Р’С‹РІРѕРґ РєРѕР»РёС‡РµСЃС‚РІРµРЅРЅРѕР№ СЃС‚Р°С‚РёСЃС‚РёРєРё СЃР°Р№С‚Р°
+Title: Вывод статистики сайта
+Information: Вывод количественной статистики сайта
 Preinstall: default_no

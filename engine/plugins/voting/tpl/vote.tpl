@@ -5,7 +5,7 @@
 		&nbsp; &nbsp; <b>[</b> <u>{l_voting:hdr.totals}:</u> <b>{allcnt}</b> ] {fregonly}</b>
 	</td>
 	<td align=right>
-		<input type=button value="{l_voting:button.delete}" style="width:170px;" onclick="if(confirm('Р вЂ™РЎвЂ№ РЎС“Р Р†Р ВµРЎР‚Р ВµР Р…РЎвЂ№?Р С›РЎвЂљР С�Р ВµР Р…Р С‘РЎвЂљРЎРЉ РЎС“Р Т‘Р В°Р В»Р ВµР Р…Р С‘Р Вµ Р Р…Р ВµР Р†Р С•Р В·Р С�Р С•Р В¶Р Р…Р С•!')){ document.location='{php_self}?mod=extra-config&plugin=voting&action=delvote&id={voteid}';}"/>
+		<input type=button value="{l_voting:button.delete}" style="width:170px;" onclick="if(confirm('Р’С‹ СѓРІРµСЂРµРЅС‹?РћС‚РјРµРЅРёС‚СЊ СѓРґР°Р»РµРЅРёРµ РЅРµРІРѕР·РјРѕР¶РЅРѕ!')){ document.location='{php_self}?mod=extra-config&plugin=voting&action=delvote&id={voteid}';}"/>
 	</td>
 </tr>
 

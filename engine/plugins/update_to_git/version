@@ -1,11 +1,11 @@
 ID: update_to_git
-Name: РћР±РЅРѕРІР»РµРЅРёРµ РґРѕ git РІРµСЂСЃРёРё
+Name: Обновление до git версии
 Version: 0.01
 Config: config.php
 Actions: rpc;lib/librpc.php
 Type: plugin
-Title: РћР±РЅРѕРІР»РµРЅРёРµ РґРѕ git РІРµСЂСЃРёРё
-Description: РћР±РЅРѕРІР»СЏРµС‚ CMS РґРѕ git РІРµСЂСЃРёРё.
+Title: Обновление до git версии
+Description: Обновляет CMS до git версии.
 Author: RusiQ
 Author_URI: rustam_gimranov@mail.ru
 preinstall: no

@@ -5,11 +5,11 @@ LoadPluginLibrary('xfields', 'common');
 LoadPluginLibrary('feedback', 'common');
 register_htmlvar('js', admin_url . '/plugins/basket/js/basket.js');
 //
-// Р С›РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘Р Вµ Р С•Р В±РЎвЂ°Р ВµР в„– Р С‘Р Р…РЎвЂћР С•РЎР‚Р С�Р В°РЎвЂ Р С‘Р С‘/Р С•РЎРѓРЎвЂљР В°РЎвЂљР С”Р С•Р Р† Р Р† Р С”Р С•РЎР‚Р В·Р С‘Р Р…Р Вµ
+// РћС‚РѕР±СЂР°Р¶РµРЅРёРµ РѕР±С‰РµР№ РёРЅС„РѕСЂРјР°С†РёРё/РѕСЃС‚Р°С‚РєРѕРІ РІ РєРѕСЂР·РёРЅРµ
 function plugin_basket_total() {
 
 	global $mysql, $twig, $userROW, $template;
-	// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”Р С‘
+	// РћРїСЂРµРґРµР»СЏРµРј СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 	$filter = array();
 	if (is_array($userROW)) {
 		$filter [] = '(user_id = ' . db_squote($userROW['id']) . ')';
@@ -17,30 +17,30 @@ function plugin_basket_total() {
 	if (isset($_COOKIE['ngTrackID']) && ($_COOKIE['ngTrackID'] != '')) {
 		$filter [] = '(cookie = ' . db_squote($_COOKIE['ngTrackID']) . ')';
 	}
-	// Р РЋРЎвЂЎР С‘РЎвЂљР В°Р ВµР С� Р С‘РЎвЂљР С•Р С–Р С‘
+	// РЎС‡РёС‚Р°РµРј РёС‚РѕРіРё
 	$tCount = 0;
 	$tPrice = 0;
 	if (count($filter) && is_array($res = $mysql->record("select count(*) as count, sum(price*count) as price from " . prefix . "_basket where " . join(" or ", $filter), 1))) {
 		$tCount = $res['count'];
 		$tPrice = $res['price'];
 	}
-	// Р вЂњР С•РЎвЂљР С•Р Р†Р С‘Р С� Р С—Р ВµРЎР‚Р ВµР С�Р ВµР Р…Р Р…РЎвЂ№Р Вµ
+	// Р“РѕС‚РѕРІРёРј РїРµСЂРµРјРµРЅРЅС‹Рµ
 	$tVars = array(
 		'count' => $tCount,
 		'price' => $tPrice,
 	);
-	// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� РЎв‚¬Р В°Р В±Р В»Р С•Р Р…
+	// Р’С‹РІРѕРґРёРј С€Р°Р±Р»РѕРЅ
 	$tpath = locatePluginTemplates(array('total'), 'basket', pluginGetVariable('basket', 'localsource'));
 	$xt = $twig->loadTemplate($tpath['total'] . '/total.tpl');
 	$template['vars']['plugin_basket'] = $xt->render($tVars);
 }
 
 //
-// Р СџР С•Р С”Р В°Р В·Р В°РЎвЂљРЎРЉ РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р С‘Р С�Р С•Р Вµ Р С”Р С•РЎР‚Р В·Р С‘Р Р…РЎвЂ№
+// РџРѕРєР°Р·Р°С‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ РєРѕСЂР·РёРЅС‹
 function plugin_basket_list() {
 
 	global $mysql, $twig, $userROW, $template;
-	// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”Р С‘
+	// РћРїСЂРµРґРµР»СЏРµРј СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 	$filter = array();
 	if (is_array($userROW)) {
 		$filter [] = '(user_id = ' . db_squote($userROW['id']) . ')';
@@ -48,7 +48,7 @@ function plugin_basket_list() {
 	if (isset($_COOKIE['ngTrackID']) && ($_COOKIE['ngTrackID'] != '')) {
 		$filter [] = '(cookie = ' . db_squote($_COOKIE['ngTrackID']) . ')';
 	}
-	// Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…РЎРЏР ВµР С� Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”РЎС“
+	// Р’С‹РїРѕР»РЅСЏРµРј РІС‹Р±РѕСЂРєСѓ
 	$recs = array();
 	$total = 0;
 	if (count($filter)) {
@@ -66,7 +66,7 @@ function plugin_basket_list() {
 		'total'    => sprintf('%9.2f', $total),
 		'form_url' => generatePluginLink('feedback', null, array(), array('id' => intval(pluginGetVariable('basket', 'feedback_form')))),
 	);
-	// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� РЎв‚¬Р В°Р В±Р В»Р С•Р Р…
+	// Р’С‹РІРѕРґРёРј С€Р°Р±Р»РѕРЅ
 	$xt = $twig->loadTemplate('plugins/basket/list.tpl');
 	$template['vars']['mainblock'] = $xt->render($tVars);
 }
@@ -75,7 +75,7 @@ function plugin_basket_list() {
 function plugin_basket_update() {
 
 	global $mysql, $twig, $userROW, $template, $SUPRESS_TEMPLATE_SHOW;
-	// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”Р С‘
+	// РћРїСЂРµРґРµР»СЏРµРј СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 	$filter = array();
 	if (is_array($userROW)) {
 		$filter [] = '(user_id = ' . db_squote($userROW['id']) . ')';
@@ -107,17 +107,17 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 		function showTableEntry($newsID, $SQLnews, $rowData, &$rowVars) {
 
 			global $DSlist;
-			// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� - РЎР‚Р В°Р В±Р С•РЎвЂљР В°Р ВµР С� Р В»Р С‘ Р С�РЎвЂ№ Р Р†Р Р…РЎС“РЎвЂљРЎР‚Р С‘ РЎРѓРЎвЂљРЎР‚Р С•Р С” РЎвЂљР В°Р В±Р В»Р С‘РЎвЂ 
+			// РћРїСЂРµРґРµР»СЏРµРј - СЂР°Р±РѕС‚Р°РµРј Р»Рё РјС‹ РІРЅСѓС‚СЂРё СЃС‚СЂРѕРє С‚Р°Р±Р»РёС†
 			if (!pluginGetVariable('basket', 'ntable_flag'))
 				return;
-			// Р В Р В°Р В±Р С•РЎвЂљР В°Р ВµР С�. Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎР‚Р ВµР В¶Р С‘Р С� РЎР‚Р В°Р В±Р С•РЎвЂљРЎвЂ№ - Р С—Р С• Р Р†РЎРѓР ВµР С� РЎРѓРЎвЂљРЎР‚Р С•Р С”Р В°Р С� Р С‘Р В»Р С‘ Р С—Р С• РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎР‹ "Р С—Р С•Р В»Р Вµ Р С‘Р В· xfields Р Р…Р Вµ РЎР‚Р В°Р Р†Р Р…Р С• Р Р…РЎС“Р В»РЎР‹"
+			// Р Р°Р±РѕС‚Р°РµРј. РћРїСЂРµРґРµР»СЏРµРј СЂРµР¶РёРј СЂР°Р±РѕС‚С‹ - РїРѕ РІСЃРµРј СЃС‚СЂРѕРєР°Рј РёР»Рё РїРѕ СѓСЃР»РѕРІРёСЋ "РїРѕР»Рµ РёР· xfields РЅРµ СЂР°РІРЅРѕ РЅСѓР»СЋ"
 			if (pluginGetVariable('basket', 'ntable_activated')) {
 				if (!$rowData['xfields_' . pluginGetVariable('basket', 'ntable_xfield')])
 					return;
 			}
 			$rowVars['flags']['basket_allow'] = true;
 			$rowVars['basket_link'] = generatePluginLink('basket', 'add', array('ds' => $DSlist['#xfields:tdata'], 'id' => $rowData['id']), array(), false, true);
-			// Р РЋРЎвЂљРЎР‚Р С•Р С”РЎС“ Р С�Р С•Р В¶Р Р…Р С• Р Т‘Р С•Р В±Р В°Р Р†Р В»РЎРЏРЎвЂљРЎРЉ Р Р† Р С”Р С•РЎР‚Р В·Р С‘Р Р…РЎС“
+			// РЎС‚СЂРѕРєСѓ РјРѕР¶РЅРѕ РґРѕР±Р°РІР»СЏС‚СЊ РІ РєРѕСЂР·РёРЅСѓ
 			//print "rowData <pre>(".var_export($rowVars, true).")</pre><br/>\n";
 		}
 	}
@@ -129,10 +129,10 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 		function onShow($formID, $formStruct, $formData, &$tvars) {
 
 			global $userROW, $mysql, $twig;
-			// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� ID РЎвЂћР С•РЎР‚Р С�РЎвЂ№ - Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ Р С”Р С•РЎР‚Р В·Р С‘Р Р…РЎвЂ№ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р В°РЎР‹РЎвЂљРЎРѓРЎРЏ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р† Р С”Р С•Р Р…Р С”РЎР‚Р ВµРЎвЂљР Р…Р С•Р в„– РЎвЂћР С•РЎР‚Р С�Р Вµ
+			// РџСЂРѕРІРµСЂСЏРµРј ID С„РѕСЂРјС‹ - РґР°РЅРЅС‹Рµ РєРѕСЂР·РёРЅС‹ РѕС‚РѕР±СЂР°Р¶Р°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РІ РєРѕРЅРєСЂРµС‚РЅРѕР№ С„РѕСЂРјРµ
 			if (pluginGetVariable('basket', 'feedback_form') != $formID)
 				return;
-			// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”Р С‘
+			// РћРїСЂРµРґРµР»СЏРµРј СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 			$filter = array();
 			if (is_array($userROW)) {
 				$filter [] = '(user_id = ' . db_squote($userROW['id']) . ')';
@@ -140,7 +140,7 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 			if (isset($_COOKIE['ngTrackID']) && ($_COOKIE['ngTrackID'] != '')) {
 				$filter [] = '(cookie = ' . db_squote($_COOKIE['ngTrackID']) . ')';
 			}
-			// Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…РЎРЏР ВµР С� Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”РЎС“
+			// Р’С‹РїРѕР»РЅСЏРµРј РІС‹Р±РѕСЂРєСѓ
 			$recs = array();
 			$total = 0;
 			if (count($filter)) {
@@ -157,7 +157,7 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 				'entries' => $recs,
 				'total'   => sprintf('%9.2f', $total),
 			);
-			// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� РЎв‚¬Р В°Р В±Р В»Р С•Р Р…
+			// Р’С‹РІРѕРґРёРј С€Р°Р±Р»РѕРЅ
 			$xt = $twig->loadTemplate('plugins/basket/lfeedback.tpl');
 			$tvars['plugin_basket'] .= $xt->render($tVars);
 		}
@@ -165,10 +165,10 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 		function onProcess($formID, $formStruct, $formData, $flagHTML, &$tvars) {
 
 			global $userROW, $mysql, $twig;
-			// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� ID РЎвЂћР С•РЎР‚Р С�РЎвЂ№ - Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ Р С”Р С•РЎР‚Р В·Р С‘Р Р…РЎвЂ№ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р В°РЎР‹РЎвЂљРЎРѓРЎРЏ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р Р† Р С”Р С•Р Р…Р С”РЎР‚Р ВµРЎвЂљР Р…Р С•Р в„– РЎвЂћР С•РЎР‚Р С�Р Вµ
+			// РџСЂРѕРІРµСЂСЏРµРј ID С„РѕСЂРјС‹ - РґР°РЅРЅС‹Рµ РєРѕСЂР·РёРЅС‹ РѕС‚РѕР±СЂР°Р¶Р°СЋС‚СЃСЏ С‚РѕР»СЊРєРѕ РІ РєРѕРЅРєСЂРµС‚РЅРѕР№ С„РѕСЂРјРµ
 			if (pluginGetVariable('basket', 'feedback_form') != $formID)
 				return 1;
-			// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”Р С‘
+			// РћРїСЂРµРґРµР»СЏРµРј СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 			$filter = array();
 			if (is_array($userROW)) {
 				$filter [] = '(user_id = ' . db_squote($userROW['id']) . ')';
@@ -176,7 +176,7 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 			if (isset($_COOKIE['ngTrackID']) && ($_COOKIE['ngTrackID'] != '')) {
 				$filter [] = '(cookie = ' . db_squote($_COOKIE['ngTrackID']) . ')';
 			}
-			// Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…РЎРЏР ВµР С� Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”РЎС“
+			// Р’С‹РїРѕР»РЅСЏРµРј РІС‹Р±РѕСЂРєСѓ
 			$recs = array();
 			$total = 0;
 			if (count($filter)) {
@@ -193,7 +193,7 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 				'entries' => $recs,
 				'total'   => sprintf('%9.2f', $total),
 			);
-			// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� РЎв‚¬Р В°Р В±Р В»Р С•Р Р…
+			// Р’С‹РІРѕРґРёРј С€Р°Р±Р»РѕРЅ
 			$xt = $twig->loadTemplate('plugins/basket/lfeedback.tpl');
 			$tvars['plugin_basket'] = $xt->render($bVars);
 		}
@@ -202,7 +202,7 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 		function onProcessNotify($formID) {
 
 			global $mysql, $userROW;
-			// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎРЏ Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”Р С‘
+			// РћРїСЂРµРґРµР»СЏРµРј СѓСЃР»РѕРІРёСЏ РІС‹Р±РѕСЂРєРё
 			$filter = array();
 			if (is_array($userROW)) {
 				$filter [] = '(user_id = ' . db_squote($userROW['id']) . ')';
@@ -210,7 +210,7 @@ if (class_exists('XFieldsFilter') && class_exists('FeedbackFilter')) {
 			if (isset($_COOKIE['ngTrackID']) && ($_COOKIE['ngTrackID'] != '')) {
 				$filter [] = '(cookie = ' . db_squote($_COOKIE['ngTrackID']) . ')';
 			}
-			// Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…РЎРЏР ВµР С� Р Р†РЎвЂ№Р В±Р С•РЎР‚Р С”РЎС“
+			// Р’С‹РїРѕР»РЅСЏРµРј РІС‹Р±РѕСЂРєСѓ
 			if (count($filter)) {
 				$mysql->query("delete from " . prefix . "_basket where " . join(" or ", $filter));
 			}
@@ -232,13 +232,13 @@ class BasketNewsFilter extends NewsFilter {
 	function showNews($newsID, $SQLnews, &$tvars, $mode = array()) {
 
 		global $DSlist;
-		// Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� - РЎР‚Р В°Р В±Р С•РЎвЂљР В°Р ВµР С� Р В»Р С‘ Р С�РЎвЂ№ Р Р†Р Р…РЎС“РЎвЂљРЎР‚Р С‘ РЎРѓРЎвЂљРЎР‚Р С•Р С” РЎвЂљР В°Р В±Р В»Р С‘РЎвЂ 
+		// РћРїСЂРµРґРµР»СЏРµРј - СЂР°Р±РѕС‚Р°РµРј Р»Рё РјС‹ РІРЅСѓС‚СЂРё СЃС‚СЂРѕРє С‚Р°Р±Р»РёС†
 		if (!pluginGetVariable('basket', 'news_flag')) {
 			$tvars['regx']['#\[basket\](.*?)\[\/basket\]#is'] = '';
 
 			return;
 		}
-		// Р В Р В°Р В±Р С•РЎвЂљР В°Р ВµР С�. Р С›Р С—РЎР‚Р ВµР Т‘Р ВµР В»РЎРЏР ВµР С� РЎР‚Р ВµР В¶Р С‘Р С� РЎР‚Р В°Р В±Р С•РЎвЂљРЎвЂ№ - Р С—Р С• Р Р†РЎРѓР ВµР С� РЎРѓРЎвЂљРЎР‚Р С•Р С”Р В°Р С� Р С‘Р В»Р С‘ Р С—Р С• РЎС“РЎРѓР В»Р С•Р Р†Р С‘РЎР‹ "Р С—Р С•Р В»Р Вµ Р С‘Р В· xfields Р Р…Р Вµ РЎР‚Р В°Р Р†Р Р…Р С• Р Р…РЎС“Р В»РЎР‹"
+		// Р Р°Р±РѕС‚Р°РµРј. РћРїСЂРµРґРµР»СЏРµРј СЂРµР¶РёРј СЂР°Р±РѕС‚С‹ - РїРѕ РІСЃРµРј СЃС‚СЂРѕРєР°Рј РёР»Рё РїРѕ СѓСЃР»РѕРІРёСЋ "РїРѕР»Рµ РёР· xfields РЅРµ СЂР°РІРЅРѕ РЅСѓР»СЋ"
 		if (pluginGetVariable('basket', 'news_activated')) {
 			if (!$SQLnews['xfields_' . pluginGetVariable('basket', 'news_xfield')]) {
 				$tvars['regx']['#\[basket\](.*?)\[\/basket\]#is'] = '';
@@ -253,5 +253,5 @@ class BasketNewsFilter extends NewsFilter {
 
 register_filter('news', 'basket', new BasketNewsFilter);
 //
-// Р вЂ™РЎвЂ№Р В·Р С•Р Р† Р С•Р В±РЎР‚Р В°Р В±Р С•РЎвЂљРЎвЂЎР С‘Р С”Р В°
+// Р’С‹Р·РѕРІ РѕР±СЂР°Р±РѕС‚С‡РёРєР°
 add_act('index', 'plugin_basket_total');

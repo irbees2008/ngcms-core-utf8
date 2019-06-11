@@ -17,7 +17,7 @@ function plugin_cat_description_install($action) {
 	);
 	switch ($action) {
 		case 'confirm':
-			generate_install_page('cat_description', 'CР ВµР в„–РЎвЂЎР В°РЎРѓ Р С—Р В»Р В°Р С–Р С‘Р Р… Р В±РЎС“Р Т‘Р ВµРЎвЂљ РЎС“РЎРѓРЎвЂљР В°Р Р…Р С•Р Р†Р В»Р ВµР Р…');
+			generate_install_page('cat_description', 'CРµР№С‡Р°СЃ РїР»Р°РіРёРЅ Р±СѓРґРµС‚ СѓСЃС‚Р°РЅРѕРІР»РµРЅ');
 			break;
 		case 'autoapply':
 		case 'apply':

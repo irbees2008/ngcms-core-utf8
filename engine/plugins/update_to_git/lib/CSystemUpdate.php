@@ -51,7 +51,7 @@ class CSystemUpdate
             if (404 == $status) {
                 $output = '<b class="text-muted">not found</b>';
             } elseif ($status != 200) {
-                $output = "Р вЂ”Р В°Р В±Р В»РЎС“Р Т‘Р С‘Р В»Р В°РЎРѓРЎРЏ РЎРЏ: " . $status;
+                $output = "Р—Р°Р±Р»СѓРґРёР»Р°СЃСЏ СЏ: " . $status;
             }
             curl_close($ch);
 
@@ -123,7 +123,7 @@ class CSystemUpdate
                 if (404 == $status) {
                     $output = '<b class="text-muted">not found</b>';
                 } elseif ($status != 200) {
-                    $output = "Р вЂ”Р В°Р В±Р В»РЎС“Р Т‘Р С‘Р В»Р В°РЎРѓРЎРЏ РЎРЏ: " . $status;
+                    $output = "Р—Р°Р±Р»СѓРґРёР»Р°СЃСЏ СЏ: " . $status;
                 }
                 curl_close($ch);
                 fwrite($fdest, $data);

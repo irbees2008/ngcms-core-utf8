@@ -8,7 +8,7 @@ Jodit.lang.en_example = {
     'contains detailed help for using': '',
     'For information about the license, please go to our website:': '',
     'Buy full version': '',
-    'Copyright В© XDSoft.net - Chupurnov Valeriy. All rights reserved.': '',
+    'Copyright © XDSoft.net - Chupurnov Valeriy. All rights reserved.': '',
     
     // Toolbar
     'Anchor': '',

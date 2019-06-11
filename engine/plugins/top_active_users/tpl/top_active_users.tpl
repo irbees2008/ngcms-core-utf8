@@ -1,7 +1,7 @@
 <table width="100%">
 	<tr>
-		<td align="center"><b>Р С’Р Р†Р В°РЎвЂљР В°РЎР‚</b></td>
-		<td align="center"><b>Р В®Р В·Р ВµРЎР‚</b></td>
+		<td align="center"><b>РђРІР°С‚Р°СЂ</b></td>
+		<td align="center"><b>Р®Р·РµСЂ</b></td>
 	</tr>
 	{% for entry in entries %}
 		<tr>

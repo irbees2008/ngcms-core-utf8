@@ -10,14 +10,14 @@ function plugin_lastcomments_install($action) {
 		array(
 			'vars'  =>
 				array(),
-			'descr' => array('russian' => 'Р РЋРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р В° РЎРѓ Р С—Р С•РЎРѓР В»Р ВµР Т‘Р Р…Р С‘Р С�Р С‘ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘РЎРЏР С�Р С‘'),
+			'descr' => array('russian' => 'РЎС‚СЂР°РЅРёС†Р° СЃ РїРѕСЃР»РµРґРЅРёРјРё РєРѕРјРјРµРЅС‚Р°СЂРёСЏРјРё'),
 		)
 	);
 	$ULIB->registerCommand('lastcomments', 'rss',
 		array(
 			'vars'  =>
 				array(),
-			'descr' => array('russian' => 'Rss Р В»Р ВµР Р…РЎвЂљР В° Р С—Р С•РЎРѓР В»Р ВµР Т‘Р Р…Р С‘РЎвЂ¦ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р†'),
+			'descr' => array('russian' => 'Rss Р»РµРЅС‚Р° РїРѕСЃР»РµРґРЅРёС… РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ'),
 		)
 	);
 	// Apply requested action

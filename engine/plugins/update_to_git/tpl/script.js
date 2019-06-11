@@ -15,7 +15,7 @@ $(function() {
                 if (!resTX['status']) {
                     ngNotifyWindow('Error [' + resTX['errorCode'] + ']: ' + resTX['errorText'], 'ERROR');
                 } else if (0 === resTX['data']['total_commits']) {
-					ngNotifyWindow('РќРµС‚ РёР·РјРµРЅРµРЅРёР№ РІ РІРµСЂСЃРёРё GIT', 'info');
+					ngNotifyWindow('Нет изменений в версии GIT', 'info');
 		        } else {
                     // SUCCESS
                     div.html('');

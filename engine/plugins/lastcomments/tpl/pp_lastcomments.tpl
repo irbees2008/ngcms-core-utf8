@@ -5,7 +5,7 @@
 				<tr>
 					<td><img border="0" src="{tpl_url}/images/2z_35.gif" width="7" height="36"/></td>
 					<td style="background-image:url('{tpl_url}/images/2z_36.gif');" width="100%"><b>
-							<font color="#FFFFFF">Р СџР С•РЎРѓР В»Р ВµР Т‘Р Р…Р С‘Р Вµ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р С‘</font></b></td>
+							<font color="#FFFFFF">РџРѕСЃР»РµРґРЅРёРµ РєРѕРјРјРµРЅС‚Р°СЂРёРё</font></b></td>
 					<td><img border="0" src="{tpl_url}/images/2z_38.gif" width="7" height="36"/></td>
 				</tr>
 			</table>
@@ -16,7 +16,7 @@
 			<table border="0" width="100%" cellspacing="0" cellpadding="0">
 				<tr>
 					<td style="background-image:url('{tpl_url}/images/2z_56.gif');" width="7">&nbsp;</td>
-					<td bgcolor="#FFFFFF">{entries}[nocomments]Р С™Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р† Р С—Р С•Р С”Р В° РЎвЂЎРЎвЂљР С• Р Р…Р ВµРЎвЂљРЎС“.[/nocomments]</td>
+					<td bgcolor="#FFFFFF">{entries}[nocomments]РљРѕРјРјРµРЅС‚Р°СЂРёРµРІ РїРѕРєР° С‡С‚Рѕ РЅРµС‚Сѓ.[/nocomments]</td>
 					<td style="background-image:url('{tpl_url}/images/2z_58.gif');" width="7">&nbsp;</td>
 				</tr>
 			</table>

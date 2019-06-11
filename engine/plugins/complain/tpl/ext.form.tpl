@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title>Р РЋР С•Р С•Р В±РЎвЂ°Р С‘РЎвЂљРЎРЉ Р С•Р В± Р С•РЎв‚¬Р С‘Р В±Р С”Р Вµ</title>
+	<title>РЎРѕРѕР±С‰РёС‚СЊ РѕР± РѕС€РёР±РєРµ</title>
 	<style type="text/css">
 		body {
 			font: normal 12px verdana, sans-serif;
@@ -38,12 +38,12 @@
 
 	<div id="senderror">
 		<div class="texth">
-			<u>Р РЋР С•Р С•Р В±РЎвЂ°Р С‘РЎвЂљРЎРЉ Р С•Р В± Р С•РЎв‚¬Р С‘Р В±Р С”Р Вµ:</u><br/><br/>
-			Р СћР С‘Р С— Р С•РЎв‚¬Р С‘Р В±Р С”Р С‘: <select name="error" class="error" id="errorSelect">{errorlist}</select><br/><br/>
-			[email]Р вЂ™Р В°РЎв‚¬ e-mail: <input type="text" name="mail"/><br/>[/email]
-			[notify]<input type="checkbox" name="notify" value="1"/> Р С‘Р Р…РЎвЂћР С•РЎР‚Р С�Р С‘РЎР‚Р С•Р Р†Р В°РЎвЂљРЎРЉ Р С• РЎР‚Р ВµРЎв‚¬Р ВµР Р…Р С‘Р С‘ Р С—РЎР‚Р С•Р В±Р В»Р ВµР С�РЎвЂ№ <br/>[/notify]
-			[text]Р вЂќР ВµРЎвЂљР В°Р В»РЎРЉР Р…Р С•Р Вµ Р С•Р С—Р С‘РЎРѓР В°Р Р…Р С‘Р Вµ Р С—РЎР‚Р С•Р В±Р В»Р ВµР С�РЎвЂ№:<br/><textarea cols="80" rows="4" name="error_text"></textarea><br/>[/text]
-			<input type="submit" class="report" onclick="if (document.getElementById('errorSelect').value==''){alert('Р СњР ВµР С•Р В±РЎвЂ¦Р С•Р Т‘Р С‘Р С�Р С• Р Р†РЎвЂ№Р В±РЎР‚Р В°РЎвЂљРЎРЉ РЎвЂљР С‘Р С— Р С•РЎв‚¬Р С‘Р В±Р С”Р С‘!'); return false;};" value="Р С›РЎвЂљР С—РЎР‚Р В°Р Р†Р С‘РЎвЂљРЎРЉ"/>
+			<u>РЎРѕРѕР±С‰РёС‚СЊ РѕР± РѕС€РёР±РєРµ:</u><br/><br/>
+			РўРёРї РѕС€РёР±РєРё: <select name="error" class="error" id="errorSelect">{errorlist}</select><br/><br/>
+			[email]Р’Р°С€ e-mail: <input type="text" name="mail"/><br/>[/email]
+			[notify]<input type="checkbox" name="notify" value="1"/> РёРЅС„РѕСЂРјРёСЂРѕРІР°С‚СЊ Рѕ СЂРµС€РµРЅРёРё РїСЂРѕР±Р»РµРјС‹ <br/>[/notify]
+			[text]Р”РµС‚Р°Р»СЊРЅРѕРµ РѕРїРёСЃР°РЅРёРµ РїСЂРѕР±Р»РµРјС‹:<br/><textarea cols="80" rows="4" name="error_text"></textarea><br/>[/text]
+			<input type="submit" class="report" onclick="if (document.getElementById('errorSelect').value==''){alert('РќРµРѕР±С…РѕРґРёРјРѕ РІС‹Р±СЂР°С‚СЊ С‚РёРї РѕС€РёР±РєРё!'); return false;};" value="РћС‚РїСЂР°РІРёС‚СЊ"/>
 		</div>
 	</div>
 </form>

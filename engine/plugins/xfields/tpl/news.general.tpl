@@ -91,7 +91,7 @@
 				if ((x > 0) && (x < (trow.childNodes.length - 1))) {
 					tblRec[fmatrix[x]] = cnode.childNodes[0].value;
 					if ((cnode.childNodes[0].value == '') && (tblConfig[fmatrix[x]]['required'])) {
-						alert('Р СњР Вµ Р В·Р В°Р С—Р С•Р В»Р Р…Р ВµР Р…Р С• Р С•Р В±РЎРЏР В·Р В°РЎвЂљР ВµР В»РЎРЉР Р…Р С•Р Вµ Р С—Р С•Р В»Р Вµ!');
+						alert('РќРµ Р·Р°РїРѕР»РЅРµРЅРѕ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕРµ РїРѕР»Рµ!');
 						return false;
 					}
 

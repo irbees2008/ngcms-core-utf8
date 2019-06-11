@@ -22,13 +22,13 @@ function url() {
 				array(
 					'vars'  =>
 						array(),
-					'descr' => array('russian' => 'Р РЋР С—Р С‘РЎРѓР С•Р С” Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„–'),
+					'descr' => array('russian' => 'РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№'),
 				)
 			);
 			$ULIB->registerCommand('suser', 'search',
 				array(
 					'vars'  => array(),
-					'descr' => array('russian' => 'Р СџР С•Р С‘РЎРѓР С” Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„–'),
+					'descr' => array('russian' => 'РџРѕРёСЃРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№'),
 				)
 			);
 			$ULIB->saveConfig();
@@ -44,13 +44,13 @@ function url() {
 		redirect_suser('?mod=extra-config&plugin=suser&url');
 	}
 	$url = pluginGetVariable('suser', 'url');
-	$url = '<option value="0" ' . (empty($url) ? 'selected' : '') . '>Р СњР ВµРЎвЂљ</option><option value="1" ' . (!empty($url) ? 'selected' : '') . '>Р вЂќР В°</option>';
+	$url = '<option value="0" ' . (empty($url) ? 'selected' : '') . '>РќРµС‚</option><option value="1" ' . (!empty($url) ? 'selected' : '') . '>Р”Р°</option>';
 	$pvars['vars']['info'] = $url;
 	$tpl->template('url', $tpath['config/url'] . 'config');
 	$tpl->vars('url', $pvars);
 	$tvars['vars'] = array(
 		'entries' => $tpl->show('url'),
-		'global'  => 'Р СњР В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р В° Р В§Р СџР Р€'
+		'global'  => 'РќР°СЃС‚СЂРѕР№РєР° Р§РџРЈ'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
@@ -75,9 +75,9 @@ function main() {
 	$description = pluginGetVariable('suser', 'description');
 	$keywords = pluginGetVariable('suser', 'keywords');
 	$localsource = pluginGetVariable('suser', 'localsource');
-	$localsource = '<option value="0" ' . (empty($localsource) ? 'selected' : '') . '>Р РЃР В°Р В±Р В»Р С•Р Р… РЎРѓР В°Р в„–РЎвЂљР В°</option><option value="1" ' . (!empty($localsource) ? 'selected' : '') . '>Р СџР В»Р В°Р С–Р С‘Р Р…</option>';
+	$localsource = '<option value="0" ' . (empty($localsource) ? 'selected' : '') . '>РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°</option><option value="1" ' . (!empty($localsource) ? 'selected' : '') . '>РџР»Р°РіРёРЅ</option>';
 	if (empty($user_per_page))
-		msg(array("type" => "error", "text" => "Р С™РЎР‚Р С‘РЎвЂљР С‘РЎвЂЎР ВµРЎРѓР С”Р В°РЎРЏ Р С•РЎв‚¬Р С‘Р В±Р С”Р В°. <br /> Р СњР Вµ Р В·Р В°Р Т‘Р В°Р Р…Р С• Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р С• Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„– Р Р…Р В° РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р Вµ"), 1);
+		msg(array("type" => "error", "text" => "РљСЂРёС‚РёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°. <br /> РќРµ Р·Р°РґР°РЅРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ"), 1);
 	$pvars['vars'] = array(
 		'user_per_page' => $user_per_page,
 		'title_plg'     => $title_plg,
@@ -89,7 +89,7 @@ function main() {
 	$tpl->vars('general.from', $pvars);
 	$tvars['vars'] = array(
 		'entries' => $tpl->show('general.from'),
-		'global'  => 'Р С›Р В±РЎвЂ°Р С‘Р Вµ'
+		'global'  => 'РћР±С‰РёРµ'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);

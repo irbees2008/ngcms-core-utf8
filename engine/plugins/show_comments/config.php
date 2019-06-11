@@ -4,11 +4,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		$("#maincb").click(function () { // Р С—РЎР‚Р С‘ Р С”Р В»Р С‘Р С”Р Вµ Р С—Р С• Р С–Р В»Р В°Р Р†Р Р…Р С•Р С�РЎС“ РЎвЂЎР ВµР С”Р В±Р С•Р С”РЎРѓРЎС“
-			if ($('#maincb').attr('checked')) { // Р С—РЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р ВµР С–Р С• Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ
-				$('.check:enabled').attr('checked', true); // Р ВµРЎРѓР В»Р С‘ РЎвЂЎР ВµР С”Р В±Р С•Р С”РЎРѓ Р С•РЎвЂљР С�Р ВµРЎвЂЎР ВµР Р…, Р С•РЎвЂљР С�Р ВµРЎвЂЎР В°Р ВµР С� Р Р†РЎРѓР Вµ РЎвЂЎР ВµР С”Р В±Р С•Р С”РЎРѓРЎвЂ№
+		$("#maincb").click(function () { // РїСЂРё РєР»РёРєРµ РїРѕ РіР»Р°РІРЅРѕРјСѓ С‡РµРєР±РѕРєСЃСѓ
+			if ($('#maincb').attr('checked')) { // РїСЂРѕРІРµСЂСЏРµРј РµРіРѕ Р·РЅР°С‡РµРЅРёРµ
+				$('.check:enabled').attr('checked', true); // РµСЃР»Рё С‡РµРєР±РѕРєСЃ РѕС‚РјРµС‡РµРЅ, РѕС‚РјРµС‡Р°РµРј РІСЃРµ С‡РµРєР±РѕРєСЃС‹
 			} else {
-				$('.check:enabled').attr('checked', false); // Р ВµРЎРѓР В»Р С‘ РЎвЂЎР ВµР С”Р В±Р С•Р С”РЎРѓ Р Р…Р Вµ Р С•РЎвЂљР С�Р ВµРЎвЂЎР ВµР Р…, РЎРѓР Р…Р С‘Р С�Р В°Р ВµР С� Р С•РЎвЂљР С�Р ВµРЎвЂљР С”РЎС“ РЎРѓР С• Р Р†РЎРѓР ВµРЎвЂ¦ РЎвЂЎР ВµР С”Р В±Р С•Р С”РЎРѓР С•Р Р†
+				$('.check:enabled').attr('checked', false); // РµСЃР»Рё С‡РµРєР±РѕРєСЃ РЅРµ РѕС‚РјРµС‡РµРЅ, СЃРЅРёРјР°РµРј РѕС‚РјРµС‚РєСѓ СЃРѕ РІСЃРµС… С‡РµРєР±РѕРєСЃРѕРІ
 			}
 		});
 	});
@@ -36,37 +36,37 @@ function show_comments() {
 	if (($comm_length < 10) || ($comm_length > 5000)) {
 		$comm_length = 50;
 	}
-	// Р вЂ™РЎвЂ№Р В±Р С‘РЎР‚Р В°Р ВµР С� Р С‘Р В· Р вЂ�Р вЂќ Р С•Р В±РЎвЂ°Р ВµР Вµ Р С”Р С•Р В»Р С‘РЎвЂЎР ВµРЎРѓРЎвЂљР Р†Р С• Р В·Р В°Р С—Р С‘РЎРѓР ВµР в„–
+	// Р’С‹Р±РёСЂР°РµРј РёР· Р‘Р” РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№
 	$query = "SELECT COUNT(*) as cnt FROM " . prefix . "_comments";
 	$res = $mysql->record($query, 1);
 	$total = $res['cnt'];
-	// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р С—Р ВµРЎР‚Р ВµР Т‘Р В°Р Р… Р В»Р С‘ Р Р…Р С•Р С�Р ВµРЎР‚ РЎвЂљР ВµР С”РЎС“РЎвЂ°Р ВµР в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎвЂ№
+	// РџСЂРѕРІРµСЂСЏРµРј РїРµСЂРµРґР°РЅ Р»Рё РЅРѕРјРµСЂ С‚РµРєСѓС‰РµР№ СЃС‚СЂР°РЅРёС†С‹
 	if (isset($_GET['page'])) {
 		$page = (int)$_GET['page'];
 		if ($page < 1) $page = 1;
 	} else {
 		$page = 1;
 	}
-	// Р РЋР С”Р С•Р В»РЎРЉР С”Р С• Р Р†РЎРѓР ВµР С–Р С• Р С—Р С•Р В»РЎС“РЎвЂЎР С‘РЎвЂљРЎРѓРЎРЏ РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ 
+	// РЎРєРѕР»СЊРєРѕ РІСЃРµРіРѕ РїРѕР»СѓС‡РёС‚СЃСЏ СЃС‚СЂР°РЅРёС†
 	$cnt_pages = ceil($total / $perpage);
 	if ($page > $cnt_pages) $page = $cnt_pages;
-	// Р СњР В°РЎвЂЎР В°Р В»РЎРЉР Р…Р В°РЎРЏ Р С—Р С•Р В·Р С‘РЎвЂ Р С‘РЎРЏ
+	// РќР°С‡Р°Р»СЊРЅР°СЏ РїРѕР·РёС†РёСЏ
 	$start = ($page - 1) * $perpage;
 	if ($start < 0) {
 		$start = 0;
 	}
 	$query = "select c.id, c.postdate, c.author, c.author_id, c.mail, c.text, c.ip, n.id as nid, n.title, n.alt_name, n.catid, n.postdate as npostdate from " . prefix . "_comments c left join " . prefix . "_news n on c.post=n.id where n.approve=1 order by c.id " . $order . " limit " . $start . ", " . $perpage;
 	$result = $mysql->select($query);
-	// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� "РЎв‚¬Р В°Р С—Р С”РЎС“" РЎвЂљР В°Р В±Р В»Р С‘РЎвЂ РЎвЂ№
+	// Р’С‹РІРѕРґРёРј "С€Р°РїРєСѓ" С‚Р°Р±Р»РёС†С‹
 	echo '<form action="" method="post" name="select_comments"><div id=ttr>';
 	echo '<table><tbody>';
 	echo '<tr>';
-	echo '<th>Р вЂќР В°РЎвЂљР В°</th>';
-	echo '<th>Р С™Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р в„–</th>';
-	echo '<th>Р СњР С•Р Р†Р С•РЎРѓРЎвЂљРЎРЉ</th>';
-	echo '<th style="width:14%;">Р С’Р Р†РЎвЂљР С•РЎР‚</th>';
+	echo '<th>Р”Р°С‚Р°</th>';
+	echo '<th>РљРѕРјРјРµРЅС‚Р°СЂРёР№</th>';
+	echo '<th>РќРѕРІРѕСЃС‚СЊ</th>';
+	echo '<th style="width:14%;">РђРІС‚РѕСЂ</th>';
 	echo '<th style="width:13%;">IP</th>';
-	echo '<th><input type="checkbox" name="master_box" title="Р вЂ™РЎвЂ№Р В±РЎР‚Р В°РЎвЂљРЎРЉ Р Р†РЎРѓР Вµ" onclick="javascript:check_uncheck_all(select_comments)" ></th>';
+	echo '<th><input type="checkbox" name="master_box" title="Р’С‹Р±СЂР°С‚СЊ РІСЃРµ" onclick="javascript:check_uncheck_all(select_comments)" ></th>';
 	echo '</tr>';
 	foreach ($result as $prd) {
 		// Parse comments
@@ -111,15 +111,15 @@ function show_comments() {
 	echo '<script>$("tr:odd").css("background-color", "#f7fbff");</script>';
 	$type = $_POST['type'];
 	if (!empty($type)) {
-		// Р СњР В°РЎвЂЎР С‘Р Р…Р В°Р ВµР С� РЎвЂћР С•РЎР‚Р С�Р С‘РЎР‚Р С•Р Р†Р В°РЎвЂљРЎРЉ Р С—Р ВµРЎР‚Р ВµР С�Р ВµР Р…Р Р…РЎС“РЎР‹, РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р В°РЎвЂ°РЎС“РЎР‹ РЎРѓР С—Р С‘РЎРѓР С•Р С”
-		// Р Р† РЎвЂћР С•РЎР‚Р С�Р В°РЎвЂљР Вµ "(3,5,6,7)"
+		// РќР°С‡РёРЅР°РµРј С„РѕСЂРјРёСЂРѕРІР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ, СЃРѕРґРµСЂР¶Р°С‰СѓСЋ СЃРїРёСЃРѕРє
+		// РІ С„РѕСЂРјР°С‚Рµ "(3,5,6,7)"
 		$query = "(";
 		foreach ($type as $val) $query .= "$val,";
-		// Р Р€Р Т‘Р В°Р В»РЎРЏР ВµР С� Р С—Р С•РЎРѓР В»Р ВµР Т‘Р Р…РЎР‹РЎР‹ Р В·Р В°Р С—РЎРЏРЎвЂљРЎС“РЎР‹, Р В·Р В°Р С�Р ВµР Р…РЎРЏРЎРЏ Р ВµРЎвЂ� Р В·Р В°Р С”РЎР‚РЎвЂ№Р Р†Р В°РЎР‹РЎвЂ°Р ВµР в„– РЎРѓР С”Р С•Р В±Р С”Р С•Р в„– )
+		// РЈРґР°Р»СЏРµРј РїРѕСЃР»РµРґРЅСЋСЋ Р·Р°РїСЏС‚СѓСЋ, Р·Р°РјРµРЅСЏСЏ РµС‘ Р·Р°РєСЂС‹РІР°СЋС‰РµР№ СЃРєРѕР±РєРѕР№ )
 		$query = substr($query, 0, strlen($query) - 1) . ")";
-		// Р вЂ”Р В°Р Р†Р ВµРЎР‚РЎв‚¬Р В°Р ВµР С� РЎвЂћР С•РЎР‚Р С�Р С‘РЎР‚Р С•Р Р†Р В°Р Р…Р С‘Р Вµ SQL-Р В·Р В°Р С—РЎР‚Р С•РЎРѓР В° Р Р…Р В° РЎС“Р Т‘Р В°Р В»Р ВµР Р…Р С‘Р Вµ
+		// Р—Р°РІРµСЂС€Р°РµРј С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ SQL-Р·Р°РїСЂРѕСЃР° РЅР° СѓРґР°Р»РµРЅРёРµ
 		$query = "DELETE FROM " . prefix . "_comments WHERE id IN " . $query;
-		// Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…РЎРЏР ВµР С� Р В·Р В°Р С—РЎР‚Р С•РЎРѓ
+		// Р’С‹РїРѕР»РЅСЏРµРј Р·Р°РїСЂРѕСЃ
 		if (!$mysql->query($query)) {
 			echo "<br>" . $mysql->db_error() . "<br>";
 			echo $query . "<br>";
@@ -127,14 +127,14 @@ function show_comments() {
 			foreach ($mysql->select("select n.id, count(c.id) as cid from " . prefix . "_news n left join " . prefix . "_comments c on c.post=n.id group by n.id") as $row) {
 				$mysql->query("update " . prefix . "_news set com=" . $row['cid'] . " where id = " . $row['id']);
 			}
-			// Р С›Р В±Р Р…Р С•Р Р†Р В»РЎРЏР ВµР С� РЎРѓРЎвЂЎР ВµРЎвЂљРЎвЂЎР С‘Р С” Р С—Р С•РЎРѓРЎвЂљР С•Р Р† РЎС“ РЎР‹Р В·Р ВµРЎР‚Р С•Р Р†
+			// РћР±РЅРѕРІР»СЏРµРј СЃС‡РµС‚С‡РёРє РїРѕСЃС‚РѕРІ Сѓ СЋР·РµСЂРѕРІ
 			foreach ($mysql->select("select author_id, count(*) as cnt from " . prefix . "_news group by author_id") as $row) {
 				$mysql->query("update " . uprefix . "_users set news=" . $row['cnt'] . " where id = " . $row['author_id']);
 			}
 			foreach ($mysql->select("select n.id, count(c.id) as cid from " . prefix . "_news n left join " . prefix . "_comments c on c.post=n.id group by n.id") as $row) {
 				$mysql->query("update " . prefix . "_news set com=" . $row['cid'] . " where id = " . $row['id']);
 			}
-			// Р С›Р В±Р Р…Р С•Р Р†Р В»РЎРЏР ВµР С� РЎРѓРЎвЂЎР ВµРЎвЂљРЎвЂЎР С‘Р С” Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р† РЎС“ РЎР‹Р В·Р ВµРЎР‚Р С•Р Р†
+			// РћР±РЅРѕРІР»СЏРµРј СЃС‡РµС‚С‡РёРє РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ Сѓ СЋР·РµСЂРѕРІ
 			foreach ($mysql->select("select author_id, count(*) as cnt from " . prefix . "_comments group by author_id") as $row) {
 				$mysql->query("update " . uprefix . "_users set com=" . $row['cnt'] . " where id = " . $row['author_id']);
 			}
@@ -147,20 +147,20 @@ function show_comments() {
 			if ($k != "page") $uri .= urlencode($k) . "=" . urlencode($v) . "&";
 		}
 	}
-	// Р РЋРЎвЂљРЎР‚Р С•Р С‘Р С� Р С—Р С•РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂЎР Р…РЎС“РЎР‹ Р Р…Р В°Р Р†Р С‘Р С–Р В°РЎвЂ Р С‘РЎР‹
+	// РЎС‚СЂРѕРёРј РїРѕСЃС‚СЂР°РЅРёС‡РЅСѓСЋ РЅР°РІРёРіР°С†РёСЋ
 	if ($cnt_pages > 1) {
-		//   echo '<div style="margin:1em 0">&nbsp;Р РЋРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ РЎвЂ№:';
-		// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р Р…РЎС“Р В¶Р Р…Р В° Р В»Р С‘ РЎРѓРЎвЂљРЎР‚Р ВµР В»Р С”Р В° "Р вЂ™ Р Р…Р В°РЎвЂЎР В°Р В»Р С•"
+		//   echo '<div style="margin:1em 0">&nbsp;РЎС‚СЂР°РЅРёС†С‹:';
+		// РџСЂРѕРІРµСЂСЏРµРј РЅСѓР¶РЅР° Р»Рё СЃС‚СЂРµР»РєР° "Р’ РЅР°С‡Р°Р»Рѕ"
 		if ($page > 3)
 			$startpage = '<a href="' . $uri . 'page=1"><</a> .. ';
 		else
 			$startpage = '';
-		// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р Р…РЎС“Р В¶Р Р…Р В° Р В»Р С‘ РЎРѓРЎвЂљРЎР‚Р ВµР В»Р С”Р В° "Р вЂ™ Р С”Р С•Р Р…Р ВµРЎвЂ "
+		// РџСЂРѕРІРµСЂСЏРµРј РЅСѓР¶РЅР° Р»Рё СЃС‚СЂРµР»РєР° "Р’ РєРѕРЅРµС†"
 		if ($page < ($cnt_pages - 2))
 			$endpage = ' .. <a href="' . $uri . 'page=' . $cnt_pages . '">></a>';
 		else
 			$endpage = '';
-		// Р СњР В°РЎвЂ¦Р С•Р Т‘Р С‘Р С� Р Т‘Р Р†Р Вµ Р В±Р В»Р С‘Р В¶Р В°Р в„–РЎв‚¬Р С‘Р Вµ РЎРѓРЎвЂљР В°Р Р…Р С‘РЎвЂ РЎвЂ№ РЎРѓ Р С•Р В±Р С•Р С‘РЎвЂ¦ Р С”РЎР‚Р В°Р ВµР Р†, Р ВµРЎРѓР В»Р С‘ Р С•Р Р…Р С‘ Р ВµРЎРѓРЎвЂљРЎРЉ
+		// РќР°С…РѕРґРёРј РґРІРµ Р±Р»РёР¶Р°Р№С€РёРµ СЃС‚Р°РЅРёС†С‹ СЃ РѕР±РѕРёС… РєСЂР°РµРІ, РµСЃР»Рё РѕРЅРё РµСЃС‚СЊ
 		if ($page - 2 > 0)
 			$page2left = ' <a href="' . $uri . 'page=' . ($page - 2) . '">' . ($page - 2) . '</a> | ';
 		else
@@ -177,24 +177,24 @@ function show_comments() {
 			$page1right = ' | <a href="' . $uri . 'page=' . ($page + 1) . '">' . ($page + 1) . '</a>';
 		else
 			$page1right = '';
-		// Р вЂ™РЎвЂ№Р Р†Р С•Р Т‘Р С‘Р С� Р С�Р ВµР Р…РЎР‹
+		// Р’С‹РІРѕРґРёРј РјРµРЅСЋ
 		// echo $startpage.$page2left.$page1left.'<strong>'.$page.'</strong>'.$page1right.$page2right.$endpage;
 		echo '</div>';
 	}
-	echo '<table><tr><td>' . $startpage . $page2left . $page1left . '<strong>' . $page . '</strong>' . $page1right . $page2right . $endpage . '&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="align:right"><input class="button" type="submit" value="Р Р€Р Т‘Р В°Р В»Р С‘РЎвЂљРЎРЉ"></td></tr></table></form>';
+	echo '<table><tr><td>' . $startpage . $page2left . $page1left . '<strong>' . $page . '</strong>' . $page1right . $page2right . $endpage . '&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="align:right"><input class="button" type="submit" value="РЈРґР°Р»РёС‚СЊ"></td></tr></table></form>';
 }
 
 if (!getPluginStatusInstalled('comments')) {
-	echo 'Р СџР В»Р В°Р С–Р С‘Р Р… comments Р Р…Р Вµ РЎС“РЎРѓРЎвЂљР В°Р Р…Р С•Р Р†Р В»Р ВµР Р…!';
+	echo 'РџР»Р°РіРёРЅ comments РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ!';
 
 	return false;
 }
 plugins_load_config();
 $cfg = array();
-array_push($cfg, array('descr' => 'Р СџР В»Р В°Р С–Р С‘Р Р… Р Р†РЎвЂ№Р Р†Р С•Р Т‘Р С‘РЎвЂљ РЎРѓР С—Р С‘РЎРѓР С•Р С” Р Р†РЎРѓР ВµРЎвЂ¦ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р† Р Р…Р В° РЎРѓР В°Р в„–РЎвЂљР Вµ.'));
-array_push($cfg, array('name' => 'perpage', 'title' => 'Р С™Р С•Р В»-Р Р†Р С• Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р† Р Т‘Р В»РЎРЏ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘РЎРЏ Р Р…Р В° Р С•Р Т‘Р Р…Р С•Р в„– РЎРѓРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р Вµ', 'type' => 'input', 'value' => extra_get_param($plugin, 'perpage')));
-array_push($cfg, array('name' => 'comm_length', 'title' => 'Р Р€РЎРѓР ВµРЎвЂЎР ВµР Р…Р С‘Р Вµ Р Т‘Р В»Р С‘Р Р…РЎвЂ№ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘РЎРЏ', 'descr' => 'Р С™Р С•Р В»-Р Р†Р С• РЎРѓР С‘Р С�Р Р†Р С•Р В»Р С•Р Р† Р С‘Р В· Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘РЎРЏ Р Т‘Р В»РЎРЏ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘РЎРЏ<br/>Р вЂ”Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ Р С—Р С• РЎС“Р С�Р С•Р В»РЎвЂЎР В°Р Р…Р С‘РЎР‹: <b>50</b>', 'type' => 'input', 'html_flags' => 'size=5', 'value' => extra_get_param($plugin, 'comm_length')));
-array_push($cfg, array('name' => 'order', 'title' => 'Р Р€Р С—Р С•РЎР‚РЎРЏР Т‘Р С•РЎвЂЎР С‘РЎвЂљРЎРЉ Р С—Р С•:', 'descr' => 'Р вЂ™РЎвЂ№Р В±Р ВµРЎР‚Р С‘РЎвЂљР Вµ Р С—Р С•РЎР‚РЎРЏР Т‘Р С•Р С” Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘РЎРЏ Р С”Р С•Р С�Р С�Р ВµР Р…РЎвЂљР В°РЎР‚Р С‘Р ВµР Р†.', 'type' => 'select', 'values' => array('asc' => 'Р вЂ™Р С•Р В·РЎР‚Р В°РЎРѓРЎвЂљР В°Р Р…Р С‘РЎР‹', 'desc' => 'Р Р€Р В±РЎвЂ№Р Р†Р В°Р Р…Р С‘РЎР‹'), 'value' => extra_get_param($plugin, 'order')));
+array_push($cfg, array('descr' => 'РџР»Р°РіРёРЅ РІС‹РІРѕРґРёС‚ СЃРїРёСЃРѕРє РІСЃРµС… РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РЅР° СЃР°Р№С‚Рµ.'));
+array_push($cfg, array('name' => 'perpage', 'title' => 'РљРѕР»-РІРѕ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅР° РѕРґРЅРѕР№ СЃС‚СЂР°РЅРёС†Рµ', 'type' => 'input', 'value' => extra_get_param($plugin, 'perpage')));
+array_push($cfg, array('name' => 'comm_length', 'title' => 'РЈСЃРµС‡РµРЅРёРµ РґР»РёРЅС‹ РєРѕРјРјРµРЅС‚Р°СЂРёСЏ', 'descr' => 'РљРѕР»-РІРѕ СЃРёРјРІРѕР»РѕРІ РёР· РєРѕРјРјРµРЅС‚Р°СЂРёСЏ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ<br/>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: <b>50</b>', 'type' => 'input', 'html_flags' => 'size=5', 'value' => extra_get_param($plugin, 'comm_length')));
+array_push($cfg, array('name' => 'order', 'title' => 'РЈРїРѕСЂСЏРґРѕС‡РёС‚СЊ РїРѕ:', 'descr' => 'Р’С‹Р±РµСЂРёС‚Рµ РїРѕСЂСЏРґРѕРє РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ.', 'type' => 'select', 'values' => array('asc' => 'Р’РѕР·СЂР°СЃС‚Р°РЅРёСЋ', 'desc' => 'РЈР±С‹РІР°РЅРёСЋ'), 'value' => extra_get_param($plugin, 'order')));
 if ($_REQUEST['action'] == 'commit') {
 	commit_plugin_config_changes($plugin, $cfg);
 	print_commit_complete('show_comments');

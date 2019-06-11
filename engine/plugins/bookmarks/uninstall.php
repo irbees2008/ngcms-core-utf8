@@ -14,6 +14,6 @@ if ($_REQUEST['action'] == 'commit') {
 		plugin_mark_deinstalled($plugin);
 	}
 } else {
-	generate_install_page($plugin, 'Р СџР В»Р В°Р С–Р С‘Р Р… РЎС“РЎРѓР С—Р ВµРЎв‚¬Р Р…Р С• РЎС“Р Т‘Р В°Р В»Р ВµР Р…', 'deinstall');
+	generate_install_page($plugin, 'РџР»Р°РіРёРЅ СѓСЃРїРµС€РЅРѕ СѓРґР°Р»РµРЅ', 'deinstall');
 }
 ?>

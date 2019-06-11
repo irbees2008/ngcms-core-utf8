@@ -8,7 +8,7 @@ include_once root . 'plugins/xfields/xfields.php';
 if (!is_array($xf = xf_configLoad()))
 	$xf = array();
 //
-// Р Р€Р С—РЎР‚Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ Р Р…Р ВµР С•Р В±РЎвЂ¦Р С•Р Т‘Р С‘Р С�РЎвЂ№Р С�Р С‘ Р Т‘Р ВµР в„–РЎРѓРЎвЂљР Р†Р С‘РЎРЏР С�Р С‘
+// РЈРїСЂР°РІР»РµРЅРёРµ РЅРµРѕР±С…РѕРґРёРјС‹РјРё РґРµР№СЃС‚РІРёСЏРјРё
 $sectionID = $_REQUEST['section'];
 if (!in_array($sectionID, array('news', 'grp.news', 'users', 'grp.users', 'tdata'))) {
 	$sectionID = 'news';
@@ -34,7 +34,7 @@ switch ($_REQUEST['action']) {
 		showList();
 }
 //
-// Р СџР С•Р С”Р В°Р В·Р В°РЎвЂљРЎРЉ РЎРѓР С—Р С‘РЎРѓР С•Р С” Р С—Р С•Р В»Р ВµР в„–
+// РџРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє РїРѕР»РµР№
 function showList() {
 
 	global $sectionID;
@@ -72,7 +72,7 @@ function showSectionList() {
 }
 
 //
-// Р СџР С•Р С”Р В°Р В·Р В°РЎвЂљРЎРЉ РЎРѓР С—Р С‘РЎРѓР С•Р С” Р Т‘Р С•Р С—. Р С—Р С•Р В»Р ВµР в„–
+// РџРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє РґРѕРї. РїРѕР»РµР№
 function showFieldList() {
 
 	global $xf, $lang, $twig, $sectionID;
@@ -183,8 +183,8 @@ function showAddEditForm($xdata = '', $eMode = null, $efield = null) {
 				'sOpts'          => implode("\n", $sOpts),
 				'm_sOpts'        => implode("\n", $m_sOpts),
 				'type_opts'      => $xsel,
-				'storekeys_opts' => '<option value="0">Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏРЎвЂљРЎРЉ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ</option><option value="1"' . (($data['storekeys']) ? ' selected' : '') . '>Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏРЎвЂљРЎРЉ Р С”Р С•Р Т‘</option>',
-				'required_opts'  => '<option value="0">Р СњР ВµРЎвЂљ</option><option value="1"' . (($data['required']) ? ' selected' : '') . '>Р вЂќР В°</option>',
+				'storekeys_opts' => '<option value="0">РЎРѕС…СЂР°РЅСЏС‚СЊ Р·РЅР°С‡РµРЅРёРµ</option><option value="1"' . (($data['storekeys']) ? ' selected' : '') . '>РЎРѕС…СЂР°РЅСЏС‚СЊ РєРѕРґ</option>',
+				'required_opts'  => '<option value="0">РќРµС‚</option><option value="1"' . (($data['required']) ? ' selected' : '') . '>Р”Р°</option>',
 				'images'         => array(
 					'maxCount'    => intval($data['maxCount']),
 					'thumbWidth'  => intval($data['thumbWidth']),
@@ -219,8 +219,8 @@ function showAddEditForm($xdata = '', $eMode = null, $efield = null) {
 		}
 		$tVars = $tVars + array(
 				'type_opts'      => $xsel,
-				'storekeys_opts' => '<option value="0">Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏРЎвЂљРЎРЉ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘Р Вµ</option><option value="1">Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏРЎвЂљРЎРЉ Р С”Р С•Р Т‘</option>',
-				'required_opts'  => '<option value="0">Р СњР ВµРЎвЂљ</option><option value="1">Р вЂќР В°</option>',
+				'storekeys_opts' => '<option value="0">РЎРѕС…СЂР°РЅСЏС‚СЊ Р·РЅР°С‡РµРЅРёРµ</option><option value="1">РЎРѕС…СЂР°РЅСЏС‚СЊ РєРѕРґ</option>',
+				'required_opts'  => '<option value="0">РќРµС‚</option><option value="1">Р”Р°</option>',
 				'select_options' => '',
 				'images' => array(
 					'maxCount'    => '1',
@@ -435,7 +435,7 @@ function doAddEdit() {
 	}
 	// Now we should update table `_news` structure and content
 	if (!($tableName = xf_getTableBySectionID($sectionID))) {
-		print 'Р С›РЎв‚¬Р С‘Р В±Р С”Р В°: Р Р…Р ВµР С‘Р В·Р Р†Р ВµРЎРѓРЎвЂљР Р…Р В°РЎРЏ РЎРѓР ВµР С”РЎвЂ Р С‘РЎРЏ/Р В±Р В»Р С•Р С” (' . $sectionID . ')';
+		print 'РћС€РёР±РєР°: РЅРµРёР·РІРµСЃС‚РЅР°СЏ СЃРµРєС†РёСЏ/Р±Р»РѕРє (' . $sectionID . ')';
 
 		return;
 	}

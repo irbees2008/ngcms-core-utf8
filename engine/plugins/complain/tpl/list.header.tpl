@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title>Р Р€Р С—РЎР‚Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ Р С‘Р Р…РЎвЂ Р С‘Р Т‘Р ВµР Р…РЎвЂљР В°Р С�Р С‘</title>
+	<title>РЈРїСЂР°РІР»РµРЅРёРµ РёРЅС†РёРґРµРЅС‚Р°РјРё</title>
 	<style type="text/css">
 		body {
 			font-family: verdana, arial;
@@ -60,19 +60,19 @@
 	}
 </script>
 
-<h1>Р РЋР С—Р С‘РЎРѓР С•Р С” Р В°Р С”РЎвЂљР С‘Р Р†Р Р…РЎвЂ№РЎвЂ¦ Р С‘Р Р…РЎвЂ Р С‘Р Т‘Р ВµР Р…РЎвЂљР С•Р Р†</h1>
+<h1>РЎРїРёСЃРѕРє Р°РєС‚РёРІРЅС‹С… РёРЅС†РёРґРµРЅС‚РѕРІ</h1>
 
 <form action="{form_url}" name="myform" id="myform" method="post">
 	<table id="mt" width="100%" cellspacing=1 cellpadding=1>
 		<thead>
 		<tr>
-			<td>Р вЂќР В°РЎвЂљР В°</td>
-			<td>Р СњР С•Р Р†Р С•РЎРѓРЎвЂљРЎРЉ</td>
-			<td>Р С›РЎв‚¬Р С‘Р В±Р С”Р В°</td>
-			<td>Р С’Р Р†РЎвЂљР С•РЎР‚ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР С‘</td>
-			<td>Р С’Р Р†РЎвЂљР С•РЎР‚ Р С‘Р Р…РЎвЂ Р С‘Р Т‘Р ВµР Р…РЎвЂљР В°</td>
-			<td>Р СњР В°Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р В° Р Р…Р В°</td>
-			<td>Р РЋРЎвЂљР В°РЎвЂљРЎС“РЎРѓ</td>
+			<td>Р”Р°С‚Р°</td>
+			<td>РќРѕРІРѕСЃС‚СЊ</td>
+			<td>РћС€РёР±РєР°</td>
+			<td>РђРІС‚РѕСЂ РЅРѕРІРѕСЃС‚Рё</td>
+			<td>РђРІС‚РѕСЂ РёРЅС†РёРґРµРЅС‚Р°</td>
+			<td>РќР°Р·РЅР°С‡РµРЅР° РЅР°</td>
+			<td>РЎС‚Р°С‚СѓСЃ</td>
 			<td><input type="checkbox" name="checkall" id="btnCheckAll" onclick="toggleList();"/></td>
 		</tr>
 		</thead>
@@ -81,20 +81,20 @@
 		</tbody>
 	</table>
 	<br/>
-	<b><u>Р вЂќР ВµР в„–РЎРѓРЎвЂљР Р†Р С‘РЎРЏ РЎРѓ Р Р†РЎвЂ№Р Т‘Р ВµР В»Р ВµР Р…Р Р…РЎвЂ№Р С�Р С‘ Р С‘Р Р…РЎвЂ Р С‘Р Т‘Р ВµР Р…РЎвЂљР В°Р С�Р С‘:</u></b><br/>
+	<b><u>Р”РµР№СЃС‚РІРёСЏ СЃ РІС‹РґРµР»РµРЅРЅС‹РјРё РёРЅС†РёРґРµРЅС‚Р°РјРё:</u></b><br/>
 	<table id="st" cellspacing="0" cellpadding="0">
 		<tr>
-			<td><label><input type="checkbox" name="setowner" value="1"/> Р СњР В°Р В·Р Р…Р В°РЎвЂЎР С‘РЎвЂљРЎРЉ Р Р…Р В° Р С�Р ВµР Р…РЎРЏ</label></td>
+			<td><label><input type="checkbox" name="setowner" value="1"/> РќР°Р·РЅР°С‡РёС‚СЊ РЅР° РјРµРЅСЏ</label></td>
 			<td>&nbsp;</td>
 		</tr>
 		<tr>
-			<td><label><input type="checkbox" name="setstatus" value="1"/> Р пїЅР В·Р С�Р ВµР Р…Р С‘РЎвЂљРЎРЉ РЎРѓРЎвЂљР В°РЎвЂљРЎС“РЎРѓ Р Р…Р В°</label></td>
+			<td><label><input type="checkbox" name="setstatus" value="1"/> Р�Р·РјРµРЅРёС‚СЊ СЃС‚Р°С‚СѓСЃ РЅР°</label></td>
 			<td>&nbsp; &nbsp; <select name="newstatus">
 					{status_options}
 				</select></td>
 		</tr>
 	</table>
-	<input type="submit" value="Р вЂ™РЎвЂ№Р С—Р С•Р В»Р Р…Р С‘РЎвЂљРЎРЉ Р С‘Р В·Р С�Р ВµР Р…Р ВµР Р…Р С‘РЎРЏ"/>
+	<input type="submit" value="Р’С‹РїРѕР»РЅРёС‚СЊ РёР·РјРµРЅРµРЅРёСЏ"/>
 </form>
 <br/>
 </body>

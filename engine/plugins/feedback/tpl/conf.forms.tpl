@@ -2,11 +2,11 @@
 
 <table width="100%">
 	<tr align="left">
-		<td class="contentHead"><b>Р С™Р С•Р Т‘</b></td>
-		<td class="contentHead"><b>ID РЎвЂћР С•РЎР‚Р С�РЎвЂ№</b></td>
-		<td class="contentHead"><b>Р СњР В°Р В·Р Р†Р В°Р Р…Р С‘Р Вµ РЎвЂћР С•РЎР‚Р С�РЎвЂ№</b></td>
-		<td class="contentHead"><b>Р СџРЎР‚Р С‘Р Р†РЎРЏР В·Р С”Р В° Р С” Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљРЎРЏР С�</b></td>
-		<td class="contentHead"><b>Р С’Р С”РЎвЂљР С‘Р Р†Р Р…Р В°</b></td>
+		<td class="contentHead"><b>РљРѕРґ</b></td>
+		<td class="contentHead"><b>ID С„РѕСЂРјС‹</b></td>
+		<td class="contentHead"><b>РќР°Р·РІР°РЅРёРµ С„РѕСЂРјС‹</b></td>
+		<td class="contentHead"><b>РџСЂРёРІСЏР·РєР° Рє РЅРѕРІРѕСЃС‚СЏРј</b></td>
+		<td class="contentHead"><b>РђРєС‚РёРІРЅР°</b></td>
 		<td class="contentHead">&nbsp;</td>
 	</tr>
 	{% for entry in entries %}
@@ -25,7 +25,7 @@
 	<tr>
 		<td></td>
 		<td colspan="5" style="text-align: left; padding: 10px 10px 0 0;">
-			<a href="?mod=extra-config&plugin=feedback&action=addform">Р РЋР С•Р В·Р Т‘Р В°РЎвЂљРЎРЉ Р Р…Р С•Р Р†РЎС“РЎР‹ РЎвЂћР С•РЎР‚Р С�РЎС“</a>
+			<a href="?mod=extra-config&plugin=feedback&action=addform">РЎРѕР·РґР°С‚СЊ РЅРѕРІСѓСЋ С„РѕСЂРјСѓ</a>
 		</td>
 	</tr>
 </table>

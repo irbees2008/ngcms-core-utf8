@@ -32,6 +32,6 @@
 </style>
 <div id="senderror">
 	<div class="texth">
-		<a href="{link}" target="_blank">Р РЋР С•Р С•Р В±РЎвЂ°Р С‘РЎвЂљРЎРЉ Р С•Р В± Р С•РЎв‚¬Р С‘Р В±Р С”Р Вµ &raquo;</a>
+		<a href="{link}" target="_blank">РЎРѕРѕР±С‰РёС‚СЊ РѕР± РѕС€РёР±РєРµ &raquo;</a>
 	</div>
 </div>

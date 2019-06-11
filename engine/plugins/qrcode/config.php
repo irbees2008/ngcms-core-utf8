@@ -12,22 +12,22 @@ pluginsLoadConfig();
 	
 // Fill configuration parameters
 $cfg = array();
-array_push($cfg, array('descr' => 'Р вЂќР В°Р Р…Р Р…РЎвЂ№Р в„– Р С—Р В»Р В°Р С–Р С‘Р Р… Р С–Р ВµР Р…Р ВµРЎР‚Р С‘РЎР‚РЎС“Р ВµРЎвЂљ QRcode'));
+array_push($cfg, array('descr' => 'Р”Р°РЅРЅС‹Р№ РїР»Р°РіРёРЅ РіРµРЅРµСЂРёСЂСѓРµС‚ QRcode'));
 
 $cfgX = array();     
-    array_push($cfgX, array('name' => 'chs', 'title' => 'Р В Р В°Р В·Р С�Р ВµРЎР‚РЎвЂ№ Р Р† Р С—Р С‘Р С”РЎРѓР ВµР В»РЎРЏРЎвЂ¦', 'type' => 'input', 'value' => intval(pluginGetVariable($plugin,'chs'))?pluginGetVariable($plugin,'chs'):'150'));
-	array_push($cfgX, array('name' => 'chld', 'title' => 'Р Р€РЎР‚Р С•Р Р†Р ВµР Р…РЎРЉ Р С”Р С•РЎР‚РЎР‚Р ВµР С”РЎвЂ Р С‘Р С‘ Р С•РЎв‚¬Р С‘Р В±Р С•Р С”<br /><small><b>L</b> - Allows recovery of up to 7% data loss (<b>Р С—Р С• РЎС“Р С�Р С•Р В»РЎвЂЎР В°Р Р…Р С‘РЎР‹</b>)<br /><b>M</b> - Allows recovery of up to 15% data loss<br /><b>Q</b> - Allows recovery of up to 25% data loss<br /><b>H</b> - Allows recovery of up to 30% data loss</small>', 'type' => 'select', 'values' => array ( 'L' => 'L', 'M' => 'M', 'Q' => 'Q', 'H' => 'H'), 'value' => pluginGetVariable($plugin,'chld')));
-    array_push($cfgX, array('name' => 'margin', 'title' => 'Р С›РЎвЂљРЎРѓРЎвЂљРЎС“Р С—', 'type' => 'input', 'value' => intval(pluginGetVariable($plugin,'margin'))?pluginGetVariable($plugin,'margin'):'4'));	
-   	array_push($cfgX, array('name' => 'upload', 'title' => 'Р вЂ”Р В°Р С–РЎР‚РЎС“Р В¶Р В°РЎвЂљРЎРЉ QRcode Р Р…Р В° РЎРѓР В°Р в„–РЎвЂљ', 'type' => 'checkbox', 'value' => pluginGetVariable($plugin,'upload')));	
-array_push($cfg,  array('mode' => 'group', 'title' => '<b>Р С›РЎРѓР Р…Р С•Р Р†Р Р…РЎвЂ№Р Вµ Р Р…Р В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р С‘</b>', 'entries' => $cfgX));
+    array_push($cfgX, array('name' => 'chs', 'title' => 'Р Р°Р·РјРµСЂС‹ РІ РїРёРєСЃРµР»СЏС…', 'type' => 'input', 'value' => intval(pluginGetVariable($plugin,'chs'))?pluginGetVariable($plugin,'chs'):'150'));
+	array_push($cfgX, array('name' => 'chld', 'title' => 'РЈСЂРѕРІРµРЅСЊ РєРѕСЂСЂРµРєС†РёРё РѕС€РёР±РѕРє<br /><small><b>L</b> - Allows recovery of up to 7% data loss (<b>РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</b>)<br /><b>M</b> - Allows recovery of up to 15% data loss<br /><b>Q</b> - Allows recovery of up to 25% data loss<br /><b>H</b> - Allows recovery of up to 30% data loss</small>', 'type' => 'select', 'values' => array ( 'L' => 'L', 'M' => 'M', 'Q' => 'Q', 'H' => 'H'), 'value' => pluginGetVariable($plugin,'chld')));
+    array_push($cfgX, array('name' => 'margin', 'title' => 'РћС‚СЃС‚СѓРї', 'type' => 'input', 'value' => intval(pluginGetVariable($plugin,'margin'))?pluginGetVariable($plugin,'margin'):'4'));	
+   	array_push($cfgX, array('name' => 'upload', 'title' => 'Р—Р°РіСЂСѓР¶Р°С‚СЊ QRcode РЅР° СЃР°Р№С‚', 'type' => 'checkbox', 'value' => pluginGetVariable($plugin,'upload')));	
+array_push($cfg,  array('mode' => 'group', 'title' => '<b>РћСЃРЅРѕРІРЅС‹Рµ РЅР°СЃС‚СЂРѕР№РєРё</b>', 'entries' => $cfgX));
 
 $cfgX = array();
-	array_push($cfgX, array('name' => 'localsource', 'title' => 'Р вЂ™РЎвЂ№Р В±Р ВµРЎР‚Р С‘РЎвЂљР Вµ Р С”Р В°РЎвЂљР В°Р В»Р С•Р С– Р С‘Р В· Р С”Р С•РЎвЂљР С•РЎР‚Р С•Р С–Р С• Р С—Р В»Р В°Р С–Р С‘Р Р… Р В±РЎС“Р Т‘Р ВµРЎвЂљ Р В±РЎР‚Р В°РЎвЂљРЎРЉ РЎв‚¬Р В°Р В±Р В»Р С•Р Р…РЎвЂ№ Р Т‘Р В»РЎРЏ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘РЎРЏ<br /><small><b>Р РЃР В°Р В±Р В»Р С•Р Р… РЎРѓР В°Р в„–РЎвЂљР В°</b> - Р С—Р В»Р В°Р С–Р С‘Р Р… Р В±РЎС“Р Т‘Р ВµРЎвЂљ Р С—РЎвЂ№РЎвЂљР В°РЎвЂљРЎРЉРЎРѓРЎРЏ Р Р†Р В·РЎРЏРЎвЂљРЎРЉ РЎв‚¬Р В°Р В±Р В»Р С•Р Р…РЎвЂ№ Р С‘Р В· Р С•Р В±РЎвЂ°Р ВµР С–Р С• РЎв‚¬Р В°Р В±Р В»Р С•Р Р…Р В° РЎРѓР В°Р в„–РЎвЂљР В°; Р Р† РЎРѓР В»РЎС“РЎвЂЎР В°Р Вµ Р Р…Р ВµР Т‘Р С•РЎРѓРЎвЂљРЎС“Р С—Р Р…Р С•РЎРѓРЎвЂљР С‘ - РЎв‚¬Р В°Р В±Р В»Р С•Р Р…РЎвЂ№ Р В±РЎС“Р Т‘РЎС“РЎвЂљ Р Р†Р В·РЎРЏРЎвЂљРЎвЂ№ Р С‘Р В· РЎРѓР С•Р В±РЎРѓРЎвЂљР Р†Р ВµР Р…Р Р…Р С•Р С–Р С• Р С”Р В°РЎвЂљР В°Р В»Р С•Р С–Р В° Р С—Р В»Р В°Р С–Р С‘Р Р…Р В°<br /><b>Р СџР В»Р В°Р С–Р С‘Р Р…</b> - РЎв‚¬Р В°Р В±Р В»Р С•Р Р…РЎвЂ№ Р В±РЎС“Р Т‘РЎС“РЎвЂљ Р В±РЎР‚Р В°РЎвЂљРЎРЉРЎРѓРЎРЏ Р С‘Р В· РЎРѓР С•Р В±РЎРѓРЎвЂљР Р†Р ВµР Р…Р Р…Р С•Р С–Р С• Р С”Р В°РЎвЂљР В°Р В»Р С•Р С–Р В° Р С—Р В»Р В°Р С–Р С‘Р Р…Р В°</small>', 'type' => 'select', 'values' => array ( '0' => 'Р РЃР В°Р В±Р В»Р С•Р Р… РЎРѓР В°Р в„–РЎвЂљР В°', '1' => 'Р СџР В»Р В°Р С–Р С‘Р Р…'), 'value' => intval(pluginGetVariable($plugin,'localsource'))));
-array_push($cfg,  array('mode' => 'group', 'title' => '<b>Р СњР В°РЎРѓРЎвЂљРЎР‚Р С•Р в„–Р С”Р С‘ Р С•РЎвЂљР С•Р В±РЎР‚Р В°Р В¶Р ВµР Р…Р С‘РЎРЏ</b>', 'entries' => $cfgX));
+	array_push($cfgX, array('name' => 'localsource', 'title' => 'Р’С‹Р±РµСЂРёС‚Рµ РєР°С‚Р°Р»РѕРі РёР· РєРѕС‚РѕСЂРѕРіРѕ РїР»Р°РіРёРЅ Р±СѓРґРµС‚ Р±СЂР°С‚СЊ С€Р°Р±Р»РѕРЅС‹ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ<br /><small><b>РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°</b> - РїР»Р°РіРёРЅ Р±СѓРґРµС‚ РїС‹С‚Р°С‚СЊСЃСЏ РІР·СЏС‚СЊ С€Р°Р±Р»РѕРЅС‹ РёР· РѕР±С‰РµРіРѕ С€Р°Р±Р»РѕРЅР° СЃР°Р№С‚Р°; РІ СЃР»СѓС‡Р°Рµ РЅРµРґРѕСЃС‚СѓРїРЅРѕСЃС‚Рё - С€Р°Р±Р»РѕРЅС‹ Р±СѓРґСѓС‚ РІР·СЏС‚С‹ РёР· СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР° РїР»Р°РіРёРЅР°<br /><b>РџР»Р°РіРёРЅ</b> - С€Р°Р±Р»РѕРЅС‹ Р±СѓРґСѓС‚ Р±СЂР°С‚СЊСЃСЏ РёР· СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ РєР°С‚Р°Р»РѕРіР° РїР»Р°РіРёРЅР°</small>', 'type' => 'select', 'values' => array ( '0' => 'РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°', '1' => 'РџР»Р°РіРёРЅ'), 'value' => intval(pluginGetVariable($plugin,'localsource'))));
+array_push($cfg,  array('mode' => 'group', 'title' => '<b>РќР°СЃС‚СЂРѕР№РєРё РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ</b>', 'entries' => $cfgX));
 
 $cfgX = array();
-	array_push($cfgX, array('name' => 'clear_qrcode', 'title' => 'Р Р€Р Т‘Р В°Р В»Р С‘РЎвЂљРЎРЉ Р Р…Р ВµР С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР С�РЎвЂ№Р Вµ Р С”РЎРЊРЎв‚¬ Р С‘ QRcode', 'type' => 'select', 'value' => 0, 'values' => array ( 0 => $lang['noa'], 1 => $lang['yesa']), 'nosave' => 1));
-array_push($cfg,  array('mode' => 'group', 'title' => '<b>Р С›РЎвЂЎР С‘РЎРѓРЎвЂљР С”Р В° РЎРѓР С‘РЎРѓРЎвЂљР ВµР С�РЎвЂ№</b>', 'entries' => $cfgX));
+	array_push($cfgX, array('name' => 'clear_qrcode', 'title' => 'РЈРґР°Р»РёС‚СЊ РЅРµРёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ РєСЌС€ Рё QRcode', 'type' => 'select', 'value' => 0, 'values' => array ( 0 => $lang['noa'], 1 => $lang['yesa']), 'nosave' => 1));
+array_push($cfg,  array('mode' => 'group', 'title' => '<b>РћС‡РёСЃС‚РєР° СЃРёСЃС‚РµРјС‹</b>', 'entries' => $cfgX));
 
 // RUN 
 if ($_REQUEST['action'] == 'commit') {
@@ -61,6 +61,6 @@ function clear_qrcode() {
 			}
 		}
 	}
-	msg(array('type' => 'info', 'info' => 'Р СњР ВµР С‘РЎРѓР С—Р С•Р В»РЎРЉР В·РЎС“Р ВµР С�РЎвЂ№Р Вµ QRcode РЎС“Р Т‘Р В°Р В»Р ВµР Р…РЎвЂ№'));
-	msg(array('type' => 'info', 'info' => 'Р С™РЎРЊРЎв‚¬ Р С•РЎвЂЎР С‘РЎвЂ°Р ВµР Р…'));
+	msg(array('type' => 'info', 'info' => 'РќРµРёСЃРїРѕР»СЊР·СѓРµРјС‹Рµ QRcode СѓРґР°Р»РµРЅС‹'));
+	msg(array('type' => 'info', 'info' => 'РљСЌС€ РѕС‡РёС‰РµРЅ'));
 }

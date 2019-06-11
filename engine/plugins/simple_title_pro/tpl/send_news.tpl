@@ -2,8 +2,8 @@
 <form method="post" action="">
 	<table border="0" width="100%" cellspacing="0" cellpadding="0">
 		<tr>
-			<td width="50%" class="contentEntry1">Р вЂ”Р В°Р С–Р С•Р В»Р С•Р Р†Р С•Р С” Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР С‘<br/>
-				<small>Р СћР ВµР С”РЎРѓРЎвЂљ Р С—Р С•Р В»РЎРЏ &lt;title&gt;&lt;/title&gt; Р Р† Р С—Р С•Р В»Р Р…Р С•Р в„– Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР С‘ (РЎР‚Р В°Р В·РЎР‚Р ВµРЎв‚¬Р ВµР Р…Р С• %cat%, %title%, %home%,
+			<td width="50%" class="contentEntry1">Р—Р°РіРѕР»РѕРІРѕРє РЅРѕРІРѕСЃС‚Рё<br/>
+				<small>РўРµРєСЃС‚ РїРѕР»СЏ &lt;title&gt;&lt;/title&gt; РІ РїРѕР»РЅРѕР№ РЅРѕРІРѕСЃС‚Рё (СЂР°Р·СЂРµС€РµРЅРѕ %cat%, %title%, %home%,
 					%num%)
 				</small>
 			</td>
@@ -18,7 +18,7 @@
 		</tr>
 		<tr>
 			<td width="100%" colspan="2" class="contentEdit" align="center">
-				<input type="submit" name="submit" value="Р вЂќР С•Р В±Р В°Р Р†Р С‘РЎвЂљРЎРЉ" class="button"/>
+				<input type="submit" name="submit" value="Р”РѕР±Р°РІРёС‚СЊ" class="button"/>
 			</td>
 		</tr>
 	</table>

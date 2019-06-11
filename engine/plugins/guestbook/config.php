@@ -269,7 +269,7 @@ function show_options() {
 								'matchRegex' => '\\d{1,4}',
 								'descr'      =>
 									array(
-										'russian' => 'Р РЋРЎвЂљРЎР‚Р В°Р Р…Р С‘РЎвЂ Р В°',
+										'russian' => 'РЎС‚СЂР°РЅРёС†Р°',
 									),
 							),
 						'act'  =>
@@ -281,7 +281,7 @@ function show_options() {
 									),
 							),
 					),
-					'descr' => array('russian' => 'Р вЂњР С•РЎРѓРЎвЂљР ВµР Р†Р В°РЎРЏ Р С”Р Р…Р С‘Р С–Р В°'),
+					'descr' => array('russian' => 'Р“РѕСЃС‚РµРІР°СЏ РєРЅРёРіР°'),
 				)
 			);
 			$ULIB->registerCommand('guestbook', 'edit',
@@ -292,11 +292,11 @@ function show_options() {
 								'matchRegex' => '\\d+',
 								'descr'      =>
 									array(
-										'russian' => 'ID Р В·Р В°Р С—Р С‘РЎРѓР С‘',
+										'russian' => 'ID Р·Р°РїРёСЃРё',
 									),
 							),
 					),
-					'descr' => array('russian' => 'Р В Р ВµР Т‘Р В°Р С”РЎвЂљР С‘РЎР‚Р С•Р Р†Р В°Р Р…Р С‘Р Вµ'),
+					'descr' => array('russian' => 'Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ'),
 				)
 			);
 			$ULIB->saveConfig();
@@ -517,7 +517,7 @@ function edit_message($mid) {
 			$tFields[] = $tField;
 		}
 	} else {
-		msg(array("type" => "error", "text" => "Р СњР Вµ Р С—Р ВµРЎР‚Р ВµР Т‘Р В°Р Р… id"));
+		msg(array("type" => "error", "text" => "РќРµ РїРµСЂРµРґР°РЅ id"));
 	}
 	$xt = $twig->loadTemplate($tpath['config/messages_edit'] . 'config/messages_edit.tpl');
 	$tVars = array(

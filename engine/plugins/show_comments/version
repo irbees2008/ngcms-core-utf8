@@ -7,6 +7,6 @@ Name: Show Comments
 Version: 0.5
 Config: config.php
 Type: maintanance
-Description: РџР»Р°РіРёРЅ РІС‹РІРѕРґРёС‚ СЃРїРёСЃРѕРє РІСЃРµС… РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РЅР° СЃР°Р№С‚Рµ
+Description: Плагин выводит список всех комментариев на сайте
 Author: Rostunov Sergey
 Author_URI: http://rostunov.com/

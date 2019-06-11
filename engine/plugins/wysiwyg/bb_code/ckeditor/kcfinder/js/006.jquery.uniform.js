@@ -1,7 +1,7 @@
 /*
 
 Uniform v2.1.2
-Copyright Р’В© 2009 Josh Pyles / Pixelmatrix Design LLC
+Copyright В© 2009 Josh Pyles / Pixelmatrix Design LLC
 http://pixelmatrixdesign.com
 
 Requires jQuery 1.3 or newer

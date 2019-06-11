@@ -77,33 +77,33 @@
 	<input type="hidden" name="token" value="{{ token }}"/>
 	<input type="hidden" name="mod" value="news"/>
 	<input type="hidden" name="approve" id="approve" value="0"/>
-	<div class="block-title">Р вЂќР С•Р В±Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР С‘:</div>
+	<div class="block-title">Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕСЃС‚Рё:</div>
 	<table class="table table-striped table-bordered">
 		<tr>
-			<th colspan="2"><a role="button" href="{{ listURL }}">Р СџР ВµРЎР‚Р ВµР в„–РЎвЂљР С‘ Р С” РЎРѓР С—Р С‘РЎРѓР С”РЎС“ Р Р†Р В°РЎв‚¬Р С‘РЎвЂ¦ Р Р…Р С•Р Р†Р С•РЎРѓРЎвЂљР ВµР в„–</a></th>
+			<th colspan="2"><a role="button" href="{{ listURL }}">РџРµСЂРµР№С‚Рё Рє СЃРїРёСЃРєСѓ РІР°С€РёС… РЅРѕРІРѕСЃС‚РµР№</a></th>
 		</tr>
 		<tr>
-			<td>Р вЂ”Р В°Р С–Р С•Р В»Р С•Р Р†Р С•Р С”:</td>
+			<td>Р—Р°РіРѕР»РѕРІРѕРє:</td>
 			<td><input type="text" name="title" class="input" value=""/></td>
 		</tr>
 		<tr>
-			<td>Р С’Р В»РЎРЉРЎвЂљ. Р С‘Р С�РЎРЏ:</td>
+			<td>РђР»СЊС‚. РёРјСЏ:</td>
 			<td><input type="text" name="alt_name" class="input" value=""/></td>
 		</tr>
 		<tr>
-			<td>Р С™Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘РЎРЏ:</td>
+			<td>РљР°С‚РµРіРѕСЂРёСЏ:</td>
 			<td>{{ mastercat }}</td>
 		</tr>
 		{% if flags['multicat.show'] %}
 			<tr>
-				<td>Р вЂќР С•Р С—Р С•Р В»Р Р…Р С‘РЎвЂљР ВµР В»РЎРЉР Р…РЎвЂ№Р Вµ Р С”Р В°РЎвЂљР ВµР С–Р С•РЎР‚Р С‘Р С‘:</td>
+				<td>Р”РѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹Рµ РєР°С‚РµРіРѕСЂРёРё:</td>
 				<td>{{ extcat }}</td>
 			</tr>
 		{% endif %}
 		{% if (flags.edit_split) %}
 			<tr>
 				<td colspan="2">
-					<b>Р вЂ™Р Р†Р С•Р Т‘Р Р…Р В°РЎРЏ РЎвЂЎР В°РЎРѓРЎвЂљРЎРЉ Р С�Р В°РЎвЂљР ВµРЎР‚Р С‘Р В°Р В»Р В°:</b> (Р С›Р В±РЎРЏР В·Р В°РЎвЂљР ВµР В»РЎРЉР Р…Р С•!)
+					<b>Р’РІРѕРґРЅР°СЏ С‡Р°СЃС‚СЊ РјР°С‚РµСЂРёР°Р»Р°:</b> (РћР±СЏР·Р°С‚РµР»СЊРЅРѕ!)
 					<div>
 						<div>{{ quicktags }}<br/> {{ smilies }}<br/><br/></div>
 						<textarea onclick="changeActive('short');" onfocus="changeActive('short');" name="ng_news_content_short" id="ng_news_content_short" style="width:98%; height: 200px;" class="textarea"></textarea>
@@ -112,13 +112,13 @@
 			</tr>
 			{% if (flags.extended_more) %}
 				<tr>
-					<td>Р В Р В°Р В·Р Т‘Р ВµР В»Р С‘РЎвЂљР ВµР В»РЎРЉ:</td>
+					<td>Р Р°Р·РґРµР»РёС‚РµР»СЊ:</td>
 					<td><input tabindex="2" type="text" name="content_delimiter" class="input" value=""/></td>
 				</tr>
 			{% endif %}
 			<tr>
 				<td colspan="2">
-					<b>Р СљР В°РЎвЂљР ВµРЎР‚Р С‘Р В°Р В» Р С—Р С•Р В»Р Р…Р С•РЎРѓРЎвЂљРЎРЉРЎР‹:</b> (Р СњР ВµР С•Р В±РЎРЏР В·Р В°РЎвЂљР ВµР В»РЎРЉР Р…Р С•)
+					<b>РњР°С‚РµСЂРёР°Р» РїРѕР»РЅРѕСЃС‚СЊСЋ:</b> (РќРµРѕР±СЏР·Р°С‚РµР»СЊРЅРѕ)
 					<div>
 						<div>{{ quicktags }}<br/> {{ smilies }}<br/><br/></div>
 						<textarea onclick="changeActive('full');" onfocus="changeActive('full');" name="ng_news_content_full" id="ng_news_content_full" style="width:98%; height: 200px;" class="textarea"></textarea>
@@ -178,11 +178,11 @@
 	<div class="label pull-right">
 		<label class="default">&nbsp;</label>
 		{% if flags['can_publish'] %}
-			<input class="button" type="submit" onclick="return approveMode(1);" value="Р вЂќР С•Р В±Р В°Р Р†Р С‘РЎвЂљРЎРЉ Р С�Р В°РЎвЂљР ВµРЎР‚Р С‘Р В°Р В»"/>
+			<input class="button" type="submit" onclick="return approveMode(1);" value="Р”РѕР±Р°РІРёС‚СЊ РјР°С‚РµСЂРёР°Р»"/>
 		{% else %} &nbsp; {% endif %}
-		<input class="button" type="submit" onclick="return approveMode(0);" value="Р С›РЎвЂљР С—РЎР‚Р В°Р Р†Р С‘РЎвЂљРЎРЉ Р Р…Р В° Р С�Р С•Р Т‘Р ВµРЎР‚Р В°РЎвЂ Р С‘РЎР‹"/>
-		<input class="button" type="submit" onclick="return approveMode(-1);" value="Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…Р С‘РЎвЂљРЎРЉ РЎвЂЎР ВµРЎР‚Р Р…Р С•Р Р†Р С‘Р С”"/>
-		<input class="button" type="button" onclick="return preview();" value="Р СџРЎР‚Р С•РЎРѓР С�Р С•РЎвЂљРЎР‚"/>
+		<input class="button" type="submit" onclick="return approveMode(0);" value="РћС‚РїСЂР°РІРёС‚СЊ РЅР° РјРѕРґРµСЂР°С†РёСЋ"/>
+		<input class="button" type="submit" onclick="return approveMode(-1);" value="РЎРѕС…СЂР°РЅРёС‚СЊ С‡РµСЂРЅРѕРІРёРє"/>
+		<input class="button" type="button" onclick="return preview();" value="РџСЂРѕСЃРјРѕС‚СЂ"/>
 	</div>
 </form>
 

@@ -11,6 +11,6 @@ return [
 
     // Skip files
     'except' => [
-        '.htaccess', 'robots.txt', 'engine/upgrade_090-092.php', // Р С‘ РЎвЂљР В°Р С” Р Т‘Р В°Р В»Р ВµР Вµ
+        '.htaccess', 'robots.txt', 'engine/upgrade_090-092.php', // Рё С‚Р°Рє РґР°Р»РµРµ
     ],
 ];

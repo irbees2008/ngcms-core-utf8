@@ -1,6 +1,6 @@
 if (typeof (WBBLANG)=="undefined") {WBBLANG = {};}
 WBBLANG['de'] = {
-	// Р“В¤=\u00e4 - Р“В¶=\u00f6 - Р“С�=\u00fc - Р“Сџ=\u00df
+	// Г¤=\u00e4 - Г¶=\u00f6 - Гј=\u00fc - Гџ=\u00df
 	bold: "Fett",
 	italic: "Kursiv",
 	underline: "Unterstrichen",

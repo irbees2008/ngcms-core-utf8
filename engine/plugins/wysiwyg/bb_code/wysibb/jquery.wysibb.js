@@ -15,12 +15,12 @@ WBBLANG['en'] = CURLANG = {
 	justifycenter: "Align center",
 	justifyright: "Align right",
 	table: "Insert table",
-	bullist: "РІР‚Сћ Unordered list",
+	bullist: "вЂў Unordered list",
 	numlist: "1. Ordered list",
 	quote: "Quote",
 	offtop: "Offtop",
 	code: "Code",
-	more: "Р В Р В°Р В·Р Т‘Р ВµР В»Р С‘РЎвЂљР ВµР В»РЎРЉ Р С”РЎР‚Р В°РЎвЂљР С”Р С•Р С–Р С• Р С‘ Р С—Р С•Р В»Р Р…Р С•Р С–Р С• РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р В°Р Р…Р С‘РЎРЏ",
+	more: "Р Р°Р·РґРµР»РёС‚РµР»СЊ РєСЂР°С‚РєРѕРіРѕ Рё РїРѕР»РЅРѕРіРѕ СЃРѕРґРµСЂР¶Р°РЅРёСЏ",
 	spoiler: "Spoiler",
 	fontcolor: "Font color",
 	fontsize: "Font size",
@@ -1249,7 +1249,7 @@ wbbdebug=true;
 			if (this.$modal.size()==0) {
 				$.log("Init modal");
 				this.$modal = $('<div>').attr("id","wbbmodal").prependTo(document.body)
-					.html('<div class="wbbm"><div class="wbbm-title"><span class="wbbm-title-text"></span><span class="wbbclose" title="'+CURLANG.close+'">Р“вЂ”</span></div><div class="wbbm-content"></div><div class="wbbm-bottom"><button id="wbbm-submit" class="wbb-button">'+CURLANG.save+'</button><button id="wbbm-cancel" class="wbb-cancel-button">'+CURLANG.cancel+'</button><button id="wbbm-remove" class="wbb-remove-button">'+CURLANG.remove+'</button></div></div>').hide();
+					.html('<div class="wbbm"><div class="wbbm-title"><span class="wbbm-title-text"></span><span class="wbbclose" title="'+CURLANG.close+'">Г—</span></div><div class="wbbm-content"></div><div class="wbbm-bottom"><button id="wbbm-submit" class="wbb-button">'+CURLANG.save+'</button><button id="wbbm-cancel" class="wbb-cancel-button">'+CURLANG.cancel+'</button><button id="wbbm-remove" class="wbb-remove-button">'+CURLANG.remove+'</button></div></div>').hide();
 				
 				this.$modal.find('#wbbm-cancel,.wbbclose').click($.proxy(this.closeModal,this));
 				this.$modal.bind('click',$.proxy(function(e) {

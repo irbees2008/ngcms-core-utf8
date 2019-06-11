@@ -35,7 +35,7 @@ function plugin_subscribe_comments_install($action) {
 	);
 	switch ($action) {
 		case 'confirm':
-			generate_install_page('subscribe_comments', 'Р вЂ™РЎРѓРЎвЂ� Р С–Р С•РЎвЂљР С•Р Р†Р С• Р С” РЎС“РЎРѓРЎвЂљР В°Р Р…Р С•Р Р†Р С”Р Вµ.');
+			generate_install_page('subscribe_comments', 'Р’СЃС‘ РіРѕС‚РѕРІРѕ Рє СѓСЃС‚Р°РЅРѕРІРєРµ.');
 			break;
 		case 'apply':
 			if ($install) {

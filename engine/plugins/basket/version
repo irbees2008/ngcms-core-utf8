@@ -12,9 +12,9 @@ Config: config.php
 Install: install.php
 Deinstall: deinstall.php
 Type: plugin
-Description: РљРѕСЂР·РёРЅР° Р·Р°РєР°Р·Р°
+Description: Корзина заказа
 Author: Vitaly A. Ponomarev
 Author_URI: http://ngcms.ru
-Title: РљРѕСЂР·РёРЅР° Р·Р°РєР°Р·Р°
-Information: РџРѕР·РІРѕР»СЏРµС‚ РѕС‚РєР»Р°РґС‹РІР°С‚СЊ С‚РѕРІР°СЂС‹ РІ РєРѕСЂР·РёРЅСѓ
+Title: Корзина заказа
+Information: Позволяет откладывать товары в корзину
 Preinstall: no

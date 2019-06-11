@@ -18,7 +18,7 @@ function tagsSuggest($params) {
 	$searchTag = iconv('UTF-8', 'Windows-1251', $params);
 	$output = array();
 	foreach ($mysql->select("select * from " . prefix . "_tags where tag like " . db_squote($searchTag . '%') . " order by posts desc limit 20") as $row) {
-		$output[] = array(iconv('Windows-1251', 'UTF-8', $row['tag']), iconv('Windows-1251', 'UTF-8', $row['posts'] . ' Р С—Р С•РЎРѓРЎвЂљР С•Р Р†'));
+		$output[] = array(iconv('Windows-1251', 'UTF-8', $row['tag']), iconv('Windows-1251', 'UTF-8', $row['posts'] . ' РїРѕСЃС‚РѕРІ'));
 	}
 
 	return array('status' => 1, 'errorCode' => 0, 'data' => array($params, $output));

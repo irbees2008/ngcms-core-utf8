@@ -9,9 +9,9 @@ Acts: index, ppages
 File: rss_import.php
 Config: config.php
 Type: plugin
-Description: Р�РјРїРѕСЂС‚ РЅРѕРІРѕСЃС‚РµР№ С‡РµСЂРµР· RSS
+Description: Импорт новостей через RSS
 Author:  Dzmitry Khadorkin
 Title: RSS news importer
-Information: Р�РјРїРѕСЂС‚ РЅРѕРІРѕСЃС‚РµР№ С‡РµСЂРµР· RSS
+Information: Импорт новостей через RSS
 Preinstall: default_no
 Preinstall_vars: cache="1"; cacheExpire="3600";

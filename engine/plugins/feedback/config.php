@@ -49,19 +49,19 @@ function saveForm() {
 	$id = intval($_REQUEST['id']);
 	// First - try to fetch form
 	if (!is_array($recF = $mysql->record("select * from " . prefix . "_feedback where id = " . $id))) {
-		msg(array('type' => 'error', 'text' => 'Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р В°РЎРЏ Р Р†Р В°Р С�Р С‘ РЎвЂћР С•РЎР‚Р С�Р В° Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ'));
+		msg(array('type' => 'error', 'text' => 'РЈРєР°Р·Р°РЅРЅР°СЏ РІР°РјРё С„РѕСЂРјР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚'));
 		showForm(1);
 
 		return;
 	}
-	// Р вЂњР С•РЎвЂљР С•Р Р†Р С‘Р С� РЎРѓР С—Р С‘РЎРѓР С•Р С” email Р В°Р Т‘РЎР‚Р ВµРЎРѓР С•Р Р† Р С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљР ВµР В»Р ВµР в„–
+	// Р“РѕС‚РѕРІРёРј СЃРїРёСЃРѕРє email Р°РґСЂРµСЃРѕРІ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
 	$emails = '';
 	if (is_array($_POST['elist'])) {
 		$elist = $_POST['elist'];
 		$eok = array();
 		$num = 1;
 		foreach ($elist as $erec) {
-			// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р Р…Р В°Р В»Р С‘РЎвЂЎР С‘Р Вµ email'Р С•Р Р† Р Р† РЎРѓР С—Р С‘РЎРѓР С”Р Вµ
+			// РџСЂРѕРІРµСЂСЏРµРј РЅР°Р»РёС‡РёРµ email'РѕРІ РІ СЃРїРёСЃРєРµ
 			$mlist = preg_split('# *(\,) *#', trim($erec[2], -1));
 			if (count($mlist) && strlen($mlist[0])) {
 				$eok[$num] = array($num, trim($erec[1]), $mlist);
@@ -71,21 +71,21 @@ function saveForm() {
 		$emails = serialize($eok);
 	}
 	$name = trim($_REQUEST['name']);
-	// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р Р†Р Р†Р С•Р Т‘ Р Р…Р В°Р С‘Р С�Р ВµР Р…Р С•Р Р†Р В°Р Р…Р С‘РЎРЏ
+	// РџСЂРѕРІРµСЂСЏРµРј РІРІРѕРґ РЅР°РёРјРµРЅРѕРІР°РЅРёСЏ
 	if ($name == '') {
-		msg(array('type' => 'error', 'text' => 'Р СњР ВµР С•Р В±РЎвЂ¦Р С•Р Т‘Р С‘Р С�Р С• Р В·Р В°Р С—Р С•Р В»Р Р…Р С‘РЎвЂљРЎРЉ ID РЎвЂћР С•РЎР‚Р С�РЎвЂ№'));
+		msg(array('type' => 'error', 'text' => 'РќРµРѕР±С…РѕРґРёРјРѕ Р·Р°РїРѕР»РЅРёС‚СЊ ID С„РѕСЂРјС‹'));
 		showForm(1);
 
 		return;
 	}
-	// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚РЎРЏР ВµР С� Р Т‘РЎС“Р В±Р В»РЎРЏР В¶
+	// РџСЂРѕРІРµСЂСЏРµРј РґСѓР±Р»СЏР¶
 	if (is_array($mysql->record("select * from " . prefix . "_feedback where id <> " . $id . " and name =" . db_squote($name)))) {
-		msg(array('type' => 'error', 'text' => 'Р В¤Р С•РЎР‚Р С�Р В° РЎРѓ РЎвЂљР В°Р С”Р С‘Р С� ID РЎС“Р В¶Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ. Р СњР ВµР В»РЎРЉР В·РЎРЏ Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљРЎРЉ Р С•Р Т‘Р С‘Р Р…Р В°Р С”Р С•Р Р†РЎвЂ№Р в„– ID Р Т‘Р В»РЎРЏ РЎР‚Р В°Р В·Р Р…РЎвЂ№РЎвЂ¦ РЎвЂћР С•РЎР‚Р С�'));
+		msg(array('type' => 'error', 'text' => 'Р¤РѕСЂРјР° СЃ С‚Р°РєРёРј ID СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚. РќРµР»СЊР·СЏ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РѕРґРёРЅР°РєРѕРІС‹Р№ ID РґР»СЏ СЂР°Р·РЅС‹С… С„РѕСЂРј'));
 		showForm(1);
 
 		return;
 	}
-	// Р РЋР С•РЎвЂ¦РЎР‚Р В°Р Р…РЎРЏР ВµР С� Р С‘Р В·Р С�Р ВµР Р…Р ВµР Р…Р С‘РЎРЏ
+	// РЎРѕС…СЂР°РЅСЏРµРј РёР·РјРµРЅРµРЅРёСЏ
 	$flags = ($_REQUEST['jcheck'] ? '1' : '0') .
 		($_REQUEST['captcha'] ? '1' : '0') .
 		($_REQUEST['html'] ? '1' : '0') .
@@ -144,7 +144,7 @@ function showForm($edMode) {
 	$id = intval($_REQUEST['id']);
 	$tvars = array();
 	if (!is_array($frow = $mysql->record("select * from " . prefix . "_feedback where id = " . $id))) {
-		$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р В°РЎРЏ РЎвЂћР С•РЎР‚Р С�Р В° [" . $id . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+		$tVars['content'] = "РЈРєР°Р·Р°РЅРЅР°СЏ С„РѕСЂРјР° [" . $id . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 		$xt = $twig->loadTemplate('plugins/feedback/tpl/conf.notify.tpl');
 		echo $xt->render($tVars);
 
@@ -166,7 +166,7 @@ function showForm($edMode) {
 		);
 		$tEntries[] = $tEntry;
 	}
-	// Р вЂњР С•РЎвЂљР С•Р Р†Р С‘Р С� РЎРѓР С—Р С‘РЎРѓР С•Р С” email'Р С•Р Р†
+	// Р“РѕС‚РѕРІРёРј СЃРїРёСЃРѕРє email'РѕРІ
 	$tEGroups = array();
 	if (($elist = unserialize($frow['emails'])) === false) {
 		$elist[1] = array(1, '', preg_split("# *(\r\n|\n) *#", $frow['emails']));
@@ -203,12 +203,12 @@ function showForm($edMode) {
 		'haveForm' => 1,
 	);
 	// Generate list of templates
-	$lf = array('' => '<Р В°Р Р†РЎвЂљР С•Р С�Р В°РЎвЂљР С‘РЎвЂЎР ВµРЎРѓР С”Р С‘>');
+	$lf = array('' => '<Р°РІС‚РѕРјР°С‚РёС‡РµСЃРєРё>');
 	foreach (feedback_listTemplates() as $k) {
 		if (substr($k, 0, 1) == ':') {
-			$lf[$k] = 'РЎРѓР В°Р в„–РЎвЂљ: ' . $k;
+			$lf[$k] = 'СЃР°Р№С‚: ' . $k;
 		} else {
-			$lf[$k] = 'Р С—Р В»Р В°Р С–Р С‘Р Р…: ' . $k;
+			$lf[$k] = 'РїР»Р°РіРёРЅ: ' . $k;
 		}
 	}
 	$lout = '';
@@ -233,7 +233,7 @@ function showFormRow() {
 	do {
 		// Check if form exists
 		if (!is_array($frow = $mysql->record("select * from " . prefix . "_feedback where id = " . $id))) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р В°РЎРЏ РЎвЂћР С•РЎР‚Р С�Р В° [" . $id . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅР°СЏ С„РѕСЂРјР° [" . $id . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
 		$tVars['flags']['haveForm'] = 1;
@@ -244,7 +244,7 @@ function showFormRow() {
 		if (!is_array($fData)) $fData = array();
 		// Check if form's row exists
 		if ($fRowId && !isset($fData[$fRowId])) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р С•Р Вµ Р С—Р С•Р В»Р Вµ [" . $id . "][" . $fRowId . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅРѕРµ РїРѕР»Рµ [" . $id . "][" . $fRowId . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
 		$editMode = ($fRowId) ? 1 : 0;
@@ -282,12 +282,12 @@ function showFormRow() {
 		$tVars['field']['block']['options'] = array(0, 1, 2);
 		$tVars['field']['email_send']['options'] = array(0, 1);
 		// prepare email send template list
-		$lf = array('' => '<Р Р…Р Вµ Р С•РЎвЂљР С—РЎР‚Р В°Р Р†Р В»РЎРЏРЎвЂљРЎРЉ>');
+		$lf = array('' => '<РЅРµ РѕС‚РїСЂР°РІР»СЏС‚СЊ>');
 		foreach (feedback_listTemplates() as $k) {
 			if (substr($k, 0, 1) == ':') {
-				$lf[$k] = 'РЎРѓР В°Р в„–РЎвЂљ: ' . $k;
+				$lf[$k] = 'СЃР°Р№С‚: ' . $k;
 			} else {
-				$lf[$k] = 'Р С—Р В»Р В°Р С–Р С‘Р Р…: ' . $k;
+				$lf[$k] = 'РїР»Р°РіРёРЅ: ' . $k;
 			}
 		}
 		$tVars['field']['email_template']['options'] = $lf;
@@ -310,12 +310,12 @@ function editFormRow() {
 	do {
 		// Check if form exists
 		if (!is_array($frow = $mysql->record("select * from " . prefix . "_feedback where id = " . $id))) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р В°РЎРЏ РЎвЂћР С•РЎР‚Р С�Р В° [" . $id . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅР°СЏ С„РѕСЂРјР° [" . $id . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
 		// Check if row id is not valid
 		if (is_numeric(substr($fRowId, 0, 1)) || (!preg_match("/^[a-zA-Z\d]+$/", $fRowId)) || (strlen($fRowId) < 3)) {
-			$tVars['content'] = "Р СњР ВµР С•Р В±РЎвЂ¦Р С•Р Т‘Р С‘Р С�Р С• РЎРѓР С•Р В±Р В»РЎР‹Р Т‘Р В°РЎвЂљРЎРЉ Р С—РЎР‚Р В°Р Р†Р С‘Р В»Р В° РЎвЂћР С•РЎР‚Р С�Р С‘РЎР‚Р С•Р Р†Р В°Р Р…Р С‘РЎРЏ ID!";
+			$tVars['content'] = "РќРµРѕР±С…РѕРґРёРјРѕ СЃРѕР±Р»СЋРґР°С‚СЊ РїСЂР°РІРёР»Р° С„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ ID!";
 			break;
 		}
 		$tVars['flags']['haveForm'] = 1;
@@ -326,17 +326,17 @@ function editFormRow() {
 		if (!is_array($fData)) $fData = array();
 		// Check if form's row exists
 		if ($editMode && !isset($fData[$fRowId])) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р С•Р Вµ Р С—Р С•Р В»Р Вµ [" . $id . "][" . $fRowId . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅРѕРµ РїРѕР»Рµ [" . $id . "][" . $fRowId . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
 		// For "add" mode - check if field already exists
 		if (!$editMode && isset($fData[$fRowId])) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р С•Р Вµ Р С—Р С•Р В»Р Вµ [" . $id . "][" . $fRowId . "] РЎС“Р В¶Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅРѕРµ РїРѕР»Рµ [" . $id . "][" . $fRowId . "] СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
-		// Р СџРЎР‚Р С•Р Р†Р ВµРЎР‚Р С”Р В° Р С”Р С•РЎР‚РЎР‚Р ВµР С”РЎвЂљР Р…Р С•РЎРѓРЎвЂљР С‘ РЎРѓР С‘Р С�Р Р†Р С•Р В»Р С•Р Р† Р Р† Р С‘Р С�Р ВµР Р…Р С‘ [ РЎвЂљР С•Р В»РЎРЉР С”Р С• Р В»Р В°РЎвЂљР Р…Р С‘РЎвЂ Р В° Р С‘ РЎвЂ Р С‘РЎвЂћРЎР‚РЎвЂ№ ]
+		// РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё СЃРёРјРІРѕР»РѕРІ РІ РёРјРµРЅРё [ С‚РѕР»СЊРєРѕ Р»Р°С‚РЅРёС†Р° Рё С†РёС„СЂС‹ ]
 		if (!$editMode && !preg_match('#^[a-zA-Z0-9\.]+$#', $fRowId)) {
-			$tVars['content'] = "Р пїЅР С�РЎРЏ Р С—Р С•Р В»РЎРЏ РЎРѓР С•Р Т‘Р ВµРЎР‚Р В¶Р С‘РЎвЂљ Р В·Р В°Р С—РЎР‚Р ВµРЎвЂ°Р ВµР Р…Р Р…РЎвЂ№Р Вµ РЎРѓР С‘Р С�Р Р†Р С•Р В»РЎвЂ№. Р В Р В°Р В·РЎР‚Р ВµРЎв‚¬Р ВµР Р…Р С• Р С‘РЎРѓР С—Р С•Р В»РЎРЉР В·Р С•Р Р†Р В°РЎвЂљРЎРЉ РЎвЂљР С•Р В»РЎРЉР С”Р С• РЎРѓР С‘Р С�Р Р†Р С•Р В»РЎвЂ№ Р В»Р В°РЎвЂљР С‘Р Р…РЎРѓР С”Р С•Р С–Р С• Р В°Р В»РЎвЂћР В°Р Р†Р С‘РЎвЂљР В° Р С‘ РЎвЂ Р С‘РЎвЂћРЎР‚РЎвЂ№!";
+			$tVars['content'] = "Р�РјСЏ РїРѕР»СЏ СЃРѕРґРµСЂР¶РёС‚ Р·Р°РїСЂРµС‰РµРЅРЅС‹Рµ СЃРёРјРІРѕР»С‹. Р Р°Р·СЂРµС€РµРЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ СЃРёРјРІРѕР»С‹ Р»Р°С‚РёРЅСЃРєРѕРіРѕ Р°Р»С„Р°РІРёС‚Р° Рё С†РёС„СЂС‹!";
 			break;
 		}
 		$tVars['flags']['haveField'] = 1;
@@ -386,7 +386,7 @@ function editFormRow() {
 				}
 				break;
 			default:
-				$tVars['content'] = "Р СњР ВµР С—Р С•Р Т‘Р Т‘Р ВµРЎР‚Р В¶Р С‘Р Р†Р В°Р ВµР С�РЎвЂ№Р в„– РЎвЂљР С‘Р С— Р С—Р С•Р В»РЎРЏ";
+				$tVars['content'] = "РќРµРїРѕРґРґРµСЂР¶РёРІР°РµРјС‹Р№ С‚РёРї РїРѕР»СЏ";
 				break;
 		}
 		if (!isset($fld['type']))
@@ -394,7 +394,7 @@ function editFormRow() {
 		// Everything is correct. Let's update field data
 		$fData[$fRowId] = $fld;
 		$mysql->query("update " . prefix . "_feedback set struct = " . db_squote(serialize($fData)) . " where id = " . $frow['id']);
-		$tVars['content'] = "Р СџР С•Р В»Р Вµ Р С‘Р В·Р С�Р ВµР Р…Р ВµР Р…Р С•";
+		$tVars['content'] = "РџРѕР»Рµ РёР·РјРµРЅРµРЅРѕ";
 	} while (0);
 	// Show template
 	$xt = $twig->loadTemplate('plugins/feedback/tpl/conf.notify.tpl');
@@ -414,7 +414,7 @@ function doUpdate() {
 	do {
 		// Check if form exists
 		if (!is_array($frow = $mysql->record("select * from " . prefix . "_feedback where id = " . $id))) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р В°РЎРЏ РЎвЂћР С•РЎР‚Р С�Р В° [" . $id . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅР°СЏ С„РѕСЂРјР° [" . $id . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
 		$tVars['flags']['haveForm'] = 1;
@@ -425,7 +425,7 @@ function doUpdate() {
 		if (!is_array($fData)) $fData = array();
 		// Check if form's row exists
 		if (!isset($fData[$fRowId])) {
-			$tVars['content'] = "Р Р€Р С”Р В°Р В·Р В°Р Р…Р Р…Р С•Р Вµ Р С—Р С•Р В»Р Вµ [" . $id . "][" . $fRowId . "] Р Р…Р Вµ РЎРѓРЎС“РЎвЂ°Р ВµРЎРѓРЎвЂљР Р†РЎС“Р ВµРЎвЂљ!";
+			$tVars['content'] = "РЈРєР°Р·Р°РЅРЅРѕРµ РїРѕР»Рµ [" . $id . "][" . $fRowId . "] РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚!";
 			break;
 		}
 		$enabled = 1;

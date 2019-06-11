@@ -86,8 +86,8 @@
 	<tbody>
 	<tr>
 		<td colspan="5" class="contentHead" width="100%">
-			<img src="{{ skins_url }}/images/nav.gif" hspace="8"><a href="?mod=extras" title="Р Р€Р С—РЎР‚Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ Р С—Р В»Р В°Р С–Р С‘Р Р…Р В°Р С�Р С‘">Р Р€Р С—РЎР‚Р В°Р Р†Р В»Р ВµР Р…Р С‘Р Вµ
-				Р С—Р В»Р В°Р С–Р С‘Р Р…Р В°Р С�Р С‘</a> &#8594; <a href="?mod=extra-config&plugin=xfields">xfields</a></td>
+			<img src="{{ skins_url }}/images/nav.gif" hspace="8"><a href="?mod=extras" title="РЈРїСЂР°РІР»РµРЅРёРµ РїР»Р°РіРёРЅР°РјРё">РЈРїСЂР°РІР»РµРЅРёРµ
+				РїР»Р°РіРёРЅР°РјРё</a> &#8594; <a href="?mod=extra-config&plugin=xfields">xfields</a></td>
 	</tr>
 	</tbody>
 </table>
@@ -99,14 +99,14 @@
 			<img src="{{ skins_url }}/images/nav.gif" hspace="8">{{ lang.xfconfig['list'] }}: {{ section_name }}</td>
 	</tr>
 	<tr align="left">
-		<td class="contentHead"><b>ID Р С—Р С•Р В»РЎРЏ</b></td>
-		<td class="contentHead"><b>Р СњР В°Р В·Р Р†Р В°Р Р…Р С‘Р Вµ Р С—Р С•Р В»РЎРЏ</b></td>
-		<td class="contentHead"><b>Р СћР С‘Р С— Р С—Р С•Р В»РЎРЏ</b></td>
-		<td class="contentHead"><b>Р вЂ™Р С•Р В·Р С�Р С•Р В¶Р Р…РЎвЂ№Р Вµ Р В·Р Р…Р В°РЎвЂЎР ВµР Р…Р С‘РЎРЏ</b></td>
-		<td class="contentHead"><b>Р СџР С• РЎС“Р С�Р С•Р В»РЎвЂЎР В°Р Р…Р С‘РЎР‹</b></td>
-		<td class="contentHead"><b>Р С›Р В±РЎРЏР В·Р В°РЎвЂљР ВµР В»РЎРЉР Р…Р С•</b></td>
+		<td class="contentHead"><b>ID РїРѕР»СЏ</b></td>
+		<td class="contentHead"><b>РќР°Р·РІР°РЅРёРµ РїРѕР»СЏ</b></td>
+		<td class="contentHead"><b>РўРёРї РїРѕР»СЏ</b></td>
+		<td class="contentHead"><b>Р’РѕР·РјРѕР¶РЅС‹Рµ Р·РЅР°С‡РµРЅРёСЏ</b></td>
+		<td class="contentHead"><b>РџРѕ СѓРјРѕР»С‡Р°РЅРёСЋ</b></td>
+		<td class="contentHead"><b>РћР±СЏР·Р°С‚РµР»СЊРЅРѕ</b></td>
 		{% if (sectionID != 'tdata') %}
-			<td class="contentHead"><b>Р вЂ�Р В»Р С•Р С”</b></td>{% endif %}
+			<td class="contentHead"><b>Р‘Р»РѕРє</b></td>{% endif %}
 		<td class="contentHead">&nbsp;</td>
 	</tr>
 	{% for entry in entries %}
@@ -119,9 +119,9 @@
 			<td>{{ entry.title }}</td>
 			<td>{{ entry.type }}</td>
 			<td>{{ entry.options }}</td>
-			<td>{% if (entry.flags.default) %}{{ entry.default }}{% else %}<font color="red">Р Р…Р Вµ Р В·Р В°Р Т‘Р В°Р Р…Р С•</font>{% endif %}
+			<td>{% if (entry.flags.default) %}{{ entry.default }}{% else %}<font color="red">РЅРµ Р·Р°РґР°РЅРѕ</font>{% endif %}
 			</td>
-			<td>{% if (entry.flags.required) %}<font color="red"><b>Р вЂќР В°</b></font>{% else %}Р СњР ВµРЎвЂљ{% endif %}</td>
+			<td>{% if (entry.flags.required) %}<font color="red"><b>Р”Р°</b></font>{% else %}РќРµС‚{% endif %}</td>
 			{% if (sectionID != 'tdata') %}
 				<td>{{ entry.area }}</td>{% endif %}
 			<td nowrap>

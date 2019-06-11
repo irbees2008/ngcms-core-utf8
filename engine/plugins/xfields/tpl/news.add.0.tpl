@@ -1,7 +1,7 @@
 {% if (flags.tdata) %}
 	<tr>
 		<td width="100%" class="contentHead" colspan="2">
-			<img src="/engine/skins/default/images/nav.gif" hspace="8" alt=""/>Р СћР В°Р В±Р В»Р С‘РЎвЂЎР Р…РЎвЂ№Р Вµ Р Т‘Р В°Р Р…Р Р…РЎвЂ№Р Вµ
+			<img src="/engine/skins/default/images/nav.gif" hspace="8" alt=""/>РўР°Р±Р»РёС‡РЅС‹Рµ РґР°РЅРЅС‹Рµ
 		</td>
 	</tr>
 	<tr>
@@ -13,14 +13,14 @@
 					{% for entry in xtableHdr %}
 						<td>{{ entry.title }}</td>
 					{% endfor %}
-					<td>Р вЂќР ВµР в„–РЎРѓРЎвЂљР Р†Р С‘Р Вµ</td>
+					<td>Р”РµР№СЃС‚РІРёРµ</td>
 				</tr>
 				</thead>
 				<tbody></tbody>
 				<tfoot>
 				<tr>
 					<td colspan="{{ (xtablecnt+2) }}">
-						<input type="button" value="Р Т‘Р С•Р В±Р В°Р Р†Р С‘РЎвЂљРЎРЉ РЎРѓРЎвЂљРЎР‚Р С•Р С”Р С‘.." onclick="tblLoadData(0);"/></td>
+						<input type="button" value="РґРѕР±Р°РІРёС‚СЊ СЃС‚СЂРѕРєРё.." onclick="tblLoadData(0);"/></td>
 				</tr>
 				</tfoot>
 			</table>
