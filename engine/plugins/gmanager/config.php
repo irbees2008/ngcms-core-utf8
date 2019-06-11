@@ -41,7 +41,7 @@ switch ($_REQUEST['action']) {
 }
 function main() {
 
-	global $tpl, $lang;
+	global $tpl, $lang, $main_admin;
 	$tpath = locatePluginTemplates(array('conf.main', 'conf.general.form'), 'gmanager', 1);
 	$tvars['vars']['locate_tpl_list'] = MakeDropDown(array(0 => $lang['gmanager:label_site'], 1 => $lang['gmanager:label_plugin']), 'locate_tpl', pluginGetVariable('gmanager', 'locate_tpl'));
 	$tvars['vars']['if_auto_cash_list'] = MakeDropDown(array(0 => $lang['gmanager:label_no'], 1 => $lang['gmanager:label_yes']), 'if_auto_cash', pluginGetVariable('gmanager', 'if_auto_cash'));
