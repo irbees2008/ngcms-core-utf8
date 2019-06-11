@@ -72,7 +72,7 @@ function general_submit() {
 
 function main() {
 
-	global $tpl, $lang;
+	global $tpl, $lang, $main_admin;
 	$tpath = locatePluginTemplates(array('conf.main', 'conf.general.form'), 'category_access', 1);
 	$guest = pluginGetVariable('category_access', 'guest');
 	$coment = pluginGetVariable('category_access', 'coment');
