@@ -11,7 +11,7 @@ Config: config.php
 Install: install.php
 Deinstall: uninstall.php
 Type: plugin
-Description: РђСѓС‚РµРЅС‚РёС„РёРєР°С†РёСЏ С‡РµСЂРµР· Р’Рљ, Google, Yandex, Facebook Рё С‚.Рґ.
+Description: Аутентификация через ВК, Google, Yandex, Facebook и т.д.
 Author: Rostunov Sergey
 Author_URI: http://rostunov.com/
-Information: РђСѓС‚РµРЅС‚РёС„РёРєР°С†РёСЏ С‡РµСЂРµР· Р’Рљ, Google, Yandex, Facebook Рё С‚.Рґ.
+Information: Аутентификация через ВК, Google, Yandex, Facebook и т.д.
