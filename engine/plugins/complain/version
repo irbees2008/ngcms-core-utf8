@@ -1,0 +1,16 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: complain
+Name: РЎРѕРѕР±С‰РёС‚СЊ Рѕ РїСЂРѕР±Р»РµРјРµ РІ РЅРѕРІРѕСЃС‚Рё
+Version: 0.06
+Acts: news_full, ppages
+File: complain.php
+Config: config.php
+Install: install.php
+Deinstall: deinstall.php
+Type: plugin
+Title: РЎРѕРѕР±С‰РёС‚СЊ Рѕ РїСЂРѕР±Р»РµРјРµ РІ РЅРѕРІРѕСЃС‚Рё
+Description: РџРѕР·РІРѕР»СЏРµС‚ СЃРѕРѕР±С‰РёС‚СЊ Р°РІС‚РѕСЂСѓ РЅРѕРІРѕСЃС‚Рё/Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ Рѕ РїСЂРѕР±Р»РµРјРµ
+Author: Vitaly A. Ponomarev

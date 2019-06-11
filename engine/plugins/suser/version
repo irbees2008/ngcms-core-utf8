@@ -1,0 +1,15 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: suser
+Name: Sorting Users
+Version: 0.4
+Acts: ppages
+File: suser.php
+Config: config.php
+Type: plugin
+Description: РџРѕРёСЃРє Рё СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+Author: Rostunov Sergey, Zemlemer
+Title: РџРѕРёСЃРє Рё СЃРѕСЂС‚РёСЂРѕРІРєР° РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+Information: РџР»Р°РіРёРЅ РїРѕР·РІРѕР»СЏРµС‚ РѕСЃСѓС‰РµСЃС‚РІР»СЏС‚СЊ РїРѕРёСЃРє РїРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏРј Рё РїСЂРѕСЃРјР°С‚СЂРёРІР°С‚СЊ РёС… СЃРїРёСЃРѕРє

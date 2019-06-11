@@ -1,0 +1,68 @@
+if (typeof (WBBLANG)=="undefined") {WBBLANG = {};}
+WBBLANG['pl'] = {
+	bold: "Pogrubienie",
+	italic: "Pochylenie",
+	underline: "PodkreР•вЂєlenie",
+	strike: "PrzekreР•вЂєlenie",
+	link: "Link",
+	img: "Wstaw obraz",
+	sup: "Indeks gР“С–rny",
+	sub: "Indeks dolny",
+	justifyleft: "WyrР“С–wnaj do lewej",
+	justifycenter: "WyР•вЂєrodkuj",
+	justifyright: "WyrР“С–wnaj do prawej",
+	table: "Wstaw tabelР”в„ў",
+	bullist: "РІР‚Сћ Wypunktowana lista",
+	numlist: "1. UporzР”вЂ¦dkowana lista",
+	quote: "Cytat",
+	offtop: "Offtop",
+	code: "Kod",
+	spoiler: "Spoiler",
+	fontcolor: "Kolor czcionki",
+	fontsize: "Rozmiar czcionki",
+	fontfamily: "Rodzaj czcionki",
+	fs_verysmall: "Bardzo maР•вЂљy",
+	fs_small: "MaР•вЂљy",
+	fs_normal: "Normalny",
+	fs_big: "DuР•С�y",
+	fs_verybig: "Bardzo duР•С�y",
+	smilebox: "Wstaw emotikonР”в„ў",
+	
+	modal_link_title: "Wstaw link",
+	modal_link_text: "WyР•вЂєwietlany tekst",
+	modal_link_url: "Adres URL",
+	modal_email_text: "WyР•вЂєwietlany email",
+	modal_email_url: "Email",
+	modal_link_tab1: "Wstaw URL",
+	
+	modal_img_title: "Wstaw obraz",
+	modal_img_tab1: "Podaj adres URL",
+	modal_img_tab2: "WyР•вЂєlij obraz",
+	modal_imgsrc_text: "Podaj adres URL obrazu",
+	modal_img_btn: "Wybierz plik",
+	
+	close: "Zamknij",
+	save: "Zapisz",
+	cancel: "Anuluj",
+	remove: "UsuР•вЂћ",
+	
+	validation_err: "Podane dane nie sР”вЂ¦ poprawne",
+	error_onupload: "WystР”вЂ¦piР•вЂљ bР•вЂљР”вЂ¦d podczas wysyР•вЂљania pliku",
+	
+	fileupload_text1: "UpuР•вЂєР”вЂЎ tutaj pliki",
+	fileupload_text2: "lub",
+	
+	loading: "Р•Рѓadowanie",
+	auto: "Auto",
+	
+	//smiles
+	sm1: "UР•вЂєmiech",
+	sm2: "Chichot",
+	sm3: "MrugniР”в„ўcie",
+	sm4: "DziР”в„ўkujР”в„ў",
+	sm5: "Krzyczy",
+	sm6: "Szok",
+	sm7: "ZР•вЂљy",
+	sm8: "Boli",
+	sm9: "Chory"
+};

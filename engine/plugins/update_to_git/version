@@ -1,0 +1,11 @@
+ID: update_to_git
+Name: РћР±РЅРѕРІР»РµРЅРёРµ РґРѕ git РІРµСЂСЃРёРё
+Version: 0.01
+Config: config.php
+Actions: rpc;lib/librpc.php
+Type: plugin
+Title: РћР±РЅРѕРІР»РµРЅРёРµ РґРѕ git РІРµСЂСЃРёРё
+Description: РћР±РЅРѕРІР»СЏРµС‚ CMS РґРѕ git РІРµСЂСЃРёРё.
+Author: RusiQ
+Author_URI: rustam_gimranov@mail.ru
+preinstall: no

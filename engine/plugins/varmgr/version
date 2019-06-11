@@ -1,0 +1,16 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: varmgr
+Name: Variable manager
+Version: 0.04
+Acts: news:show
+File: varmgr.php
+Config: config.php
+Type: plugin
+Description: РЈРїСЂР°РІР»РµРЅРёРµ РґРѕРї. РїРµСЂРµРјРµРЅРЅС‹РјРё РІ РЅРѕРІРѕСЃС‚СЏС…
+Author: Vitaly A. Ponomarev
+Author_URI: http://ngcms.ru/
+Title: РњРµРЅРµРґР¶РµСЂ РїРµСЂРµРјРµРЅРЅС‹С… РІ РЅРѕРІРѕСЃС‚СЏС…
+Information: Р”РѕР±Р°РІР»СЏРµС‚ РЅРѕРІС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ СѓРїСЂР°РІР»РµРЅРёСЏ РґР°С‚РѕР№ РЅРѕРІРѕСЃС‚Рё, Р° С‚Р°РєР¶Рµ РїРѕР·РІРѕР»СЏРµС‚ Р·Р°РјРµРЅРёС‚СЊ С„РѕСЂРјР°С‚ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РґР°С‚С‹. Р�РґРµР°Р»РµРЅ РґР»СЏ РіСЂР°С„РёС‡РµСЃРєРѕРіРѕ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РґР°С‚С‹.

@@ -1,0 +1,12 @@
+ID: bookmarks
+Name: Users Bookmarks
+Version: 2.4
+Acts: index, news, ppages
+File: bookmarks.php
+Type: widget
+Install: install.php
+Deinstall: uninstall.php
+Config: config.php
+Description: Р—Р°РєР»Р°РґРєРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+Author: Wolverine, kt2k
+Author_URI: http://digitalplace.ru/

@@ -1,0 +1,19 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: gsmg
+Name: Google SiteMap Generator
+Version: 0.11
+Acts: ppages
+File: gsmg.php
+Config: config.php
+Install: install.php
+Deinstall: uninstall.php
+Type: plugin
+Description: Р“РµРЅРµСЂР°С†РёСЏ РєР°СЂС‚С‹ СЃР°Р№С‚Р° РґР»СЏ Google
+Author: Vitaly A. Ponomarev
+Author_URI: http://ngcms.ru/
+Title: Р“РµРЅРµСЂР°С‚РѕСЂ Google SiteMap
+Information: РџРѕР·РІРѕР»СЏРµС‚ СЃРѕР·РґР°РІР°С‚СЊ SiteMap РґР»СЏ РІР°С€РµРіРѕ СЃР°Р№С‚Р°
+Library: common; lib/common.php

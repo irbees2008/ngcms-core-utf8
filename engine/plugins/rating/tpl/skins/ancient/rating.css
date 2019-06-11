@@ -1,0 +1,60 @@
+.ani-rating {
+	font-style: italic;
+	font-size: 11px;
+	float: right;
+	position: relative;
+}
+.aniRating {
+	height: 16px;
+	color: #666666;
+	font-size: 11px;
+	float: left;
+}
+.uniRating {
+	list-style: none;
+	margin: 0!important;
+	padding: 0!important;
+	width: 85px;
+	height: 16px;
+	position: relative;
+	background: url(../ancient/rating.gif) top left repeat-x;
+}
+.uniRating li {
+	height: 16px;
+	text-indent: -90000px;
+	margin: 0!important;
+	padding: 0!important;
+	float: left;
+	background: url(../ancient/rating.gif) left bottom;
+}
+.uniRating li a {
+	width: 17px;
+	height: 16px;
+	padding: 0;
+	z-index: 17;
+	display: block;
+	text-decoration: none;
+	text-indent: -9000px;
+	position: absolute;
+}
+.uniRating li a:hover {
+	background: url(../ancient/rating.gif) left center;
+	z-index: 2;
+	left: 0;
+}
+.uniRating a.r1u {left: 0;}
+.uniRating a.r1u:hover {width: 17px;}
+.uniRating a.r2u {left: 17px;}
+.uniRating a.r2u:hover {width: 34px;}
+.uniRating a.r3u {left: 34px;}
+.uniRating a.r3u:hover {width: 51px;}
+.uniRating a.r4u {left: 51px;}
+.uniRating a.r4u:hover {width: 68px;}
+.uniRating a.r5u {left: 68px;}
+.uniRating a.r5u:hover {width: 85px;}
+.uniRating li.r0 {width: 0px;}
+.uniRating li.r1 {width: 17px;}
+.uniRating li.r2 {width: 33px;}
+.uniRating li.r3 {width: 50px;}
+.uniRating li.r4 {width: 68px;}
+.uniRating li.r5 {width: 85px;}

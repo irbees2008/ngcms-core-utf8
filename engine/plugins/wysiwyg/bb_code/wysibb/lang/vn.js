@@ -1,0 +1,71 @@
+РїВ»С—if (typeof (WBBLANG)=="undefined") {WBBLANG = {};}
+WBBLANG['vi'] = {
+    bold: "In Р”вЂ�Р±С”В­m",
+    italic: "In nghiР“Р„ng",
+    underline: "GР±С”РЋch chР“Сћn",
+    strike: "GР±С”РЋch ngang",
+    link: "LiР“Р„n kР±С”С—t",
+    img: "HР“В¬nh Р±С”Р€nh",
+    sup: "Superscript",
+    sub: "Subscript",
+    justifyleft: "Canh trР“РЋi",
+    justifycenter: "Canh giР±В»Р‡a",
+    justifyright: "Canh phР±С”Р€i",
+    table: "BР±С”Р€ng",
+    bullist: "Bullit",
+    numlist: "Numlist",
+    quote: "Quote",
+    offtop: "Offtop",
+    code: "Code",
+    spoiler: "Р±С”РЃn hiР±В»вЂЎn vР”С“n bР±С”Р€n",
+    fontcolor: "MР“В u chР±В»Р‡",
+    fontsize: "Size chР±В»Р‡",
+    fontfamily: "Font chР±В»Р‡",
+    fs_verysmall: "RР±С”Тђt nhР±В»РЏ",
+    fs_small: "NhР±В»РЏ",
+    fs_normal: "BР“В¬nh thР–В°Р±В»Сњng",
+    fs_big: "LР±В»вЂєn",
+    fs_verybig: "RР±С”Тђt lР±В»вЂєn",
+    smilebox: "Box Smile",
+    video: "HР“В¬nh Р±С”Р€nh",
+    
+    modal_link_title: "ChР“РЃn Link vР“В o bР“В i viР±С”С—t",
+    modal_link_text: "Text hiР±В»С“n thР±В»вЂ№",
+    modal_link_url: "URL trang",
+    modal_email_text: "ChР“РЃn Email liР“Р„n hР±В»вЂЎ",
+    modal_email_url: "Email",
+    modal_link_tab1: "Insert URL",
+    
+    modal_img_title: "Insert IMG",
+    modal_img_tab1: "NhР±С”В­p URL",
+    modal_img_tab2: "TР±С”Р€i lР“Р„n",
+    modal_imgsrc_text: "NhР±С”В­p Р”вЂ�Р±В»вЂ№a chР±В»вЂ° hР“В¬nh Р±С”Р€nh",
+    modal_img_btn: "ChР±В»РЊn hР“В¬nh Р±С”Р€nh tР±С”Р€i lР“Р„n",
+    
+    modal_video_text: "NhР±С”В­p URL video",
+    
+    close: "Р”С’Р“С–ng",
+    save: "LР–В°u",
+    cancel: "HР±В»В§y",
+    remove: "XР“С–a",
+    
+    validation_err: "DР±В»Р‡ liР±В»вЂЎu nhР±С”В­p khР“Т‘ng hР±В»Р€p lР±В»вЂЎ",
+    error_onupload: "LР±В»вЂ”i Upload tР±С”В­p tin",
+    
+    fileupload_text1: "KР“В©o hР“В¬nh Р±С”Р€nh vР“В o Р”вЂ�Р“Сћy",
+    fileupload_text2: "HoР±С”В·c",
+    
+    loading: "Р”С’ang tР±С”Р€i...",
+    auto: "ChР±В»РЊn mР“В u",
+    
+    //smiles
+    sm1: "NР±В»Тђ cР–В°Р±В»Сњi",
+    sm2: "CР–В°Р±В»Сњi",
+    sm3: "NhР“РЋy mР±С”Р‡t",
+    sm4: "CР±С”Р€m Р–РЋn bР±С”РЋn",
+    sm5: "ThР±В»Рѓ",
+    sm6: "SР±В»вЂ�c",
+    sm7: "Р“Рѓc",
+    sm8: "Р”С’au buР±В»вЂњn",
+    sm9: "BР±В»вЂЎnh hoР±С”РЋn"
+};

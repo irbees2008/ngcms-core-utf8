@@ -1,0 +1,72 @@
+/*French translation by Charafweb*/
+if (typeof (WBBLANG)=="undefined") {WBBLANG = {};}
+WBBLANG['fr'] = {
+	bold: "Gras",
+	italic: "Italique",
+	underline: "Souligner",
+	strike: "Rayer",
+	link: "Lien",
+	img: "InsР“В©rer une image",
+	sup: "Exposant",
+	sub: "Indice",
+	justifyleft: "Alignement Р“В  gauche",
+	justifycenter: "Alignement au centre",
+	justifyright: "Alignement Р“В  droite",
+	table: "InsР“В©rer un tableau",
+	bullist: "РІР‚Сћ Liste non ordonnР“В©e",
+	numlist: "1. Liste ordonnР“В©e",
+	quote: "Citer",
+	offtop: "Offtop",
+	code: "Code",
+	spoiler: "Spoiler",
+	fontcolor: "Couleur de la police",
+	fontsize: "Taille de la police",
+	fontfamily: "Famille de polices",
+	fs_verysmall: "TrР“РЃs petit",
+	fs_small: "Petit",
+	fs_normal: "Normal",
+	fs_big: "Grand",
+	fs_verybig: "TrР“РЃs grand",
+	smilebox: "InsР“В©rer Р“В©moticР“Т‘ne",
+	
+	modal_link_title: "InsР“В©rer un lien",
+	modal_link_text: "Afficher le texte",
+	modal_link_url: "URL",
+	modal_email_text: "Afficher email",
+	modal_email_url: "Email",
+	modal_link_tab1: "InsР“В©rez URL",
+	
+	modal_img_title: "InsР“В©rer une image",
+	modal_img_tab1: "InsР“В©rer URL",
+	modal_img_tab2: "TР“В©lР“В©chargez image",
+	modal_imgsrc_text: "Entrez l'URL de l'image",
+	modal_img_btn: "Choisir un fichier",
+	add_attach: "Joindre un fichier",
+	
+	close: "Fermer",
+	save: "Sauvgarder",
+	cancel: "Annuler",
+	remove: "Effacer",
+	
+	validation_err: "Les donnР“В©es saisies est invalide",
+	error_onupload: "Erreur lors du chargement de fichier",
+	
+	fileupload_text1: "DР“В©posez le fichier ici",
+	fileupload_text2: "ou",
+	
+	loading: "Chargement",
+	auto: "Auto",
+	views: "Vues",
+	downloads: "TР“В©lР“В©chargements",
+	
+	//smiles
+	sm1: "Sourire",
+	sm2: "Rire",
+	sm3: "Clin d'oeil",
+	sm4: "Merci",
+	sm5: "Gronder",
+	sm6: "Choc",
+	sm7: "En colР“РЃre",
+	sm8: "Douleur",
+	sm9: "Malade"
+};

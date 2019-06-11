@@ -1,0 +1,21 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: comments
+Name: User comments
+Version: 0.11
+Acts: news_short, news_full, ppages, editnews, editnews_form, news, admin:mod:news, admin:mod:categories
+File: comments.php
+Config: config.php
+Install: install.php
+Deinstall: uninstall.php
+Type: plugin
+Description: РљРѕРјРјРµРЅС‚Р°СЂРёРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+Author: Vitaly A. Ponomarev
+Author_URI: http://ngcms.ru/
+Title: РљРѕРјРјРµРЅС‚Р°СЂРёРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+Information: Р РµР°Р»РёР·СѓРµС‚ С„СѓРЅРєС†РёРѕРЅР°Р» СЂР°Р±РѕС‚С‹ СЃ РєРѕРјРјРµРЅС‚Р°СЂРёСЏРјРё
+Preinstall: default_no
+Preinstall_vars: cache="1"; cacheExpire="3600";
+Library: lib; inc/comments.lib.php

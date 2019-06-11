@@ -1,0 +1,17 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: wpinger
+Name: Weblog pinger
+Version: 0.03
+Acts: admin:mod:news
+File: wpinger.php
+Config: config.php
+Install: install.php
+Type: plugin
+Title: Weblog pinger
+Description: Weblog pinged extension
+Author: Vitaly A. Ponomarev
+Author_URI: http://ngcms.ru/
+Information: РџР»Р°РіРёРЅ РґР»СЏ РёРЅС„РѕСЂРјРёСЂРѕРІР°РЅРёСЏ РІРЅРµС€РЅРёС… СЃРёСЃС‚РµРј РѕР± РѕР±РЅРѕРІР»РµРЅРёСЏС… РЅР° РІР°С€РµРј СЃР°Р№С‚Рµ

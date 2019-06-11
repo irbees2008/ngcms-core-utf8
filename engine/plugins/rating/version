@@ -1,0 +1,20 @@
+;
+; Version description file for plugin @@ Next Geration CMS
+;
+
+ID: rating
+Name: Р РµР№С‚РёРЅРі РЅРѕРІРѕСЃС‚РµР№, СЃС‚Р°С‚РµР№, РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ Рё РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ
+Name_EN: News rating
+Version: 0.1
+Acts: ppages, news_full, news_short, news_search, static, plugin.uprofile, plugin.comments
+File: rating.php
+Install: install.php
+Deinstall: deinstall.php
+Config: config.php
+Type: plugin
+Description: Р’РµРґРµРЅРёРµ СЂРµР№С‚РёРЅРіР° РЅРѕРІРѕСЃС‚РµР№, СЃС‚Р°С‚РµР№, РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ Рё РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ
+Description_EN: Manage rating of news, static, users, comments
+Author: SwiZZeR &amp; Vitaly A. Ponomarev &amp; RusiQ
+Title: Р РµР№С‚РёРЅРі РЅРѕРІРѕСЃС‚РµР№
+Preinstall: default_no
+Information: Р’РµРґРµРЅРёРµ Рё РѕС‚РѕР±СЂР°Р¶РµРЅРёРµ РїРѕР»СЊР·РѕРІР°С‚РµР»СЊСЃРєРѕРіРѕ СЂРµР№С‚РёРЅРіР° РЅРѕРІРѕСЃС‚РµР№, СЃС‚Р°С‚РµР№, РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ Рё РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ

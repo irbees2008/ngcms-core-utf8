@@ -1,0 +1,18 @@
+;
+; Version description file for plugin @@ Next Generation CMS
+;
+
+ID: nsm
+Name: News OnSite Manager
+Version: 0.04
+Acts: ppages
+File: nsm.php
+Config: config.php
+Install: install.php
+Deinstall: uninstall.php
+Type: plugin
+Title: РџСЂР°РІРєР° РЅРѕРІРѕСЃС‚РµР№ Р±РµР· Р°РґРјРёРЅРєРё
+Description: РџРѕР·РІРѕР»СЏРµС‚ РґРѕР±Р°РІР»СЏС‚СЊ/СЂРµРґР°РєС‚РёСЂРѕРІР°С‚СЊ РЅРѕРІРѕСЃС‚Рё СЃРѕ СЃС‚СЂР°РЅРёС† СЃР°Р№С‚Р°, РЅРµ Р·Р°С…РѕРґСЏ РІ Р°РґРјРёРЅРєСѓ
+Author: Vitaly A. Ponomarev
+Author_URI: http://ngcms.ru/
+preinstall: no

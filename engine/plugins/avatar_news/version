@@ -1,0 +1,11 @@
+ID: avatar_news
+Name: Avatar in News
+Version: 0.1
+Actions: news_full; avatar_news.php
+Type: plugin
+Title: Р’С‹РІРѕРґ Р°РІР°С‚Р°СЂР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РєРѕС‚РѕСЂС‹Р№ РґРѕР±Р°РІРёР» РЅРѕРІРѕСЃС‚СЊ
+Description: Р’С‹РІРѕРґ Р°РІР°С‚Р°СЂР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РєРѕС‚РѕСЂС‹Р№ РґРѕР±Р°РІРёР» РЅРѕРІРѕСЃС‚СЊ
+Information: Р’С‹РІРѕРґ Р°РІР°С‚Р°СЂР° РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ, РєРѕС‚РѕСЂС‹Р№ РґРѕР±Р°РІРёР» РЅРѕРІРѕСЃС‚СЊ
+Author: stdex
+Author_URI: http://rozard.ngdemo.ru/
+preinstall: no

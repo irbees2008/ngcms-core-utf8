@@ -1,0 +1,11 @@
+ID: other_user_news
+Name: Other user news
+Version: 0.1
+Acts: twig,index
+File: other_user_news.php
+Config: config.php
+Type: plugin
+Description: Р”СЂСѓРіРёРµ РЅРѕРІРѕСЃС‚Рё РѕС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ
+Author: Rostunov Sergey
+Author_URI: http://rostunov.com
+preinstall: no

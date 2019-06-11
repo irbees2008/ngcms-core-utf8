@@ -1,0 +1,8 @@
+Options -ExecCGI -MultiViews -Indexes
+
+# Show a specific file
+order allow,deny
+<FilesMatch "\.(?i:css|js)$">
+    allow from all
+</FilesMatch>
+deny from all
