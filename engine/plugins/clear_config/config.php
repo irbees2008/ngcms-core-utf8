@@ -11,7 +11,7 @@ switch ($_REQUEST['action']) {
 }
 function showlist() {
 
-	global $tpl, $PLUGINS, $lang;
+	global $tpl, $PLUGINS, $lang, $main_admin;;
 	plugins_load_config();
 	$ULIB = new urlLibrary();
 	$ULIB->loadConfig();
