@@ -37,7 +37,7 @@ function showlist()
 	$tvars['vars']['entries'] = $output;
 	$tpl->template('conf.list', $tpath['conf.list']);
 	$tpl->vars('conf.list', $tvars);
-	print $tpl->show('conf.list');
+	$main_admin = $tpl->show('conf.list');
 }
 
 function editform()
@@ -96,7 +96,7 @@ function editform()
 	if ($id == -1) $tvars['regx']['/\[add\](.*?)\[\/add\]/si'] = '$1'; else $tvars['regx']['/\[edit\](.*?)\[\/edit\]/si'] = '$1';
 	$tpl->template('conf.edit', $tpath['conf.edit']);
 	$tpl->vars('conf.edit', $tvars);
-	print $tpl->show('conf.edit');
+	$main_admin = $tpl->show('conf.edit');
 }
 
 function delete()

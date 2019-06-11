@@ -54,7 +54,7 @@ function url() {
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
-	print $tpl->show('main');
+	$main_admin = $tpl->show('main');
 }
 
 function main() {
@@ -93,7 +93,7 @@ function main() {
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
-	print $tpl->show('main');
+	$main_admin = $tpl->show('main');
 }
 
 function redirect_suser($url) {

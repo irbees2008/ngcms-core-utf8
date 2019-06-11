@@ -61,7 +61,7 @@ function main() {
 	$tvars['vars']['action'] = $lang['ads_pro:button_general'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function main_submit() {
@@ -123,7 +123,7 @@ function showlist() {
 	$tvars['vars']['action'] = $lang['ads_pro:button_list'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function add() {
@@ -235,7 +235,7 @@ function add() {
 	$tvars['vars']['action'] = $id ? $lang['ads_pro:button_edit'] : $lang['ads_pro:button_add'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function add_submit() {

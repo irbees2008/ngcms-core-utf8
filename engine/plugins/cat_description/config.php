@@ -59,7 +59,7 @@ function showlist() {
 	$tvars['vars']['button'] = $tpl->show('conf.button');
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function editform() {
@@ -88,7 +88,7 @@ function editform() {
 	$tvars['vars']['list'] = '';
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function confirm() {

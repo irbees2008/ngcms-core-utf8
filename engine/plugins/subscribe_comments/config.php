@@ -64,7 +64,7 @@ function show_list_subscribe() {
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
-	print $tpl->show('main');
+	$main_admin = $tpl->show('main');
 }
 
 function show_list_subscribe_post() {
@@ -108,7 +108,7 @@ function show_list_subscribe_post() {
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
-	print $tpl->show('main');
+	$main_admin = $tpl->show('main');
 }
 
 function modify() {
@@ -208,7 +208,7 @@ function main() {
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
-	print $tpl->show('main');
+	$main_admin = $tpl->show('main');
 }
 
 function redirect_subscribe_comments($url) {

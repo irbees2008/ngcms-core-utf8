@@ -93,7 +93,7 @@ function main() {
 	$tvars['vars']['action'] = $lang['category_access:button_general'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function show_list_user() {
@@ -116,7 +116,7 @@ function show_list_user() {
 	$tvars['vars']['action'] = $lang['category_access:button_list_user'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function show_list_category() {
@@ -139,7 +139,7 @@ function show_list_category() {
 	$tvars['vars']['action'] = $lang['category_access:button_list_category'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function add_user() {
@@ -208,7 +208,7 @@ function add_user() {
 	$tvars['vars']['action'] = $if_add ? $lang['category_access:button_add_user'] : $lang['category_access:button_edit_user'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function add_category() {
@@ -251,7 +251,7 @@ function add_category() {
 	$tvars['vars']['action'] = $lang['category_access:button_add_category'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function delete_user() {
@@ -285,7 +285,7 @@ function delete_user() {
 	$tvars['vars']['action'] = $lang['category_access:title_commit'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function delete_category() {
@@ -319,5 +319,5 @@ function delete_category() {
 	$tvars['vars']['action'] = $lang['category_access:title_commit'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }

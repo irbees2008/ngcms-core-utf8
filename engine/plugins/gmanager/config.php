@@ -59,7 +59,7 @@ function main() {
 	$tvars['vars']['action'] = $lang['gmanager:button_general'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function general_submit() {
@@ -102,7 +102,7 @@ function showlist() {
 	$tvars['vars']['action'] = $lang['gmanager:button_list'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function update() {
@@ -159,7 +159,7 @@ function edit() {
 	$tvars['vars']['action'] = $lang['gmanager:button_edit'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function edit_submit() {
@@ -249,7 +249,7 @@ function delete() {
 	$tvars['vars']['action'] = $lang['gmanager:title_commit'];
 	$tpl->template('conf.main', $tpath['conf.main']);
 	$tpl->vars('conf.main', $tvars);
-	print $tpl->show('conf.main');
+	$main_admin = $tpl->show('conf.main');
 }
 
 function clear_cash() {

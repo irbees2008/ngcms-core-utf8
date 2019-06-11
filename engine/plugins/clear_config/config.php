@@ -77,7 +77,7 @@ function showlist() {
 	$tvars['vars']['entries'] = $output;
 	$tpl->template('conf.list', $tpath['conf.list']);
 	$tpl->vars('conf.list', $tvars);
-	print $tpl->show('conf.list');
+	$main_admin = $tpl->show('conf.list');
 }
 
 function delete() {
