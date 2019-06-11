@@ -82,7 +82,7 @@ function general_submit() {
 
 function showlist() {
 
-	global $tpl, $lang, $mysql;
+	global $tpl, $lang, $mysql, $main_admin;
 	$tpath = locatePluginTemplates(array('conf.main', 'conf.list', 'conf.list.row'), 'gmanager', 1);
 	$output = '';
 	foreach ($mysql->select('select * from ' . prefix . '_gmanager order by `order`') as $row) {
@@ -136,7 +136,7 @@ function GetKeyFromName($name, $array) {
 
 function edit() {
 
-	global $mysql, $tpl, $lang;
+	global $mysql, $tpl, $lang, $main_admin;
 	if (!isset($_REQUEST['id'])) return;
 	$id = intval($_REQUEST['id']);
 	$galery = $mysql->record('select * from ' . prefix . '_gmanager where `id`=' . db_squote($id) . ' limit 1');
@@ -220,7 +220,7 @@ function move($action) {
 
 function delete() {
 
-	global $mysql, $tpl, $lang;
+	global $mysql, $tpl, $lang, $main_admin;
 	if (!isset($_REQUEST['id'])) return;
 	$id = intval($_REQUEST['id']);
 	$galery = $mysql->record('select `title` from ' . prefix . '_gmanager where `id`=' . db_squote($id) . ' limit 1');

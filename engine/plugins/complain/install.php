@@ -54,7 +54,7 @@ function plugin_complain_install($action) {
 			$params = array(
 				'localsource'        => 1,
 				'extform'            => 1,
-				'errlist'            => "1|РќРµРІРµСЂРЅР°СЏ СЃСЃС‹Р»РєР°\n2|РЎСЃС‹Р»РєР° СѓРґР°Р»РµРЅР°\n3|Р”СЂСѓРіР°СЏ РѕС€РёР±РєР°",
+				'errlist'            => "1|Неверная ссылка\n2|Ссылка удалена\n3|Другая ошибка",
 				'inform_author'      => 1,
 				'inform_admin'       => 2,
 				'author_multi'       => 1,
