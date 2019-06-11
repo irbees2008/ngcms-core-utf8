@@ -91,7 +91,7 @@
 				if ((x > 0) && (x < (trow.childNodes.length - 1))) {
 					tblRec[fmatrix[x]] = cnode.childNodes[0].value;
 					if ((cnode.childNodes[0].value == '') && (tblConfig[fmatrix[x]]['required'])) {
-						alert('РќРµ Р·Р°РїРѕР»РЅРµРЅРѕ РѕР±СЏР·Р°С‚РµР»СЊРЅРѕРµ РїРѕР»Рµ!');
+						alert('Не заполнено обязательное поле!');
 						return false;
 					}
 

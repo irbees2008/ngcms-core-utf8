@@ -1,9 +1,9 @@
-<h2>РџРѕРёСЃРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№</h2>
+<h2>Поиск пользователей</h2>
 <form id="usersearch" method="post" action="">
-	РћС‚РєСѓРґР°: {{ boxlist['from'] }}
+	Откуда: {{ boxlist['from'] }}
 
 	{% if pluginIsActive('xfields') %}
-		<!-- РІС‹РїР°РґР°СЋС‰РёРµ СЃРїРёСЃРєРё РґРѕРї. РїРѕР»РµР№ -->
+		<!-- выпадающие списки доп. полей -->
 		{% for xf in xflist %}
 			{% if boxlist[xf.id] %}
 				{{ xf.title }}: {{ boxlist[xf.id] }}
@@ -11,29 +11,29 @@
 		{% endfor %}
 	{% endif %}
 
-	<input class="btn" type="submit" name="search" value="РќР°Р№С‚Рё"/>
-	<input class="btn" type="submit" name="reset" value="РЎР±СЂРѕСЃ"/>
+	<input class="btn" type="submit" name="search" value="Найти"/>
+	<input class="btn" type="submit" name="reset" value="Сброс"/>
 </form>
 
 {% if searched and entries %}
-	<!-- РµСЃР»Рё РїРѕРёСЃРє СѓСЃРїРµС€РЅРѕ РѕСЃСѓС‰РµСЃС‚РІР»РµРЅ -->
+	<!-- если поиск успешно осуществлен -->
 	<table class="table">
 		<thead>
 		<tr>
-			<th>Р�РјСЏ</th>
+			<th>Имя</th>
 
 			{% if pluginIsActive('xfields') %}
-				<!-- Р·Р°РіРѕР»РѕРІРєРё РґРѕРї. РїРѕР»РµР№ -->
+				<!-- заголовки доп. полей -->
 				{% for xf in xflist %}
 					<th>{{ xf.title }}</th>
 				{% endfor %}
 			{% endif %}
 
-			<th>РћС‚РєСѓРґР°</th>
-			<th>РќРѕРІРѕСЃС‚РµР№</th>
-			<th>РљРѕРјРјРµРЅС‚Р°СЂРёРµРІ</th>
-			<th>Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°РЅ</th>
-			<th>РџРѕСЃР»РµРґРЅРёР№ РІС…РѕРґ</th>
+			<th>Откуда</th>
+			<th>Новостей</th>
+			<th>Комментариев</th>
+			<th>Зарегистрирован</th>
+			<th>Последний вход</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -42,7 +42,7 @@
 				<td><a href='{{ entry.profile_link }}'>{{ entry.profile }}</a></td>
 
 				{% if pluginIsActive('xfields') %}
-					<!-- СЃРѕРґРµСЂР¶РёРјРѕРµ РґРѕРї. РїРѕР»РµР№ -->
+					<!-- содержимое доп. полей -->
 					{% for xf in entry.xfields %}
 						<td>{{ xf }}</td>
 					{% endfor %}
@@ -56,7 +56,7 @@
 					{% if (entry.last != 0) %}
 						{{ entry.last|date("d-m-Y h:i") }}
 					{% else %}
-						РЅРµ Р±С‹Р» РЅРё СЂР°Р·Сѓ
+						не был ни разу
 					{% endif %}
 				</td>
 			</tr>
@@ -65,7 +65,7 @@
 	</table>
 {% else %}
 	{% if searched %}
-		<!-- РµСЃР»Рё СЂРµР·СѓР»СЊС‚Р°С‚ РїРѕРёСЃРєР° РїСѓСЃС‚ -->
-		РџРѕР»СЊР·РѕРІР°С‚РµР»Рё, СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ РєСЂРёС‚РµСЂРёСЏРј, РЅРµ РЅР°Р№РґРµРЅС‹!
+		<!-- если результат поиска пуст -->
+		Пользователи, соответствующие критериям, не найдены!
 	{% endif %}
 {% endif %}

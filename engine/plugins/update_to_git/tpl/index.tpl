@@ -10,25 +10,25 @@
 </nav>
 
 <div class="card">
-	<div class="card-header"> РћР±РЅРѕРІР»РµРЅРёРµ</div>
+	<div class="card-header"> Обновление</div>
 	<div class="card-body">
 
 
 		<div class="alert alert-warning">
-			РћР±РЅРѕРІР»РµРЅРёРµ СЃРёСЃС‚РµРјС‹ РїСЂРµРґРїРѕР»Р°РіР°РµС‚ РїРѕСЌС‚Р°РїРЅРѕРµ РІС‹РїРѕР»РЅРµРЅРёРµ РґРµР№СЃС‚РІРёР№. Р’Р°Р¶РЅРѕ: РїРµСЂРµРґ РѕР±РЅРѕРІР»РµРЅРёРµРј СЃРѕР·РґР°Р№С‚Рµ СЂРµР·РµСЂРІРЅСѓСЋ РєРѕРїРёСЋ С„Р°Р№Р»РѕРІ.
+			Обновление системы предполагает поэтапное выполнение действий. Важно: перед обновлением создайте резервную копию файлов.
 		</div>
 		<div class="form-group row">
 			<label class="col-sm-8 control-label">
-				РЎРєР°Р·РєР° РїСЂРѕ Р±С‹С‡РєР°.
+				Сказка про бычка.
 			</label>
 			<div class="col-sm-4 text-right">
-				<a id="rpc_updater_check" href="#" data-token="{{ token }}" class="btn btn-outline-primary">РћР±РЅРѕРІРёС‚СЊ</a>
+				<a id="rpc_updater_check" href="#" data-token="{{ token }}" class="btn btn-outline-primary">Обновить</a>
 			</div>
 		</div>
 
 		<hr>
 
-		<p>РЎРїРёСЃРѕРє С„Р°Р№Р»РѕРІ:</p>
+		<p>Список файлов:</p>
 		<ol id="list-files">
 
 		</ol>

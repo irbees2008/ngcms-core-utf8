@@ -1,10 +1,10 @@
 <div>
 	<fieldset>
-		<legend>РћРїСЂРѕСЃ: <b>{votename}</b></legend>
+		<legend>Опрос: <b>{votename}</b></legend>
 		{votelines}<br>
 		<hr>
-		Р’СЃРµРіРѕ {vcount}
-		РѕС‚РІРµС‚Р°(РѕРІ)
+		Всего {vcount}
+		ответа(ов)
 	</fieldset>
 
 </div>

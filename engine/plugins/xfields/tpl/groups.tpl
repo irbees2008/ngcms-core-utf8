@@ -106,8 +106,8 @@
 	<tbody>
 	<tr>
 		<td colspan="5" class="contentHead" width="100%">
-			<img src="{{ skins_url }}/images/nav.gif" hspace="8"><a href="?mod=extras" title="Р“вЂњР“Р‡Р“В°Р“В Р“СћР“В«Р“ТђР“В­Р“РЃР“Тђ Р“Р‡Р“В«Р“В Р“Р€Р“РЃР“В­Р“В Р“В¬Р“РЃ">Р“вЂњР“Р‡Р“В°Р“В Р“СћР“В«Р“ТђР“В­Р“РЃР“Тђ
-				Р“Р‡Р“В«Р“В Р“Р€Р“РЃР“В­Р“В Р“В¬Р“РЃ</a> &#8594; <a href="?mod=extra-config&plugin=xfields">xfields</a></td>
+			<img src="{{ skins_url }}/images/nav.gif" hspace="8"><a href="?mod=extras" title="Г“ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ ГЇГ«Г ГЈГЁГ­Г Г¬ГЁ">Г“ГЇГ°Г ГўГ«ГҐГ­ГЁГҐ
+				ГЇГ«Г ГЈГЁГ­Г Г¬ГЁ</a> &#8594; <a href="?mod=extra-config&plugin=xfields">xfields</a></td>
 	</tr>
 	</tbody>
 </table>
@@ -120,8 +120,8 @@
 			<img src="{{ skins_url }}/images/nav.gif" hspace="8">{{ lang.xfconfig['list'] }}: {{ section_name }}</td>
 	</tr>
 	<tr align="left">
-		<td class="contentHead" width="200" colspan="2"><b>Р“С“Р“В°Р“С–Р“Р‡Р“Р‡Р“В»</b></td>
-		<td class="contentHead" colspan="3"><b>Р“РЏР“В®Р“В«Р“С—, Р“В­Р“В Р“ВµР“В®Р“В¤Р“С—Р“в„–Р“РЃР“ТђР“В±Р“С— Р“Сћ Р“Р€Р“В°Р“С–Р“Р‡Р“Р‡Р“Тђ (<span id="grpName">n/a</span>)</b></td>
+		<td class="contentHead" width="200" colspan="2"><b>ГѓГ°ГіГЇГЇГ»</b></td>
+		<td class="contentHead" colspan="3"><b>ГЏГ®Г«Гї, Г­Г ГµГ®Г¤ГїГ№ГЁГҐГ±Гї Гў ГЈГ°ГіГЇГЇГҐ (<span id="grpName">n/a</span>)</b></td>
 	</tr>
 	<tr>
 		<td width="200" colspan="2">
@@ -132,12 +132,12 @@
 				<table width="100%" class="fldList" id="fList">
 					<tr>
 						<td width="50">date</td>
-						<td>Р“вЂћР“В Р“Р†Р“В  Р“В¤Р“В®Р“РЋР“В Р“СћР“В«Р“ТђР“В­Р“РЃР“С— Р“В­Р“В®Р“СћР“В®Р“В±Р“Р†Р“РЃ</td>
+						<td>Г„Г ГІГ  Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г­Г®ГўГ®Г±ГІГЁ</td>
 						<td width="90" align="right" nowrap>(up) (down) (del)</td>
 					</tr>
 					<tr>
 						<td width="50">&nbsp;date</td>
-						<td>Р“вЂћР“В Р“Р†Р“В  Р“В¤Р“В®Р“РЋР“В Р“СћР“В«Р“ТђР“В­Р“РЃР“С— Р“В­Р“В®Р“СћР“В®Р“В±Р“Р†Р“РЃ</td>
+						<td>Г„Г ГІГ  Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГї Г­Г®ГўГ®Г±ГІГЁ</td>
 						<td width="90" align="right" nowrap>(up) (down) (del)</td>
 					</tr>
 				</table>
@@ -145,15 +145,15 @@
 		</td>
 	</tr>
 	<tr class="contRow1">
-		<td width="70" nowrap="nowrap">ID Р“Р€Р“В°Р“С–Р“Р‡Р“Р‡Р“В»:</td>
+		<td width="70" nowrap="nowrap">ID ГЈГ°ГіГЇГЇГ»:</td>
 		<td><input id="edGrpId" style="width: 200px; height: 15px;">
-			<input type="button" id="btnDelGroup" class="button" value="Р“вЂњР“В¤Р“В Р“В«Р“РЃР“Р†Р“С�"/></td>
-		<td width="90">Р“вЂћР“В®Р“РЋР“В Р“СћР“РЃР“Р†Р“С� Р“Р‡Р“В®Р“В«Р“Тђ:</td>
+			<input type="button" id="btnDelGroup" class="button" value="Г“Г¤Г Г«ГЁГІГј"/></td>
+		<td width="90">Г„Г®ГЎГ ГўГЁГІГј ГЇГ®Г«ГҐ:</td>
 		<td><select style="width: 200px;  height: 19px; border: #BFBFBF 1px solid;" id="selectFList"></select>
-			<input type="button" id="btnAddField" class="button" value="Р“вЂћР“В®Р“РЋР“В Р“СћР“РЃР“Р†Р“С�"/></td>
+			<input type="button" id="btnAddField" class="button" value="Г„Г®ГЎГ ГўГЁГІГј"/></td>
 	</tr>
 	<tr class="contRow1">
-		<td width="70" nowrap="nowrap">Р“в‚¬Р“В¬Р“С— Р“Р€Р“В°Р“С–Р“Р‡Р“Р‡Р“В»:</td>
+		<td width="70" nowrap="nowrap">Г€Г¬Гї ГЈГ°ГіГЇГЇГ»:</td>
 		<td><input id="edGrpName" style="width: 200px; height: 15px;"></td>
 	</tr>
 </table>
@@ -162,7 +162,7 @@
 	<tr>&nbsp;</tr>
 	<tr align="center">
 		<td class="contentEdit" valign="top" width="100%">
-			<input type="button" id="btnModGroup" class="button" value="Р“вЂћР“В®Р“РЋР“В Р“СћР“РЃР“Р†Р“С�"/>
+			<input type="button" id="btnModGroup" class="button" value="Г„Г®ГЎГ ГўГЁГІГј"/>
 		</td>
 	</tr>
 </table>
@@ -222,11 +222,11 @@
 			if (gListValue == '') {
 				document.getElementById('edGrpId').readOnly = false;
 				document.getElementById('edGrpId').style.backgroundColor = '#FFFFFF';
-				document.getElementById('btnModGroup').value = "Р“вЂћР“В®Р“РЋР“В Р“СћР“РЃР“Р†Р“С�";
+				document.getElementById('btnModGroup').value = "Г„Г®ГЎГ ГўГЁГІГј";
 			} else {
 				document.getElementById('edGrpId').readOnly = true;
 				document.getElementById('edGrpId').style.backgroundColor = '#EAF0F7';
-				document.getElementById('btnModGroup').value = "Р“вЂ�Р“В®Р“ВµР“В°Р“В Р“В­Р“РЃР“Р†Р“С�";
+				document.getElementById('btnModGroup').value = "Г‘Г®ГµГ°Г Г­ГЁГІГј";
 			}
 		}
 
@@ -266,7 +266,7 @@
 		}
 		var o = document.createElement('option');
 		o.value = '';
-		o.text = '** Р“В­Р“В®Р“СћР“В Р“С— Р“Р€Р“В°Р“С–Р“Р‡Р“Р‡Р“В  **';
+		o.text = '** Г­Г®ГўГ Гї ГЈГ°ГіГЇГЇГ  **';
 		grpList.options[grpList.options.length] = o;
 		grpList.value = gID;
 	}

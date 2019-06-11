@@ -1,4 +1,4 @@
-<h2 class="section-title">Р С›Р В±Р В»Р В°Р С”Р С• РЎвЂљР ВµР С–Р С•Р Р† :: <b>{tag}</b></h2>
+<h2 class="section-title">РћР±Р»Р°РєРѕ С‚РµРіРѕРІ :: <b>{tag}</b></h2>
 
 <section class="section">
     {entries}
