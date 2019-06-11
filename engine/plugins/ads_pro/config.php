@@ -39,7 +39,7 @@ switch ($_REQUEST['action']) {
 }
 function main() {
 
-	global $tpl, $lang; $main_admin;
+	global $tpl, $lang, $main_admin;
 	$tpath = locatePluginTemplates(array('conf.main', 'conf.general'), 'ads_pro', 1);
 	$s_news = pluginGetVariable('ads_pro', 'support_news');
 	$s_news_sort = pluginGetVariable('ads_pro', 'news_cfg_sort');
