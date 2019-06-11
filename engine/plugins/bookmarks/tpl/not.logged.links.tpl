@@ -1,1 +1,0 @@
-<img src="/engine/plugins/bookmarks/img/delete.gif"/> {{ counter }}
