@@ -37,18 +37,18 @@ function rss_import_block() {
 		if (!$newslength) {
 			$newslength = 100;
 		}
-		$url = extra_get_param('rss_import', $vv . '_url');       //Р°РґСЂРµСЃ RSS Р»РµРЅС‚С‹
-		$rss = simplexml_load_file($url);       //Р�РЅС‚РµСЂРїСЂРµС‚РёСЂСѓРµС‚ XML-С„Р°Р№Р» РІ РѕР±СЉРµРєС‚
+		$url = extra_get_param('rss_import', $vv . '_url');       //адрес RSS ленты
+		$rss = simplexml_load_file($url);       //интерпретирует XML-файл в объект
 		if (empty($rss))
-			return $template['vars'][$vv] = 'RSS РЅРµ РґРѕСЃС‚СѓРїРµРЅ';
-		//С†РёРєР» РґР»СЏ РѕР±С…РѕРґР° РІСЃРµР№ RSS Р»РµРЅС‚С‹
+			return $template['vars'][$vv] = 'RSS не доступен';
+		//цикл для обхода всей RSS ленты
 		$j = 1;
 		foreach ($rss->xpath('//item') as $item) {
-			$title = $item->title;       //РІС‹РІРѕРґРёРј Р·Р°РіРѕР»РѕРІРѕРє СЃС‚Р°С‚СЊРё
+			$title = $item->title;       //выводим заголовок статьи
 			if (strlen($title) > $maxlength) $tvars['vars']['title'] = iconv('utf-8', 'windows-1251', substr(secure_html($title), 0, $maxlength) . "");
 			else $tvars['vars']['title'] = iconv('utf-8', 'windows-1251', secure_html($title));
 			if (extra_get_param('rss_import', $vv . '_content')) {
-				$short_news = strip_tags(iconv('utf-8', 'windows-1251', $item->description));        //РІС‹РІРѕРґРёРј С‚РµРєСЃС‚ СЃС‚Р°С‚СЊРё	
+				$short_news = strip_tags(iconv('utf-8', 'windows-1251', $item->description));        //выводим текст статьи	
 				if ($config['blocks_for_reg']) $short_news = $parse->userblocks($short_news);
 				//if ($config['use_htmlformatter']) $short_news = $parse -> htmlformatter($short_news);
 				if ($config['use_bbcodes']) $short_news = $parse->bbcodes($short_news);
