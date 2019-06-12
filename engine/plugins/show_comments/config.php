@@ -4,11 +4,11 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		$("#maincb").click(function () { // РїСЂРё РєР»РёРєРµ РїРѕ РіР»Р°РІРЅРѕРјСѓ С‡РµРєР±РѕРєСЃСѓ
-			if ($('#maincb').attr('checked')) { // РїСЂРѕРІРµСЂСЏРµРј РµРіРѕ Р·РЅР°С‡РµРЅРёРµ
-				$('.check:enabled').attr('checked', true); // РµСЃР»Рё С‡РµРєР±РѕРєСЃ РѕС‚РјРµС‡РµРЅ, РѕС‚РјРµС‡Р°РµРј РІСЃРµ С‡РµРєР±РѕРєСЃС‹
+		$("#maincb").click(function () { // при клике по главному чекбоксу
+			if ($('#maincb').attr('checked')) { // проверяем его значение
+				$('.check:enabled').attr('checked', true); // если чекбокс отмечен, отмечаем все чекбоксы
 			} else {
-				$('.check:enabled').attr('checked', false); // РµСЃР»Рё С‡РµРєР±РѕРєСЃ РЅРµ РѕС‚РјРµС‡РµРЅ, СЃРЅРёРјР°РµРј РѕС‚РјРµС‚РєСѓ СЃРѕ РІСЃРµС… С‡РµРєР±РѕРєСЃРѕРІ
+				$('.check:enabled').attr('checked', false); // если чекбокс не отмечен, снимаем отметку со всех чекбоксов
 			}
 		});
 	});
@@ -36,37 +36,37 @@ function show_comments() {
 	if (($comm_length < 10) || ($comm_length > 5000)) {
 		$comm_length = 50;
 	}
-	// Р’С‹Р±РёСЂР°РµРј РёР· Р‘Р” РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р·Р°РїРёСЃРµР№
+	// Выбираем из БД общее количество записей
 	$query = "SELECT COUNT(*) as cnt FROM " . prefix . "_comments";
 	$res = $mysql->record($query, 1);
 	$total = $res['cnt'];
-	// РџСЂРѕРІРµСЂСЏРµРј РїРµСЂРµРґР°РЅ Р»Рё РЅРѕРјРµСЂ С‚РµРєСѓС‰РµР№ СЃС‚СЂР°РЅРёС†С‹
+	// Проверяем передан ли номер текущей страницы
 	if (isset($_GET['page'])) {
 		$page = (int)$_GET['page'];
 		if ($page < 1) $page = 1;
 	} else {
 		$page = 1;
 	}
-	// РЎРєРѕР»СЊРєРѕ РІСЃРµРіРѕ РїРѕР»СѓС‡РёС‚СЃСЏ СЃС‚СЂР°РЅРёС†
+	// Сколько всего получится страниц
 	$cnt_pages = ceil($total / $perpage);
 	if ($page > $cnt_pages) $page = $cnt_pages;
-	// РќР°С‡Р°Р»СЊРЅР°СЏ РїРѕР·РёС†РёСЏ
+	// Начальная позиция
 	$start = ($page - 1) * $perpage;
 	if ($start < 0) {
 		$start = 0;
 	}
 	$query = "select c.id, c.postdate, c.author, c.author_id, c.mail, c.text, c.ip, n.id as nid, n.title, n.alt_name, n.catid, n.postdate as npostdate from " . prefix . "_comments c left join " . prefix . "_news n on c.post=n.id where n.approve=1 order by c.id " . $order . " limit " . $start . ", " . $perpage;
 	$result = $mysql->select($query);
-	// Р’С‹РІРѕРґРёРј "С€Р°РїРєСѓ" С‚Р°Р±Р»РёС†С‹
+	// Выводим "шапку" таблицы
 	echo '<form action="" method="post" name="select_comments"><div id=ttr>';
 	echo '<table><tbody>';
 	echo '<tr>';
-	echo '<th>Р”Р°С‚Р°</th>';
-	echo '<th>РљРѕРјРјРµРЅС‚Р°СЂРёР№</th>';
-	echo '<th>РќРѕРІРѕСЃС‚СЊ</th>';
-	echo '<th style="width:14%;">РђРІС‚РѕСЂ</th>';
+	echo '<th>Дата</th>';
+	echo '<th>Комментарий</th>';
+	echo '<th>Новость</th>';
+	echo '<th style="width:14%;">Автор</th>';
 	echo '<th style="width:13%;">IP</th>';
-	echo '<th><input type="checkbox" name="master_box" title="Р’С‹Р±СЂР°С‚СЊ РІСЃРµ" onclick="javascript:check_uncheck_all(select_comments)" ></th>';
+	echo '<th><input type="checkbox" name="master_box" title="Выбрать все" onclick="javascript:check_uncheck_all(select_comments)" ></th>';
 	echo '</tr>';
 	foreach ($result as $prd) {
 		// Parse comments
@@ -111,15 +111,15 @@ function show_comments() {
 	echo '<script>$("tr:odd").css("background-color", "#f7fbff");</script>';
 	$type = $_POST['type'];
 	if (!empty($type)) {
-		// РќР°С‡РёРЅР°РµРј С„РѕСЂРјРёСЂРѕРІР°С‚СЊ РїРµСЂРµРјРµРЅРЅСѓСЋ, СЃРѕРґРµСЂР¶Р°С‰СѓСЋ СЃРїРёСЃРѕРє
-		// РІ С„РѕСЂРјР°С‚Рµ "(3,5,6,7)"
+		// Начинаем формировать переменную, содержащую список
+		// в формате "(3,5,6,7)"
 		$query = "(";
 		foreach ($type as $val) $query .= "$val,";
-		// РЈРґР°Р»СЏРµРј РїРѕСЃР»РµРґРЅСЋСЋ Р·Р°РїСЏС‚СѓСЋ, Р·Р°РјРµРЅСЏСЏ РµС‘ Р·Р°РєСЂС‹РІР°СЋС‰РµР№ СЃРєРѕР±РєРѕР№ )
+		// Удаляем последнюю запятую, заменяя её закрывающей скобкой )
 		$query = substr($query, 0, strlen($query) - 1) . ")";
-		// Р—Р°РІРµСЂС€Р°РµРј С„РѕСЂРјРёСЂРѕРІР°РЅРёРµ SQL-Р·Р°РїСЂРѕСЃР° РЅР° СѓРґР°Р»РµРЅРёРµ
+		// Завершаем формирование SQL-запроса на удаление
 		$query = "DELETE FROM " . prefix . "_comments WHERE id IN " . $query;
-		// Р’С‹РїРѕР»РЅСЏРµРј Р·Р°РїСЂРѕСЃ
+		// Выполняем запрос
 		if (!$mysql->query($query)) {
 			echo "<br>" . $mysql->db_error() . "<br>";
 			echo $query . "<br>";
@@ -127,14 +127,14 @@ function show_comments() {
 			foreach ($mysql->select("select n.id, count(c.id) as cid from " . prefix . "_news n left join " . prefix . "_comments c on c.post=n.id group by n.id") as $row) {
 				$mysql->query("update " . prefix . "_news set com=" . $row['cid'] . " where id = " . $row['id']);
 			}
-			// РћР±РЅРѕРІР»СЏРµРј СЃС‡РµС‚С‡РёРє РїРѕСЃС‚РѕРІ Сѓ СЋР·РµСЂРѕРІ
+			// Обновляем счетчик постов у юзеров
 			foreach ($mysql->select("select author_id, count(*) as cnt from " . prefix . "_news group by author_id") as $row) {
 				$mysql->query("update " . uprefix . "_users set news=" . $row['cnt'] . " where id = " . $row['author_id']);
 			}
 			foreach ($mysql->select("select n.id, count(c.id) as cid from " . prefix . "_news n left join " . prefix . "_comments c on c.post=n.id group by n.id") as $row) {
 				$mysql->query("update " . prefix . "_news set com=" . $row['cid'] . " where id = " . $row['id']);
 			}
-			// РћР±РЅРѕРІР»СЏРµРј СЃС‡РµС‚С‡РёРє РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ Сѓ СЋР·РµСЂРѕРІ
+			// Обновляем счетчик комментариев у юзеров
 			foreach ($mysql->select("select author_id, count(*) as cnt from " . prefix . "_comments group by author_id") as $row) {
 				$mysql->query("update " . uprefix . "_users set com=" . $row['cnt'] . " where id = " . $row['author_id']);
 			}
@@ -147,20 +147,20 @@ function show_comments() {
 			if ($k != "page") $uri .= urlencode($k) . "=" . urlencode($v) . "&";
 		}
 	}
-	// РЎС‚СЂРѕРёРј РїРѕСЃС‚СЂР°РЅРёС‡РЅСѓСЋ РЅР°РІРёРіР°С†РёСЋ
+	// Строим постраничную навигацию
 	if ($cnt_pages > 1) {
-		//   echo '<div style="margin:1em 0">&nbsp;РЎС‚СЂР°РЅРёС†С‹:';
-		// РџСЂРѕРІРµСЂСЏРµРј РЅСѓР¶РЅР° Р»Рё СЃС‚СЂРµР»РєР° "Р’ РЅР°С‡Р°Р»Рѕ"
+		//   echo '<div style="margin:1em 0">&nbsp;Страницы:';
+		// Проверяем нужна ли стрелка "В начало"
 		if ($page > 3)
 			$startpage = '<a href="' . $uri . 'page=1"><</a> .. ';
 		else
 			$startpage = '';
-		// РџСЂРѕРІРµСЂСЏРµРј РЅСѓР¶РЅР° Р»Рё СЃС‚СЂРµР»РєР° "Р’ РєРѕРЅРµС†"
+		// Проверяем нужна ли стрелка "В конец"
 		if ($page < ($cnt_pages - 2))
 			$endpage = ' .. <a href="' . $uri . 'page=' . $cnt_pages . '">></a>';
 		else
 			$endpage = '';
-		// РќР°С…РѕРґРёРј РґРІРµ Р±Р»РёР¶Р°Р№С€РёРµ СЃС‚Р°РЅРёС†С‹ СЃ РѕР±РѕРёС… РєСЂР°РµРІ, РµСЃР»Рё РѕРЅРё РµСЃС‚СЊ
+		// Находим две ближайшие станицы с обоих краев, если они есть
 		if ($page - 2 > 0)
 			$page2left = ' <a href="' . $uri . 'page=' . ($page - 2) . '">' . ($page - 2) . '</a> | ';
 		else
@@ -177,24 +177,24 @@ function show_comments() {
 			$page1right = ' | <a href="' . $uri . 'page=' . ($page + 1) . '">' . ($page + 1) . '</a>';
 		else
 			$page1right = '';
-		// Р’С‹РІРѕРґРёРј РјРµРЅСЋ
+		// Выводим меню
 		// echo $startpage.$page2left.$page1left.'<strong>'.$page.'</strong>'.$page1right.$page2right.$endpage;
 		echo '</div>';
 	}
-	echo '<table><tr><td>' . $startpage . $page2left . $page1left . '<strong>' . $page . '</strong>' . $page1right . $page2right . $endpage . '&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="align:right"><input class="button" type="submit" value="РЈРґР°Р»РёС‚СЊ"></td></tr></table></form>';
+	echo '<table><tr><td>' . $startpage . $page2left . $page1left . '<strong>' . $page . '</strong>' . $page1right . $page2right . $endpage . '&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="align:right"><input class="button" type="submit" value="Удалить"></td></tr></table></form>';
 }
 
 if (!getPluginStatusInstalled('comments')) {
-	echo 'РџР»Р°РіРёРЅ comments РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ!';
+	echo 'Плагин comments не установлен!';
 
 	return false;
 }
 plugins_load_config();
 $cfg = array();
-array_push($cfg, array('descr' => 'РџР»Р°РіРёРЅ РІС‹РІРѕРґРёС‚ СЃРїРёСЃРѕРє РІСЃРµС… РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РЅР° СЃР°Р№С‚Рµ.'));
-array_push($cfg, array('name' => 'perpage', 'title' => 'РљРѕР»-РІРѕ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РЅР° РѕРґРЅРѕР№ СЃС‚СЂР°РЅРёС†Рµ', 'type' => 'input', 'value' => extra_get_param($plugin, 'perpage')));
-array_push($cfg, array('name' => 'comm_length', 'title' => 'РЈСЃРµС‡РµРЅРёРµ РґР»РёРЅС‹ РєРѕРјРјРµРЅС‚Р°СЂРёСЏ', 'descr' => 'РљРѕР»-РІРѕ СЃРёРјРІРѕР»РѕРІ РёР· РєРѕРјРјРµРЅС‚Р°СЂРёСЏ РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ<br/>Р—РЅР°С‡РµРЅРёРµ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ: <b>50</b>', 'type' => 'input', 'html_flags' => 'size=5', 'value' => extra_get_param($plugin, 'comm_length')));
-array_push($cfg, array('name' => 'order', 'title' => 'РЈРїРѕСЂСЏРґРѕС‡РёС‚СЊ РїРѕ:', 'descr' => 'Р’С‹Р±РµСЂРёС‚Рµ РїРѕСЂСЏРґРѕРє РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ.', 'type' => 'select', 'values' => array('asc' => 'Р’РѕР·СЂР°СЃС‚Р°РЅРёСЋ', 'desc' => 'РЈР±С‹РІР°РЅРёСЋ'), 'value' => extra_get_param($plugin, 'order')));
+array_push($cfg, array('descr' => 'Плагин выводит список всех комментариев на сайте.'));
+array_push($cfg, array('name' => 'perpage', 'title' => 'Кол-во комментариев для отображения на одной странице', 'type' => 'input', 'value' => extra_get_param($plugin, 'perpage')));
+array_push($cfg, array('name' => 'comm_length', 'title' => 'Усечение длины комментария', 'descr' => 'Кол-во символов из комментария для отображения<br/>Значение по умолчанию: <b>50</b>', 'type' => 'input', 'html_flags' => 'size=5', 'value' => extra_get_param($plugin, 'comm_length')));
+array_push($cfg, array('name' => 'order', 'title' => 'Упорядочить по:', 'descr' => 'Выберите порядок отображения комментариев.', 'type' => 'select', 'values' => array('asc' => 'Возрастанию', 'desc' => 'Убыванию'), 'value' => extra_get_param($plugin, 'order')));
 if ($_REQUEST['action'] == 'commit') {
 	commit_plugin_config_changes($plugin, $cfg);
 	print_commit_complete('show_comments');

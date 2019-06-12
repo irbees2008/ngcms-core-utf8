@@ -29,16 +29,16 @@ function filter_bots($u_agent)
 }
 
 //
-// Р¤СѓРЅРєС†РёСЏ РІС‹Р·С‹РІР°РµРјР°СЏ РїРѕ РєСЂРѕРЅСѓ
+// Функция вызываемая по крону
 function plugin_site_stats_cron()
 {
     global $mysql;
 
-    // РћС‡РёС‰Р°РµРј С‚Р°Р±Р»РёС†Сѓ "site_stats" РґР»СЏ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+    // Очищаем таблицу "site_stats" для пользователей
     $mysql->query('DELETE FROM ' . prefix . '_site_stats');
 }
 
-// РџРѕР»СѓС‡РµРЅРёРµ СЃС‚Р°С‚РёСЃС‚РёРєРё СЃР°Р№С‚Р°
+// Получение статистики сайта
 function getSiteStats($templateName)
 {
 
@@ -68,7 +68,7 @@ function getSiteStats($templateName)
     }
 
     if ($site_exists) {
-        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РґРЅРµР№ СЃСѓС‰РµСЃС‚РІРѕРІР°РЅРёСЏ СЃР°Р№С‚Р°
+        // Подсчет количества дней существования сайта
         $site_exists = explode('.', pluginGetVariable('site_stats', 'site_exists'));
         $site_exists = mktime(0, 0, 0, $site_exists[1], $site_exists[0], $site_exists[2]);
         $site_exists = floor((time() - $site_exists) / 86400);
@@ -77,61 +77,61 @@ function getSiteStats($templateName)
     }
     
     if (pluginGetVariable('site_stats', 'static')) {
-        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° СЃС‚Р°С‚РёС‡РµСЃРєРёС… СЃС‚СЂР°РЅРёС†
+        // Подсчет количества статических страниц
         $stats['1'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_static");
         $stats['1']['title'] = $lang['site_stats:static'];
     }
 
     if (pluginGetVariable('site_stats', 'category')) {
-        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РєР°С‚РµРіРѕСЂРёР№
+        // Подсчет количества категорий
         $stats['2'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_category");
         $stats['2']['title'] = $lang['site_stats:category'];
     }
 
     if (pluginGetVariable('site_stats', 'news')) {
-        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° РЅРѕРІРѕСЃС‚РµР№
+        // Подсчет количества новостей
         $stats['3'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_news");
         $stats['3']['title'] = $lang['site_stats:news'];
     }
 
     if (pluginGetVariable('site_stats', 'news_na')) {
-        // РџРѕРґСЃС‡РµС‚ РЅРµРѕРїСѓР±Р»РёРєРѕРІР°РЅРЅС‹С… РЅРѕРІРѕСЃС‚РµР№
+        // Подсчет неопубликованных новостей
         $stats['4'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_news WHERE approve='0'");
         $stats['4']['title'] = $lang['site_stats:news_na'];
     }
 
     if (pluginGetVariable('site_stats', 'comments') and getPluginStatusActive('comments')) {
-        // РџРѕРґСЃС‡РµС‚ РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ
+        // Подсчет комментариев
         $stats['5'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_comments");
         $stats['5']['title'] = $lang['site_stats:comments'];
     }
 
     if (pluginGetVariable('site_stats', 'images')) {
-        // РџРѕРґСЃС‡РµС‚ Р·Р°РіСЂСѓР¶РµРЅРЅС‹С… РёР·РѕР±СЂР°Р¶РµРЅРёР№
+        // Подсчет загруженных изображений
         $stats['6'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_images");
         $stats['6']['title'] = $lang['site_stats:images'];
     }
 
     if (pluginGetVariable('site_stats', 'files')) {
-        // РџРѕРґСЃС‡РµС‚ Р·Р°РіСЂСѓР¶РµРЅРЅС‹С… С„Р°Р№Р»РѕРІ
+        // Подсчет загруженных файлов
         $stats['7'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_files");
         $stats['7']['title'] = $lang['site_stats:files'];
     }
 
     if (pluginGetVariable('site_stats', 'users')) {
-        // РџРѕРґСЃС‡РµС‚ Р·Р°СЂРµРіРµСЃС‚СЂРёСЂРѕРІР°РЅРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+        // Подсчет зарегестрированных пользователей
         $stats['8'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_users");
         $stats['8']['title'] = $lang['site_stats:users'];
     }
 
     if (pluginGetVariable('site_stats', 'users_na')) {
-        // РџРѕРґСЃС‡РµС‚ РЅРµР°РєС‚РёРІРЅС‹С… РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
+        // Подсчет неактивных пользователей
         $stats['9'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_users WHERE activation != ''");
         $stats['9']['title'] = $lang['site_stats:users_na'];
     }
 
     if (pluginGetVariable('site_stats', 'ipban')) {
-        // РџРѕРґСЃС‡РµС‚ РєРѕР»РёС‡РµСЃС‚РІР° Р±Р°РЅРѕРІ РїРѕ Р°Р№РїРё
+        // Подсчет количества банов по айпи
         $stats['10'] = $mysql->record("SELECT COUNT(*) AS count FROM " . prefix . "_ipban");
         $stats['10']['title'] = $lang['site_stats:ipban'];
     }
