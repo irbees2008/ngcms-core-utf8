@@ -1284,7 +1284,7 @@ class XFieldsFilterAdminCategories extends FilterAdminCategories {
 		// Get config
 		$xf = xf_configLoad();
 		// Prepare select
-		$ms = '<select name="xf_group"><option value="">** Р“СћР“В±Р“Тђ Р“Р‡Р“В®Р“В«Р“С— **</option>';
+		$ms = '<select name="xf_group"><option value="">** ГўГ±ГҐ ГЇГ®Г«Гї **</option>';
 		if (isset($xf['grp.news'])) {
 			foreach ($xf['grp.news'] as $k => $v) {
 				$ms .= '<option value="' . $k . '">' . $k . ' (' . $v['title'] . ')</option>';
@@ -1302,7 +1302,7 @@ class XFieldsFilterAdminCategories extends FilterAdminCategories {
 		// Get config
 		$xf = xf_configLoad();
 		// Prepare select
-		$ms = '<select name="xf_group"><option value="">** Р“СћР“В±Р“Тђ Р“Р‡Р“В®Р“В«Р“С— **</option>';
+		$ms = '<select name="xf_group"><option value="">** ГўГ±ГҐ ГЇГ®Г«Гї **</option>';
 		foreach ($xf['grp.news'] as $k => $v) {
 			$ms .= '<option value="' . $k . '"' . (($SQL['xf_group'] == $k) ? ' selected="selected"' : '') . '>' . $k . ' (' . $v['title'] . ')</option>';
 		}
