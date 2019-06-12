@@ -12,7 +12,7 @@ $cfg = array();
 $cfgX = array();
 array_push($cfg, array('descr' => $lang['other_user_news:description']));
 $cfgX = array();
-array_push($cfgX, array('name' => 'localsource', 'title' => $lang['other_user_news:localsource'], 'descr' => $lang['other_user_news:localsource#desc'], 'type' => 'select', 'values' => array('0' => 'РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°', '1' => 'РџР»Р°РіРёРЅ'), 'value' => intval(pluginGetVariable($plugin, 'localsource'))));
+array_push($cfgX, array('name' => 'localsource', 'title' => $lang['other_user_news:localsource'], 'descr' => $lang['other_user_news:localsource#desc'], 'type' => 'select', 'values' => array('0' => 'Шаблон сайта', '1' => 'Плагин'), 'value' => intval(pluginGetVariable($plugin, 'localsource'))));
 array_push($cfg, array('mode' => 'group', 'title' => $lang['other_user_news:group.source'], 'entries' => $cfgX));
 // RUN
 if ($_REQUEST['action'] == 'commit') {
