@@ -195,31 +195,25 @@ scroll({{ users }},'users',1,2);
 		
 		<div class="col-md-6">
 			<div class="panel panel-default">
-                <div class="panel-heading">
-                    <h4>Next Generation CMS<span id="needUpdate" class="badge bg-success pull-right">loading..</span></h4>
-                </div>
-                <table class="table table-statistics">
-                    <tr>
-                        <td>{{ lang['current_version'] }}</td>
-                        <td>{{ currentVersion }} [ {{engineVersionBuild}} ]</td>
-                    </tr>
-                    <tr>
-                        <td>{{ lang['lastRelease'] }}</td>
-                        <td><span id="lastRelease">loading..</span></td>
-                    </tr>
-                    {% if(perm.coreSystemUpdate) %}
-                    <tr>
-                        <td>{{ lang['git_version'] }}</td>
-                        <td><span id="lastCommit">loading..</span></td>
-                    </tr>
-                    {% endif %}
-                    <!--tr>
-                        <td>{{ lang.lastCommit }}</td>
-                        <td><span id="lastCommit">loading..</span></td>
-                    </tr-->
-                </table>
-            </div>
-        </div>
+				<div class="panel-heading">
+					<h4>Next Generation CMS</h4>
+				</div>
+				<table class="table table-statistics">
+					<tr>
+						<td>{{ lang['current_version'] }}</td>
+						<td>{{ currentVersion }}</td>
+					</tr>
+					<tr>
+						<td>{{ lang['last_version'] }}</td>
+						<td><span id="syncLastVersion">loading..</span></td>
+					</tr>
+					<tr>
+						<td>{{ lang['git_version'] }}</td>
+						<td><span id="syncSVNVersion">loading..</span></td>
+					</tr>
+				</table>
+			</div>
+		</div>
     </div>
 	
 	<div class="row">
