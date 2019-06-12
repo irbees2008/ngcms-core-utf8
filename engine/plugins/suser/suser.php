@@ -32,7 +32,7 @@ function suser_header_show($params) {
 	} else {
 		$page = $_REQUEST['page'];
 	}
-	$pageNo = isset($page) ? str_replace('%count%', intval($page), '/ РЎС‚СЂР°РЅРёС†Р° %count%') : '';
+	$pageNo = isset($page) ? str_replace('%count%', intval($page), '/ Страница %count%') : '';
 	switch ($CurrentHandler['handlerName']) {
 		case '':
 		case 'search':
@@ -235,7 +235,7 @@ function suser_show($params) {
 	$count = $mysql->result('SELECT COUNT(*) FROM `' . prefix . '_users` ' . $where . '');
 	$countPages = ceil($count / $limitCount);
 	if ($countPages < $pageNo)
-		return $output = information_suser('РџРѕРґСЃС‚СЂР°РЅРёС†С‹ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚', $title = 'Р�РЅС„РѕСЂРјР°С†РёСЏ');
+		return $output = information_suser('Подстраницы не существует', $title = '�?нформация');
 	if ($pageNo < 1) $pageNo = 1;
 	if (!isset($limitStart)) $limitStart = ($pageNo - 1) * $limitCount;
 	if ($countPages > 1 && $countPages >= $pageNo) {
@@ -244,10 +244,10 @@ function suser_show($params) {
 		$pages = generatePagination($pageNo, 1, $countPages, 10, $paginationParams, $navigations);
 	}
 	$status = array(
-		'4' => 'РљРѕРјРјРµРЅС‚Р°С‚РѕСЂ',
-		'3' => 'Р–СѓСЂРЅР°Р»РёСЃС‚',
-		'2' => 'Р РµРґР°РєС‚РѕСЂ',
-		'1' => 'РђРґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ'
+		'4' => 'Комментатор',
+		'3' => 'Журналист',
+		'2' => 'Редактор',
+		'1' => 'Администратор'
 	);
 	foreach ($mysql->select('SELECT * FROM ' . prefix . '_users ' . $where . '  ORDER BY ' . $sort_b . ' ' . $sort_d . ' LIMIT ' . $limitStart . ', ' . $limitCount) as $row) {
 		$tEntry[] = get_entries($row);
@@ -361,7 +361,7 @@ function redirect_link_suser($url) {
 	}
 }
 
-function information_suser($info, $title = 'Р�РЅС„РѕСЂРјР°С†РёСЏ', $error_404 = false) {
+function information_suser($info, $title = '�?нформация', $error_404 = false) {
 
 	global $twig, $SYSTEM_FLAGS, $CurrentHandler, $template;
 	$CurrentHandler['handlerName'] = 'erro404';

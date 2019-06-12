@@ -12,7 +12,7 @@ switch ($_REQUEST['action']) {
 }
 function url() {
 
-	global $tpl;
+	global $tpl, $main_admin;
 	$tpath = locatePluginTemplates(array('config/main', 'config/url'), 'suser', 1);
 	if (isset($_REQUEST['submit'])) {
 		if (isset($_REQUEST['url']) && !empty($_REQUEST['url'])) {
@@ -22,13 +22,13 @@ function url() {
 				array(
 					'vars'  =>
 						array(),
-					'descr' => array('russian' => 'РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№'),
+					'descr' => array('russian' => 'Список пользователей'),
 				)
 			);
 			$ULIB->registerCommand('suser', 'search',
 				array(
 					'vars'  => array(),
-					'descr' => array('russian' => 'РџРѕРёСЃРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№'),
+					'descr' => array('russian' => 'Поиск пользователей'),
 				)
 			);
 			$ULIB->saveConfig();
@@ -44,13 +44,13 @@ function url() {
 		redirect_suser('?mod=extra-config&plugin=suser&url');
 	}
 	$url = pluginGetVariable('suser', 'url');
-	$url = '<option value="0" ' . (empty($url) ? 'selected' : '') . '>РќРµС‚</option><option value="1" ' . (!empty($url) ? 'selected' : '') . '>Р”Р°</option>';
+	$url = '<option value="0" ' . (empty($url) ? 'selected' : '') . '>Нет</option><option value="1" ' . (!empty($url) ? 'selected' : '') . '>Да</option>';
 	$pvars['vars']['info'] = $url;
 	$tpl->template('url', $tpath['config/url'] . 'config');
 	$tpl->vars('url', $pvars);
 	$tvars['vars'] = array(
 		'entries' => $tpl->show('url'),
-		'global'  => 'РќР°СЃС‚СЂРѕР№РєР° Р§РџРЈ'
+		'global'  => 'Настройка ЧПУ'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
@@ -59,7 +59,7 @@ function url() {
 
 function main() {
 
-	global $tpl;
+	global $tpl, $main_admin;
 	$tpath = locatePluginTemplates(array('config/main', 'config/general.from'), 'suser', 1);
 	if (isset($_REQUEST['submit'])) {
 		pluginSetVariable('suser', 'user_per_page', intval($_REQUEST['user_per_page']));
@@ -75,9 +75,9 @@ function main() {
 	$description = pluginGetVariable('suser', 'description');
 	$keywords = pluginGetVariable('suser', 'keywords');
 	$localsource = pluginGetVariable('suser', 'localsource');
-	$localsource = '<option value="0" ' . (empty($localsource) ? 'selected' : '') . '>РЁР°Р±Р»РѕРЅ СЃР°Р№С‚Р°</option><option value="1" ' . (!empty($localsource) ? 'selected' : '') . '>РџР»Р°РіРёРЅ</option>';
+	$localsource = '<option value="0" ' . (empty($localsource) ? 'selected' : '') . '>Шаблон сайта</option><option value="1" ' . (!empty($localsource) ? 'selected' : '') . '>Плагин</option>';
 	if (empty($user_per_page))
-		msg(array("type" => "error", "text" => "РљСЂРёС‚РёС‡РµСЃРєР°СЏ РѕС€РёР±РєР°. <br /> РќРµ Р·Р°РґР°РЅРѕ РєРѕР»РёС‡РµСЃС‚РІРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РЅР° СЃС‚СЂР°РЅРёС†Рµ"), 1);
+		msg(array("type" => "error", "text" => "Критическая ошибка. <br /> Не задано количество пользователей на странице"), 1);
 	$pvars['vars'] = array(
 		'user_per_page' => $user_per_page,
 		'title_plg'     => $title_plg,
@@ -89,7 +89,7 @@ function main() {
 	$tpl->vars('general.from', $pvars);
 	$tvars['vars'] = array(
 		'entries' => $tpl->show('general.from'),
-		'global'  => 'РћР±С‰РёРµ'
+		'global'  => 'Общие'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
