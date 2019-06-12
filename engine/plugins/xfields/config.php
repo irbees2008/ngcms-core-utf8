@@ -8,7 +8,7 @@ include_once root . 'plugins/xfields/xfields.php';
 if (!is_array($xf = xf_configLoad()))
 	$xf = array();
 //
-// РЈРїСЂР°РІР»РµРЅРёРµ РЅРµРѕР±С…РѕРґРёРјС‹РјРё РґРµР№СЃС‚РІРёСЏРјРё
+// Управление необходимыми действиями
 $sectionID = $_REQUEST['section'];
 if (!in_array($sectionID, array('news', 'grp.news', 'users', 'grp.users', 'tdata'))) {
 	$sectionID = 'news';
@@ -34,7 +34,7 @@ switch ($_REQUEST['action']) {
 		showList();
 }
 //
-// РџРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє РїРѕР»РµР№
+// Показать список полей
 function showList() {
 
 	global $sectionID;
@@ -49,7 +49,7 @@ function showList() {
 //
 function showSectionList() {
 
-	global $xf, $lang, $tpl, $twig, $sectionID;
+	global $xf, $lang, $tpl, $twig, $sectionID, $main_admin;
 	$output = '';
 	//$output .= "<pre>".var_export($xf[$sectionID], true)."</pre>";
 	$tVars = array(
@@ -68,14 +68,14 @@ function showSectionList() {
 	$tVars['json']['groups.config'] = json_encode($grpNews);
 	$tVars['json']['fields.config'] = json_encode(arrayCharsetConvert(0, $xf['news']));
 	$xt = $twig->loadTemplate('plugins/xfields/tpl/groups.tpl');
-	echo $xt->render($tVars);
+	$main_admin = $xt->render($tVars);
 }
 
 //
-// РџРѕРєР°Р·Р°С‚СЊ СЃРїРёСЃРѕРє РґРѕРї. РїРѕР»РµР№
+// Показать список доп. полей
 function showFieldList() {
 
-	global $xf, $lang, $twig, $sectionID;
+	global $xf, $lang, $twig, $sectionID, $main_admin;
 	$xEntries = array();
 	$output = '';
 	foreach ($xf[$sectionID] as $id => $data) {
@@ -118,14 +118,14 @@ function showFieldList() {
 	foreach (array('news', 'grp.news', 'users', 'grp.users', 'tdata') as $cID)
 		$tVars['bclass'][$cID] = ($cID == $sectionID) ? 'btnActive' : 'btnInactive';
 	$xt = $twig->loadTemplate('plugins/xfields/tpl/config.tpl');
-	echo $xt->render($tVars);
+	$main_admin = $xt->render($tVars);
 }
 
 //
 //
 function showAddEditForm($xdata = '', $eMode = null, $efield = null) {
 
-	global $xf, $lang, $sectionID, $twig;
+	global $xf, $lang, $sectionID, $twig, $main_admin;
 	$field = ($efield == null) ? $_REQUEST['field'] : $efield;
 	if ($eMode == null) {
 		$editMode = (is_array($xf[$sectionID][$field])) ? 1 : 0;
@@ -183,8 +183,8 @@ function showAddEditForm($xdata = '', $eMode = null, $efield = null) {
 				'sOpts'          => implode("\n", $sOpts),
 				'm_sOpts'        => implode("\n", $m_sOpts),
 				'type_opts'      => $xsel,
-				'storekeys_opts' => '<option value="0">РЎРѕС…СЂР°РЅСЏС‚СЊ Р·РЅР°С‡РµРЅРёРµ</option><option value="1"' . (($data['storekeys']) ? ' selected' : '') . '>РЎРѕС…СЂР°РЅСЏС‚СЊ РєРѕРґ</option>',
-				'required_opts'  => '<option value="0">РќРµС‚</option><option value="1"' . (($data['required']) ? ' selected' : '') . '>Р”Р°</option>',
+				'storekeys_opts' => '<option value="0">Сохранять значение</option><option value="1"' . (($data['storekeys']) ? ' selected' : '') . '>Сохранять код</option>',
+				'required_opts'  => '<option value="0">Нет</option><option value="1"' . (($data['required']) ? ' selected' : '') . '>Да</option>',
 				'images'         => array(
 					'maxCount'    => intval($data['maxCount']),
 					'thumbWidth'  => intval($data['thumbWidth']),
@@ -219,8 +219,8 @@ function showAddEditForm($xdata = '', $eMode = null, $efield = null) {
 		}
 		$tVars = $tVars + array(
 				'type_opts'      => $xsel,
-				'storekeys_opts' => '<option value="0">РЎРѕС…СЂР°РЅСЏС‚СЊ Р·РЅР°С‡РµРЅРёРµ</option><option value="1">РЎРѕС…СЂР°РЅСЏС‚СЊ РєРѕРґ</option>',
-				'required_opts'  => '<option value="0">РќРµС‚</option><option value="1">Р”Р°</option>',
+				'storekeys_opts' => '<option value="0">Сохранять значение</option><option value="1">Сохранять код</option>',
+				'required_opts'  => '<option value="0">Нет</option><option value="1">Да</option>',
 				'select_options' => '',
 				'images' => array(
 					'maxCount'    => '1',
@@ -234,14 +234,14 @@ function showAddEditForm($xdata = '', $eMode = null, $efield = null) {
 	}
 	$tVars['sectionID'] = $sectionID;
 	$xt = $twig->loadTemplate('plugins/xfields/tpl/config_edit.tpl');
-	echo $xt->render($tVars);
+	$main_admin = $xt->render($tVars);
 }
 
 //
 //
 function doAddEdit() {
 
-	global $xf, $XF, $lang, $tpl, $twig, $mysql, $sectionID;
+	global $xf, $XF, $lang, $tpl, $twig, $mysql, $sectionID, $main_admin;
 	//print "<pre>".var_export($_POST, true)."</pre>";
 	$error = 0;
 	$field = $_REQUEST['id'];
@@ -435,7 +435,7 @@ function doAddEdit() {
 	}
 	// Now we should update table `_news` structure and content
 	if (!($tableName = xf_getTableBySectionID($sectionID))) {
-		print 'РћС€РёР±РєР°: РЅРµРёР·РІРµСЃС‚РЅР°СЏ СЃРµРєС†РёСЏ/Р±Р»РѕРє (' . $sectionID . ')';
+		print 'Ошибка: неизвестная секция/блок (' . $sectionID . ')';
 
 		return;
 	}
@@ -513,14 +513,14 @@ function doAddEdit() {
 	);
 	$tVars['sectionID'] = $sectionID;
 	$xt = $twig->loadTemplate('plugins/xfields/tpl/config_done.tpl');
-	echo $xt->render($tVars);
+	$main_admin = $xt->render($tVars);
 }
 
 //
 //
 function doUpdate() {
 
-	global $xf, $XF, $lang, $tpl, $mysql, $sectionID;
+	global $xf, $XF, $lang, $tpl, $mysql, $sectionID, $main_admin;
 	$error = 0;
 	$field = $_REQUEST['field'];
 	// Check if field exists or not [depends on mode]
@@ -562,7 +562,7 @@ function doUpdate() {
 
 		return;
 	}
-	$xf = $XF;
+	$main_admin = $xf = $XF;
 }
 
 function array_key_move(&$arr, $key, $offset) {
