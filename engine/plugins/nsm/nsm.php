@@ -22,7 +22,7 @@ function plugin_nsm_edit_proxy() {
 // Show list of user's news
 function plugin_nsm() {
 
-	global $userROW, $mysql, $twig, $lang, $template;
+	global $userROW, $mysql, $twig, $lang, $template, $main_admin;
 	// Load permissions
 	$perm = checkPermission(array('plugin' => '#admin', 'item' => 'news'), null, array(
 		'personal.view',
@@ -109,7 +109,7 @@ function plugin_nsm() {
 	$tVars['flags']['canAdd'] = (($permPlugin['add']) && ($perm['add'])) ? 1 : 0;
 	// Determine paths for all template files
 	$tpath = locatePluginTemplates(array('news.list'), 'nsm', pluginGetVariable('nsm', 'localsource'));
-	$xt = $twig->loadTemplate($tpath['news.list'] . 'news.list.tpl');
+	$main_admin = $xt = $twig->loadTemplate($tpath['news.list'] . 'news.list.tpl');
 	$template['vars']['mainblock'] .= $xt->render($tVars);
 }
 
@@ -234,7 +234,7 @@ function plugin_nsm_edit($tpl_name) {
 // Form for adding news
 function plugin_nsm_addForm($tpl_name = 'news.add', $retry = '') {
 
-	global $userROW, $twig, $lang, $template, $config, $PHP_SELF, $catz;
+	global $userROW, $twig, $lang, $template, $config, $PHP_SELF, $catz, $main_admin;
 	// Load permissions
 	$perm = checkPermission(array('plugin' => '#admin', 'item' => 'news'), null, array(
 		'add',
@@ -445,13 +445,13 @@ function plugin_nsm_addForm($tpl_name = 'news.add', $retry = '') {
 	);
 	// Determine paths for all template files
 	$tpath = locatePluginTemplates(array($tpl_name), 'nsm', pluginGetVariable('nsm', 'localsource'));
-	$xt = $twig->loadTemplate($tpath[$tpl_name] . $tpl_name . '.tpl');
+	$main_admin = $xt = $twig->loadTemplate($tpath[$tpl_name] . $tpl_name . '.tpl');
 	$template['vars']['mainblock'] .= $xt->render($tVars);
 }
 
 function plugin_nsm_editForm($tpl_name = 'news.edit', $retry = '') {
 
-	global $lang, $parse, $mysql, $config, $PFILTERS, $tvars, $userROW, $twig, $template, $catz;
+	global $lang, $parse, $mysql, $config, $PFILTERS, $tvars, $userROW, $twig, $template, $catz, $main_admin;
 	// Load permissions
 	$perm = checkPermission(array('plugin' => '#admin', 'item' => 'news'), null, array(
 		'personal.view',
@@ -792,7 +792,7 @@ function plugin_nsm_editForm($tpl_name = 'news.edit', $retry = '') {
 		}
 	// Determine paths for all template files
 	$tpath = locatePluginTemplates(array($tpl_name), 'nsm', pluginGetVariable('nsm', 'localsource'));
-	$xt = $twig->loadTemplate($tpath[$tpl_name] . $tpl_name . '.tpl');
+	$main_admin = $xt = $twig->loadTemplate($tpath[$tpl_name] . $tpl_name . '.tpl');
 	$template['vars']['mainblock'] .= $xt->render($tVars);
 }
 
