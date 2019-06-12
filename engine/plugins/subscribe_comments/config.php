@@ -60,7 +60,7 @@ function show_list_subscribe() {
 	$tvars['vars'] = array(
 		'entries_cron' => '',
 		'entries'      => $tpl->show('list_subscribe'),
-		'global'       => 'РЎРїРёСЃРѕРє РїРѕРґРїРёСЃРѕРє'
+		'global'       => 'Список подписок'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
@@ -104,7 +104,7 @@ function show_list_subscribe_post() {
 	$tvars['vars'] = array(
 		'entries_cron' => '',
 		'entries'      => $tpl->show('list_subscribe_post'),
-		'global'       => 'РЎС„РѕСЂРјРёСЂРѕРІР°РЅРЅС‹Рµ РїРёСЃСЊРјР°'
+		'global'       => 'Сформированные письма'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
@@ -118,7 +118,7 @@ function modify() {
 	$subaction = $_REQUEST['subaction'];
 	$id = implode(',', $selected_news);
 	if (empty($id)) {
-		return msg(array("type" => "error", "text" => "Р’С‹ РЅРµ РІС‹Р±СЂР°Р»Рё РѕР±СЉРµРєС‚РѕРІ"));
+		return msg(array("type" => "error", "text" => "Вы не выбрали объектов"));
 	}
 	switch ($subaction) {
 		case 'mass_delete'       :
@@ -130,11 +130,11 @@ function modify() {
 	}
 	if (isset($del)) {
 		$mysql->query("delete from " . prefix . "_subscribe_comments where id in ({$id})");
-		msg(array("type" => "info", "info" => "РџРѕРґРїРёСЃРєРё СЃ ID${id} СѓРґР°Р»РµРЅС‹"));
+		msg(array("type" => "info", "info" => "Подписки с ID${id} удалены"));
 	}
 	if (isset($del_post)) {
 		$mysql->query("delete from " . prefix . "_subscribe_comments_temp where id in ({$id})");
-		msg(array("type" => "info", "info" => "РџРёСЊСЃРјР° СЃ ID${id} СѓРґР°Р»РµРЅС‹"));
+		msg(array("type" => "info", "info" => "Пиьсма с ID${id} удалены"));
 	}
 }
 
@@ -194,7 +194,7 @@ function main() {
 	}
 	$admin_count = pluginGetVariable('subscribe_comments', 'admin_count');
 	$delayed_send = pluginGetVariable('subscribe_comments', 'delayed_send');
-	$delayed_send = '<option value="0" ' . (empty($delayed_send) ? 'selected' : '') . '>РќРµС‚</option><option value="1" ' . (!empty($delayed_send) ? 'selected' : '') . '>Р”Р°</option>';
+	$delayed_send = '<option value="0" ' . (empty($delayed_send) ? 'selected' : '') . '>Нет</option><option value="1" ' . (!empty($delayed_send) ? 'selected' : '') . '>Да</option>';
 	$pvars['vars'] = array(
 		'admin_count'  => isset($admin_count) ? $admin_count : '10',
 		'delayed_send' => isset($delayed_send) ? $delayed_send : '10',
@@ -204,7 +204,7 @@ function main() {
 	$tvars['vars'] = array(
 		'entries_cron' => $tpl->show('list_subscribe_cron'),
 		'entries'      => $tpl->show('general.from'),
-		'global'       => 'РћР±С‰РёРµ РЅР°СЃС‚СЂРѕР№РєРё'
+		'global'       => 'Общие настройки'
 	);
 	$tpl->template('main', $tpath['config/main'] . 'config');
 	$tpl->vars('main', $tvars);
