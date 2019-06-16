@@ -17,7 +17,6 @@
 			<input type="hidden" name="masscheck" value="" />
 			<input type="hidden" name="massrepair" value="" />
 			<input type="hidden" name="massoptimize" value="" />
-			<input type="hidden" name="massconvert" value="" />
 			<input type="hidden" name="massdelete" value="" />
 			
 			<div class="panel-body table-responsive">
@@ -56,7 +55,6 @@
 						<input class="btn btn-default form-control" type="submit" value="{{ lang.dbo.check }}" onclick="document.forms['form'].masscheck.value = 'true';" />&nbsp;
 						<input class="btn btn-default form-control" type="submit" value="{{ lang.dbo.repair }}" onclick="document.forms['form'].massrepair.value = 'true';" />&nbsp;
 						<input class="btn btn-default form-control" type="submit" value="{{ lang.dbo.optimize }}" onclick="document.forms['form'].massoptimize.value = 'true';" />&nbsp;
-						<input class="btn btn-default form-control" type="submit" value="{{ lang.dbo.convert }}" onclick="document.forms['form'].massconvert.value = 'true';" />
 					</div>
 					<div class="col col-md-3">
 						<input class="btn btn-default form-control" type="submit" value="{{ lang.dbo.cat_recount }}" onclick="document.forms['form'].cat_recount.value = 'true';" />&nbsp;
@@ -92,7 +90,6 @@
 			<div class="row">
 				<div class="col col-md-6">
 					{{restore}} 
-					<label for="cp1251"><input type="checkbox" name="cp1251" id="cp1251" value="1" />Архив БД в кодировке cp1251</label>
 				</div>
 				<div class="col col-md-3">
 					<input class="btn btn-default form-control" type="submit" value="{{ lang.dbo.restore }}" onclick="document.forms['backups'].restore.value = 'true';" />
