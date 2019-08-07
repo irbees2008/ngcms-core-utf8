@@ -91,7 +91,7 @@ function main_submit() {
 
 function showlist() {
 
-	global $tpl, $lang;
+	global $tpl, $lang,$main_admin;
 	$tpath = locatePluginTemplates(array('conf.main', 'conf.list', 'conf.list.row'), 'ads_pro', 1);
 	$var = pluginGetVariable('ads_pro', 'data');
 	$output = '';
@@ -128,7 +128,7 @@ function showlist() {
 
 function add() {
 
-	global $mysql, $tpl, $lang;
+	global $mysql, $tpl, $lang, $main_admin;
 	$PluginsList = getPluginsActiveList();
 	// Load config
 	$pConfig = pluginGetVariable('ads_pro', 'data');
