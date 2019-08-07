@@ -34,10 +34,10 @@ if (!$_REQUEST['doupgrade']) {
 @header("Pragma: no-cache");
 $PHP_SELF = "admin.php";
 
-if (($config['skin'] && $config['skin'] != "") && file_exists("./skins/".$config['skin']."/index.php")) {
-	require_once("./skins/".$config['skin']."/index.php");
+if (($config['skin'] && $config['skin'] != "") && file_exists("./skins/".$config['skin']."/index.tpl")) {
+	require_once("./skins/".$config['skin']."/index.tpl");
 } else {
-	require_once("./skins/default/index.php");
+	require_once("./skins/default/index.tpl");
 }
 echo $skin_header;
 
