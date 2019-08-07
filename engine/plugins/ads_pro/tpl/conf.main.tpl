@@ -3,7 +3,7 @@
 		<tr>
 			<td width="100%" colspan="2" class="contentHead">
 				<a href="admin.php?mod=extras" title="{l_extras}">{l_extras}</a>
-				<i class="fa fa-arrow-right" aria-hidden="true"></i> <a href="?mod=extra-config&plugin=ads_pro">ads_pro</a> <i class="fa fa-arrow-right" aria-hidden="true"></i> {action}
+				/ <a href="?mod=extra-config&plugin=ads_pro">ads_pro</a> / {action}
 			</td>
 		</tr>
 		<tr>
