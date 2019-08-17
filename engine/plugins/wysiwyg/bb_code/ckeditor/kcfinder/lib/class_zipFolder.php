@@ -33,8 +33,8 @@ class zipFolder {
         $folder = rtrim($folder, '/');
 
         if (strstr($folder, '/')) {
-            $this->root = substr($folder, 0, strrpos($folder, '/') + 1);
-            $folder = substr($folder, strrpos($folder, '/') + 1);
+            $this->root = mb_substr($folder, 0, strrpos($folder, '/') + 1);
+            $folder = mb_substr($folder, strrpos($folder, '/') + 1);
         }
 
         $this->zip($folder);

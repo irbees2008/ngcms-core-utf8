@@ -184,7 +184,7 @@ function comments_add() {
 	if (pluginGetVariable('comments', 'maxwlen') > 1) {
 		$SQL['text'] = preg_replace('/(\S{' . intval(pluginGetVariable('comments', 'maxwlen')) . '})(?!\s)/', '$1 ', $SQL['text']);
 		if ((!$SQL['author_id']) && (strlen($SQL['author']) > pluginGetVariable('comments', 'maxwlen'))) {
-			$SQL['author'] = substr($SQL['author'], 0, pluginGetVariable('comments', 'maxwlen')) . " ...";
+			$SQL['author'] = mb_substr($SQL['author'], 0, pluginGetVariable('comments', 'maxwlen')) . " ...";
 		}
 	}
 	$SQL['text'] = str_replace("\r\n", "<br />", $SQL['text']);

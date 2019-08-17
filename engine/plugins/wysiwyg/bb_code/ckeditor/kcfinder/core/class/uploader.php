@@ -137,7 +137,7 @@ class uploader {
                 $sessVar = array();
 
             foreach ($sessVar as $key => $val)
-                if ((substr($key, 0, 1) != "_") && isset($_CONFIG[$key]))
+                if ((mb_substr($key, 0, 1) != "_") && isset($_CONFIG[$key]))
                     $this->config[$key] = $val;
 
             if (!isset($sessVar['self']))
@@ -234,7 +234,7 @@ class uploader {
 
         // ABSOLUTE & RELATIVE
         } else {
-            $this->config['uploadURL'] = (substr($this->config['uploadURL'], 0, 1) === "/")
+            $this->config['uploadURL'] = (mb_substr($this->config['uploadURL'], 0, 1) === "/")
                 ? path::normalize($this->config['uploadURL'])
                 : path::rel2abs_url($this->config['uploadURL']);
             $this->config['uploadDir'] = strlen($this->config['uploadDir'])
@@ -327,12 +327,12 @@ class uploader {
                 (false !== ($gdir = $this->checkInputDir($_GET['dir'])))
             ) {
                 $udir = path::normalize("$dir$gdir");
-                if (substr($udir, 0, strlen($dir)) !== $dir)
+                if (mb_substr($udir, 0, strlen($dir)) !== $dir)
                     $message = $this->label("Unknown error.");
                 else {
                     $l = strlen($dir);
                     $dir = "$udir/";
-                    $udir = substr($udir, $l);
+                    $udir = mb_substr($udir, $l);
                 }
             }
 
@@ -405,9 +405,9 @@ class uploader {
 
     protected function checkFilePath($file) {
         $rPath = realpath($file);
-        if (strtoupper(substr(PHP_OS, 0, 3)) == "WIN")
+        if (strtoupper(mb_substr(PHP_OS, 0, 3)) == "WIN")
             $rPath = str_replace("\\", "/", $rPath);
-        return (substr($rPath, 0, strlen($this->typeDir)) === $this->typeDir);
+        return (mb_substr($rPath, 0, strlen($this->typeDir)) === $this->typeDir);
     }
 
     protected function checkFilename($file) {
@@ -468,12 +468,12 @@ class uploader {
             )))));
 
         // HIDDEN FILENAMES CHECK
-        elseif (substr($file['name'], 0, 1) == ".")
+        elseif (mb_substr($file['name'], 0, 1) == ".")
             return $this->label("File name shouldn't begins with '.'");
 
         // EXTENSION CHECK
         elseif (
-            (substr($file['name'], -1) == ".") ||
+            (mb_substr($file['name'], -1) == ".") ||
             !$this->validateExtension($extension, $this->type)
         )
             return $this->label("Denied file extension.");
@@ -505,10 +505,10 @@ class uploader {
 
     protected function checkInputDir($dir, $inclType=true, $existing=true) {
         $dir = path::normalize($dir);
-        if (substr($dir, 0, 1) == "/")
-            $dir = substr($dir, 1);
+        if (mb_substr($dir, 0, 1) == "/")
+            $dir = mb_substr($dir, 1);
 
-        if ((substr($dir, 0, 1) == ".") || (substr(basename($dir), 0, 1) == "."))
+        if ((mb_substr($dir, 0, 1) == ".") || (mb_substr(basename($dir), 0, 1) == "."))
             return false;
 
         if ($inclType) {
@@ -542,11 +542,11 @@ class uploader {
         }
 
         $exts = trim($this->types[$type]);
-        if (!strlen($exts) || substr($exts, 0, 1) == "*")
+        if (!strlen($exts) || mb_substr($exts, 0, 1) == "*")
             return true;
 
-        if (substr($exts, 0, 1) == "!") {
-            $exts = explode(" ", trim(strtolower(substr($exts, 1))));
+        if (mb_substr($exts, 0, 1) == "!") {
+            $exts = explode(" ", trim(strtolower(mb_substr($exts, 1))));
             return !in_array($ext, $exts);
         }
 
@@ -672,7 +672,7 @@ class uploader {
         if ($type === false)
             return true;
 
-        $thumb = substr($file, strlen($this->config['uploadDir']));
+        $thumb = mb_substr($file, strlen($this->config['uploadDir']));
         $thumb = $this->config['uploadDir'] . "/" . $this->config['thumbsDir'] . "/" . $thumb;
         $thumb = path::normalize($thumb);
         $thumbDir = dirname($thumb);

@@ -614,7 +614,7 @@ class Mobile_Detect
         'Coast'         => array('Coast/[VER]'),
         'Dolfin'        => 'Dolfin/[VER]',
         // @reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent/Firefox
-        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'), 
+        'Firefox'       => array('Firefox/[VER]', 'FxiOS/[VER]'),
         'Fennec'        => 'Fennec/[VER]',
         // http://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx
         // https://msdn.microsoft.com/en-us/library/ie/hh869301(v=vs.85).aspx
@@ -712,7 +712,7 @@ class Mobile_Detect
         // Only save HTTP headers. In PHP land, that means only _SERVER vars that
         // start with HTTP_.
         foreach ($httpHeaders as $key => $value) {
-            if (substr($key, 0, 5) === 'HTTP_') {
+            if (mb_substr($key, 0, 5) === 'HTTP_') {
                 $this->httpHeaders[$key] = $value;
             }
         }
@@ -800,7 +800,7 @@ class Mobile_Detect
         // start with cloudfront-.
         $response = false;
         foreach ($cfHeaders as $key => $value) {
-            if (substr(strtolower($key), 0, 16) === 'http_cloudfront_') {
+            if (mb_substr(strtolower($key), 0, 16) === 'http_cloudfront_') {
                 $this->cloudfrontHeaders[strtoupper($key)] = $value;
                 $response = true;
             }
@@ -1064,13 +1064,13 @@ class Mobile_Detect
     public function __call($name, $arguments)
     {
         // make sure the name starts with 'is', otherwise
-        if (substr($name, 0, 2) !== 'is') {
+        if (mb_substr($name, 0, 2) !== 'is') {
             throw new BadMethodCallException("No such method exists: $name");
         }
 
         $this->setDetectionType(self::DETECTION_TYPE_MOBILE);
 
-        $key = substr($name, 2);
+        $key = mb_substr($name, 2);
 
         return $this->matchUAAgainstKey($key);
     }

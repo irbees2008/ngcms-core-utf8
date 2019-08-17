@@ -118,7 +118,7 @@ class fastImage
   {
     $chars = $this->getChars(25);
 
-    return unpack("N*", substr($chars, 16, 8));
+    return unpack("N*", mb_substr($chars, 16, 8));
   }
 
 
@@ -126,17 +126,17 @@ class fastImage
   {
     $chars = $this->getChars(11);
 
-    return unpack("S*", substr($chars, 6, 4));
+    return unpack("S*", mb_substr($chars, 6, 4));
   }
 
 
   private function parseSizeForBMP()
   {
     $chars = $this->getChars(29);
-    $chars = substr($chars, 14, 14);
+    $chars = mb_substr($chars, 14, 14);
     $type = unpack('C', $chars);
 
-    return (reset($type) == 40) ? unpack('L*', substr($chars, 4)) : unpack('L*', substr($chars, 4, 8));
+    return (reset($type) == 40) ? unpack('L*', mb_substr($chars, 4)) : unpack('L*', mb_substr($chars, 4, 8));
   }
 
 
@@ -193,7 +193,7 @@ class fastImage
       case 'readsize':
         $c = $this->getChars(7);
 
-        return array($this->readInt(substr($c, 5, 2)), $this->readInt(substr($c, 3, 2)));
+        return array($this->readInt(mb_substr($c, 5, 2)), $this->readInt(mb_substr($c, 3, 2)));
       }
     }
   }
@@ -224,7 +224,7 @@ class fastImage
       }
     }
 
-    $result = substr($this->str, $this->strpos, $n);
+    $result = mb_substr($this->str, $this->strpos, $n);
     $this->strpos += $n;
 
     return $result;

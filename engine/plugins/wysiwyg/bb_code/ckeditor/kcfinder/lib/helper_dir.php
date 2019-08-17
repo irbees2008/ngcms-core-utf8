@@ -102,7 +102,7 @@ class dir {
         if (!is_dir($dir) || !is_readable($dir))
             return false;
 
-        if (strtoupper(substr(PHP_OS, 0, 3)) == "WIN")
+        if (strtoupper(mb_substr(PHP_OS, 0, 3)) == "WIN")
             $dir = str_replace("\\", "/", $dir);
         $dir = rtrim($dir, "/");
 

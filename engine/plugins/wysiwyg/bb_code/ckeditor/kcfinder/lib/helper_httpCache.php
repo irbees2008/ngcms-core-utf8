@@ -32,7 +32,7 @@ class httpCache {
         if ($mtime !== false) self::checkMTime($mtime);
 
         if ($type === null) {
-            $magic = ((substr($type, 0, 1) == "/") || preg_match('/^[a-z]\:/i', $type))
+            $magic = ((mb_substr($type, 0, 1) == "/") || preg_match('/^[a-z]\:/i', $type))
                 ? $type : null;
             $type = file::getMimeType($file, $magic);
             if (!$type) $type = null;

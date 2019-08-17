@@ -30,11 +30,11 @@ class type_mime {
             return "Opening fileinfo database failed.";
 
         $type = $finfo->file($file);
-        $type = substr($type, 0, strrpos($type, ";"));
+        $type = mb_substr($type, 0, strrpos($type, ";"));
 
         $mimes = $config['params'];
-        if (substr($mimes, 0, 1) == "!") {
-            $mimes = trim(substr($mimes, 1));
+        if (mb_substr($mimes, 0, 1) == "!") {
+            $mimes = trim(mb_substr($mimes, 1));
             return in_array($type , explode(" ", $mimes))
                 ? "You can't upload such files."
                 : true;

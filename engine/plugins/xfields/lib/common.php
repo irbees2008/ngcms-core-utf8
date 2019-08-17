@@ -42,7 +42,7 @@ function xf_decode($text) {
 
 	if ($text == '') return array();
 	// MODERN METHOD
-	if (substr($text, 0, 4) == "SER|") return unserialize(substr($text, 4));
+	if (mb_substr($text, 0, 4) == "SER|") return unserialize(mb_substr($text, 4));
 	// OLD METHOD. OBSOLETE but supported for reading
 	$xfieldsdata = explode("||", $text);
 	foreach ($xfieldsdata as $xfielddata) {

@@ -36,7 +36,7 @@ echo "_.labels={";
 
 $i = 0;
 foreach ($lang as $english => $native) {
-    if (substr($english, 0, 1) != "_") {
+    if (mb_substr($english, 0, 1) != "_") {
         echo "'" . text::jsValue($english) . "':\"" . text::jsValue($native) . "\"";
         if (++$i < count($lang))
             echo ",";

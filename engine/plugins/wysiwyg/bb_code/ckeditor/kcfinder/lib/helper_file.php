@@ -142,7 +142,7 @@ class file {
             $finfo = new \finfo(FILEINFO_MIME, $magic);
             if ($finfo) {
                 $mime = $finfo->file($filename);
-                $mime = substr($mime, 0, strrpos($mime, ";"));
+                $mime = mb_substr($mime, 0, strrpos($mime, ";"));
                 return $mime;
             }
         }
@@ -184,7 +184,7 @@ class file {
         }
         $filename = basename($filename);
         $ext = self::getExtension($filename, false);
-        $name = strlen($ext) ? substr($filename, 0, -strlen($ext) - 1) : $filename;
+        $name = strlen($ext) ? mb_substr($filename, 0, -strlen($ext) - 1) : $filename;
         $tpl = str_replace('{name}', $name, $tpl);
         $tpl = str_replace('{ext}', (strlen($ext) ? ".$ext" : ""), $tpl);
         $i = 1; $file = "$dir/$filename";

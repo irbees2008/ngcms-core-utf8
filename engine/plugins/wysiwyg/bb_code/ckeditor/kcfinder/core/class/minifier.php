@@ -83,7 +83,7 @@ class minifier {
         $source = "";
         foreach ($files as $file) {
 
-            if (strlen($this->minCmd) && (substr($file, 4, 1) != "_")) {
+            if (strlen($this->minCmd) && (mb_substr($file, 4, 1) != "_")) {
                 $cmd = str_replace("{file}", $file, $this->minCmd);
                 $source .= `$cmd`;
 

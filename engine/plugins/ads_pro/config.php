@@ -4,7 +4,7 @@ plugins_load_config();
 LoadPluginLang('ads_pro', 'config', '', '', ':');
 //pluginSetVariable('ads_pro', 'data', array());
 //pluginsSaveConfig();
-switch ($_REQUEST['action']) {
+switch ($_REQUEST['+action']) {
 	case 'list':
 		showlist();
 		break;

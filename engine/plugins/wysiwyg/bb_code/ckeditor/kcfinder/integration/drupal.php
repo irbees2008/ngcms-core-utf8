@@ -32,7 +32,7 @@ function get_drupal_path() {
             $drupal_path = '../..';
             do {
                 $drupal_path .= '/..';
-                $depth = substr_count($drupal_path, '..');
+                $depth = mb_substr_count($drupal_path, '..');
             } while (!($bootstrap_file_found = file_exists($drupal_path . '/includes/bootstrap.inc')) && $depth < 10);
         }
     }
@@ -65,7 +65,7 @@ function CheckAuthentication($drupal_path) {
 
             // correct base_url so it points to Drupal root
             $pos = strpos($base_url, '/sites/');
-            $base_url = substr($base_url, 0, $pos); // drupal root absolute url
+            $base_url = mb_substr($base_url, 0, $pos); // drupal root absolute url
 
             // If we aren't in a Drupal installation, or if Drupal path hasn't been properly found, die
             if(!file_exists(DRUPAL_ROOT . '/includes/bootstrap.inc')) {
