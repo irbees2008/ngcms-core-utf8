@@ -347,6 +347,7 @@ function news_showone($newsID, $alt_name, $callingParams = array()) {
 
 	// Set meta tags for news page
 	$SYSTEM_FLAGS['meta']['description'] = (getIsSet($row['description']) != '') ? $row['description'] : ((getIsSet($catmap[$masterCatID]) && is_array($catz[$catmap[$masterCatID]])) ? $catz[$catmap[$masterCatID]]['description'] : $config['description']);
+	$SYSTEM_FLAGS['meta']['description'] =mb_substr($SYSTEM_FLAGS['meta']['description'], 0, 220);
 	$SYSTEM_FLAGS['meta']['keywords'] = (getIsSet($row['keywords']) != '') ? $row['keywords'] : ((getIsSet($catmap[$masterCatID]) && is_array($catz[$catmap[$masterCatID]])) ? $catz[$catmap[$masterCatID]]['keywords'] : $config['keywords']);
 	// Prepare title
 	//$SYSTEM_FLAGS['info']['title']['group']	= $config["category_link"]?GetCategories($row['catid'], true):LangDate(timestamp, $row['postdate']);
