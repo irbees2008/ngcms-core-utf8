@@ -140,13 +140,13 @@ class NGTwigLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInterface, 
             // -- [isplugin] + [isnplugin]
                 $content = preg_replace_callback(
                     "#\[is(n){0,1}plugin (.+?)\](.+?)\[\/isplugin\]#is",
-                    create_function('$m', 'return "{% if (".(($m[1] == "n")?"not ":"")."pluginIsActive(\'".htmlspecialchars($m[2])."\')) %}".$m[3]."{% endif %}";'),
+                    array($this, 'isPluginHandlerCallback'),
                     $content
                 );
             // -- [ifhander:<Plugin>] + [ifhandler:<Plugin>:<Handler>] + [ifnhander:<Plugin>] + [ifnhandler:<Plugin>:<Handler>]
                 $content = preg_replace_callback(
                     "#\[if(n){0,1}handler (.+?)\](.+?)\[\/if(n){0,1}handler\]#is",
-                    create_function('$m', 'return "{% if (".(($m[1] == "n")?"not ":"")."pluginIsActive(\'".htmlspecialchars($m[2])."\')) %}".$m[3]."{% endif %}";'),
+                    array($this, 'isHandlerCallback'),
                     $content
                 );
         }
@@ -161,6 +161,14 @@ class NGTwigLoader implements Twig_LoaderInterface, Twig_ExistsLoaderInterface, 
             $content = str_replace(array_keys($tconv), array_values($tconv), $content);
         }
         return $content;
+    }
+    public function isPluginHandlerCallback($m)
+    {
+        return "{% if (".(($m[1] == "n")?"not ":"")."pluginIsActive(\'".htmlspecialchars($m[2])."\')) %}".$m[3]."{% endif %}";
+    }
+    public function isHandlerCallback($m)
+    {
+        return "{% if (".(($m[1] == "n")?"not ":"")."pluginIsActive(\'".htmlspecialchars($m[2])."\')) %}".$m[3]."{% endif %}";
     }
     public function setConversion($name, $variables, $regexp = array(), $options = array())
     {
