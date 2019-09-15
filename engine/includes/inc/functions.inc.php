@@ -411,7 +411,7 @@ function sendEmailMessage($to, $subject, $message, $filename = false, $mail_from
     global $lang, $config;
 
     // Include new PHP mailer class
-    $mail = new PHPMailer();
+    $mail = new \PHPMailer\PHPMailer\PHPMailer();
 
     $mail->CharSet = 'UTF-8';
 
