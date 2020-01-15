@@ -1,0 +1,1 @@
+<a href="#" onclick="insertext(':{smile}: ','', {area});return false;" class="btn btn-link btn-sm"><img alt="{smile}" src="{skins_url}/smilies/{smile}.gif"/></a>
