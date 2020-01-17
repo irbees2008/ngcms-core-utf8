@@ -9,7 +9,7 @@
     <meta name="document-state" content="dynamic" />
     {{ htmlvars }}
     <!-- Bootstrap Core CSS -->
-    <link href="{{ scriptLibrary }}/bootstrap-4.0.0/bootstrap.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <!-- Additional fonts for this theme -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     <link href="{{ scriptLibrary }}/fontawesome-4.7.0/fontawesome.css" rel="stylesheet">
@@ -21,11 +21,11 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- jQuery first, then Tether, then Popper, then Bootstrap JS. -->
-    <script src="{{ scriptLibrary }}/js/jquery-3.2.1.js"></script>
-    <script src="{{ scriptLibrary }}/js/tether-1.4.0.js"></script>
-    <script src="{{ scriptLibrary }}/js/popper-1.11.0.js"></script>
-    <script src="{{ scriptLibrary }}/bootstrap-4.0.0/bootstrap.js"></script>
-    <script src="{{ scriptLibrary }}/js/notify-3.1.5.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js"></script>
     <!-- Theme JavaScript -->
     <script src="{{ scriptLibrary }}/engine.js"></script>
     <script src="{{ tpl_url }}/js/script.js"></script>
