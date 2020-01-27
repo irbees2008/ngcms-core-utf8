@@ -845,7 +845,7 @@ class image_managment {
 
 	// Params:
 	//	rpc			- flag if we're called via RPC call
-	function create_thumb($dir, $file, $sizeX, $sizeY, $quality = 0, $param) {
+	function create_thumb($dir, $file, $sizeX, $sizeY, $quality = 0, $param = []) {
 
 		global $lang;
 		$fname = $dir . '/' . $file;
@@ -906,6 +906,9 @@ class image_managment {
 			case 6:
 				$cmd .= 'bmp';
 				break;
+			case 7:
+				$cmd .= 'webp';
+				break;
 		}
 
 		if (!$cmd || !function_exists($cmd)) {
@@ -929,6 +932,9 @@ class image_managment {
 				break;
 			case 6:
 				$img = @imagecreatefrombmp($fname);
+				break;
+			case 6:
+				$img = @imagecreatefromwebp($fname);
 				break;
 		}
 
@@ -980,6 +986,9 @@ class image_managment {
 				break;
 			case 6:
 				$res = @imagebmp($newimg, $dir . '/thumb/' . $file);
+				break;
+			case 7:
+				$res = @imagewebp($newimg, $dir . '/thumb/' . $file);
 				break;
 		}
 
@@ -1050,6 +1059,9 @@ class image_managment {
 			case 6:
 				$cmd .= 'bmp';
 				break;
+			case 7:
+				$cmd .= 'webp';
+				break;
 		}
 
 		if (!$cmd || !function_exists($cmd)) {
@@ -1073,6 +1085,9 @@ class image_managment {
 				break;
 			case 6:
 				$img = @imagecreatefrombmp($param['image']);
+				break;
+			case 7:
+				$img = @imagecreatefromwebp($param['image']);
 				break;
 		}
 
@@ -1143,6 +1158,9 @@ class image_managment {
 				case 6:
 					$cmd .= 'bmp';
 					break;
+				case 7:
+				        $cmd .= 'webp';
+				        break;
 			}
 
 			if (!$cmd || !function_exists($cmd)) {
@@ -1166,6 +1184,9 @@ class image_managment {
 					break;
 				case 6:
 					$stamp = @imagecreatefrombmp($param['stampfile']);
+					break;
+				case 7:
+					$stamp = @imagecreatefromwebp($param['stampfile']);
 					break;
 			}
 
@@ -1250,6 +1271,9 @@ class image_managment {
 				break;
 			case 6:
 				$res = @imagebmp($img, $param['outfile']);
+				break;
+			case 7:
+				$res = @imagewebp($img, $param['outfile']);
 				break;
 		}
 		if (!$res) {
