@@ -906,7 +906,7 @@ class image_managment {
 			case 6:
 				$cmd .= 'bmp';
 				break;
-			case 7:
+			case 18:
 				$cmd .= 'webp';
 				break;
 		}
@@ -933,7 +933,7 @@ class image_managment {
 			case 6:
 				$img = @imagecreatefrombmp($fname);
 				break;
-			case 6:
+			case 62:
 				$img = @imagecreatefromwebp($fname);
 				break;
 		}
@@ -987,8 +987,8 @@ class image_managment {
 			case 6:
 				$res = @imagebmp($newimg, $dir . '/thumb/' . $file);
 				break;
-			case 7:
-				$res = @imagewebp($newimg, $dir . '/thumb/' . $file);
+			case 18:
+				$res = @imagewebp($newimg, $dir . '/thumb/' . $file, ($quality >= 10 && $quality <= 100) ? $quality : 80);
 				break;
 		}
 
@@ -1059,7 +1059,7 @@ class image_managment {
 			case 6:
 				$cmd .= 'bmp';
 				break;
-			case 7:
+			case 18:
 				$cmd .= 'webp';
 				break;
 		}
@@ -1086,7 +1086,7 @@ class image_managment {
 			case 6:
 				$img = @imagecreatefrombmp($param['image']);
 				break;
-			case 7:
+			case 18:
 				$img = @imagecreatefromwebp($param['image']);
 				break;
 		}
@@ -1158,9 +1158,9 @@ class image_managment {
 				case 6:
 					$cmd .= 'bmp';
 					break;
-				case 7:
-				        $cmd .= 'webp';
-				        break;
+				case 18:
+				    $cmd .= 'webp';
+				    break;
 			}
 
 			if (!$cmd || !function_exists($cmd)) {
@@ -1185,7 +1185,7 @@ class image_managment {
 				case 6:
 					$stamp = @imagecreatefrombmp($param['stampfile']);
 					break;
-				case 7:
+				case 18:
 					$stamp = @imagecreatefromwebp($param['stampfile']);
 					break;
 			}
@@ -1272,8 +1272,8 @@ class image_managment {
 			case 6:
 				$res = @imagebmp($img, $param['outfile']);
 				break;
-			case 7:
-				$res = @imagewebp($img, $param['outfile']);
+			case 18:
+				$res = @imagewebp($img, $param['outfile'], $param['outquality']);
 				break;
 		}
 		if (!$res) {
