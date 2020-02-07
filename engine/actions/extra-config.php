@@ -26,8 +26,9 @@ $extras = pluginsGetList();
 // Load passed variables:
 // ID of called plugin
 $plugin = $_REQUEST['plugin'];
-if ($plugin and 'clearCacheFiles' == $action)
-    clearCacheFiles($plugin);
+// clear Cache Files
+if ($plugin and 'clearCacheFiles' == $action) clearCacheFiles($plugin);
+
 // Type of script to call  ( install / deinstall / config )
 $stype = isset($_REQUEST['stype']) ? $_REQUEST['stype'] : '';
 
