@@ -156,11 +156,11 @@ function clearCacheFiles($plugin = false)
 ' . $object->getBasename();
 
     if (!empty($listSkip)) {
-        msg(array('type' => 'error', 'text' => 'Не весь кэш удалось очистить!<hr>Список пропущенных файлов:' . $listSkip));
+        msg(array('type' => 'error', 'text' => 'РќРµ РІРµСЃСЊ РєСЌС€ СѓРґР°Р»РѕСЃСЊ РѕС‡РёСЃС‚РёС‚СЊ!<hr>РЎРїРёСЃРѕРє РїСЂРѕРїСѓС‰РµРЅРЅС‹С… С„Р°Р№Р»РѕРІ:' . $listSkip));
     } elseif ($plugin) {
-        msg(array('text' => 'Кэш плагина очищен!'));
+        msg(array('text' => 'РљСЌС€ РїР»Р°РіРёРЅР° РѕС‡РёС‰РµРЅ!'));
     } else {
-        msg(array('text' => 'Кэш системы очищен!'));
+        msg(array('text' => 'РљСЌС€ СЃРёСЃС‚РµРјС‹ РѕС‡РёС‰РµРЅ!'));
     }
 
     // Clear cache OPCache
