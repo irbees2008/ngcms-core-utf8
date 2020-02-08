@@ -410,7 +410,7 @@ function edit_zboard($params)
             $options .= '<option value="' . $cat['id'] . '"'.(($row['cat_id']==$cat['id'])?'selected':'').'>' . $cat['cat_name'] . '</option>';
         }
         */
-            $res = mysql_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+            $res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
             $cats = getCats($res);
             $options = getTree($cats, $row['cat_id'], 0);
 
@@ -1519,7 +1519,7 @@ global $tpl, $template, $twig, $mysql, $SYSTEM_FLAGS, $config, $userROW, $Curren
         if( empty($row_two) )
             $output = msg(array("type" => "error", "text" => "По вашему запросу <b>".$get_url."</b> ничего не найдено"), 1, 2);
     }else{
-            $res = mysql_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+            $res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
             $cats = getCats($res);
             $options = getTree($cats, $row['cat_id'], 0);
 
@@ -1706,7 +1706,7 @@ function getCats($res){
     $tree = array();
     $cur = array();
 
-    while($rows = mysql_fetch_assoc($res)){
+    while($rows = mysqli_fetch_assoc($res)){
 
         $cur = &$levels[$rows['id']];
         $cur['parent_id'] = $rows['parent_id'];
@@ -1797,7 +1797,7 @@ global $tpl, $template, $twig, $SYSTEM_FLAGS, $config, $userROW, $mysql, $lang, 
             $options .= '<option value="' . $row['id'] . '"'.(($_REQUEST['cat_id']==$row['id'])?'selected':'').'>' . $row['cat_name'] . '</option>';
         }
         */
-            $res = mysql_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+            $res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
             $cats = getCats($res);
             $options = getTree($cats, $row['cat_id'], 0);
 
@@ -2083,7 +2083,7 @@ function zboard_bbcode()
 {global $tpl, $twig;
     $tpath = locatePluginTemplates(array('bb_tags'), 'zboard', pluginGetVariable('zboard', 'localsource'), pluginGetVariable('zboard','localskin'));
     $xt = $twig->loadTemplate($tpath['bb_tags'].'bb_tags.tpl');
-
+    $tVars = [];
     return $xt->render($tVars);
 }
 

@@ -136,7 +136,7 @@ global $tpl, $mysql, $main_admin;
 		$error_input ='';
 	}
 
-	$res = mysql_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+	$res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
 	$cats = getCats($res);
 
 
@@ -171,7 +171,7 @@ function getCats($res){
     $tree = array();
     $cur = array();
 
-    while($rows = mysql_fetch_assoc($res)){
+    while($rows = mysqli_fetch_assoc($res)){
 
         $cur = &$levels[$rows['id']];
         $cur['parent_id'] = $rows['parent_id'];
@@ -189,7 +189,7 @@ function getCats($res){
 }
 
 
-function getTree($arr, $flg, $l){
+function getTree($arr, $flg = null, $l = 0){
 	$flg;
     $out = '';
 	$ft = '&#8212; ';
@@ -206,7 +206,7 @@ function getTree($arr, $flg, $l){
     return $out;
 }
 
-function send_cat($params)
+function send_cat($params = [])
 {
 global $tpl, $template, $config, $mysql, $lang, $main_admin;
 	$tpath = locatePluginTemplates(array('config/main', 'config/send_cat'), 'zboard', 1);
@@ -267,7 +267,7 @@ global $tpl, $template, $config, $mysql, $lang, $main_admin;
 			$error_input ='';
 		}
 
-$res = mysql_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+$res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
 $cats = getCats($res);
 
 	$pvars['vars'] = array (
@@ -1180,7 +1180,7 @@ global $tpl, $lang, $mysql, $config, $main_admin;
 			$options .= '<option value="' . $cat['id'] . '"'.(($row['cat_id']==$cat['id'])?'selected':'').'>' . $cat['cat_name'] . '</option>';
 		}
 		*/
-			$res = mysql_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+			$res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
 			$cats = getCats($res);
 			$options = getTree($cats, $row['cat_id'], 0);
 
