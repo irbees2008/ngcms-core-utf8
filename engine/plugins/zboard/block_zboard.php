@@ -164,19 +164,19 @@ function plugin_m_zboard_catz_tree() {
 // * mode			- Mode for show
 // * template		- Personal template for plugin
 // * cacheExpire	- age of cache [in seconds]
-function plugin_block_zboard_showTwig($params) {
+function plugin_block_zboard_showTwig($params = []) {
 	global $CurrentHandler, $config;
 
 	return	plugin_block_zboard($params['number'], $params['mode'], $params['cat'], $params['template'], isset($params['cacheExpire'])?$params['cacheExpire']:0);
 }
 
-function plugin_m_zboard_showTwig($params) {
+function plugin_m_zboard_showTwig($params = []) {
 	global $CurrentHandler, $config;
 
 	return plugin_m_zboard();
 }
 
-function plugin_m_zboard_catz_tree_showTwig($params) {
+function plugin_m_zboard_catz_tree_showTwig($params = []) {
 	global $CurrentHandler, $config;
 
 	return plugin_m_zboard_catz_tree();
