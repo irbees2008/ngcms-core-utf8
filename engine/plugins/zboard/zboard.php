@@ -410,7 +410,7 @@ function edit_zboard($params)
             $options .= '<option value="' . $cat['id'] . '"'.(($row['cat_id']==$cat['id'])?'selected':'').'>' . $cat['cat_name'] . '</option>';
         }
         */
-            $res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+            $res = $mysql->query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
             $cats = getCats($res);
             $options = getTree($cats, $row['cat_id'], 0);
 
@@ -1519,7 +1519,7 @@ global $tpl, $template, $twig, $mysql, $SYSTEM_FLAGS, $config, $userROW, $Curren
         if( empty($row_two) )
             $output = msg(array("type" => "error", "text" => "По вашему запросу <b>".$get_url."</b> ничего не найдено"), 1, 2);
     }else{
-            $res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+            $res = $mysql->query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
             $cats = getCats($res);
             $options = getTree($cats, $row['cat_id'], 0);
 
@@ -1797,7 +1797,7 @@ global $tpl, $template, $twig, $SYSTEM_FLAGS, $config, $userROW, $mysql, $lang, 
             $options .= '<option value="' . $row['id'] . '"'.(($_REQUEST['cat_id']==$row['id'])?'selected':'').'>' . $row['cat_name'] . '</option>';
         }
         */
-            $res = mysqli_query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+            $res = $mysql->query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
             $cats = getCats($res);
             $options = getTree($cats, $row['cat_id'], 0);
 
