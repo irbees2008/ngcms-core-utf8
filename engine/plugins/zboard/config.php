@@ -129,7 +129,7 @@ function cat_edit()
         $error_input ='';
     }
 
-    $res = $mysql->select("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+    $res = $mysql->query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
     $cats = getCats($res);
 
 
@@ -250,7 +250,7 @@ function send_cat($params = [])
         $error_input ='';
     }
 
-    $res = $mysql->select("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+    $res = $mysql->query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
     $cats = getCats($res);
 
     $pvars['vars'] = array(
@@ -1168,7 +1168,7 @@ function edit_announce()
             $options .= '<option value="' . $cat['id'] . '"'.(($row['cat_id']==$cat['id'])?'selected':'').'>' . $cat['cat_name'] . '</option>';
         }
         */
-        $res = $mysql->select("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
+        $res = $mysql->query("SELECT * FROM ".prefix."_zboard_cat ORDER BY id");
         $cats = getCats($res);
         $options = getTree($cats, $row['cat_id'], 0);
 
