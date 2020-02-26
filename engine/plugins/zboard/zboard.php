@@ -84,7 +84,7 @@ global $CurrentHandler, $SYSTEM_FLAGS, $template, $lang;
     $template['vars']['titles'] = trim($titles);
 }
 
-function pay_zboard($params) {
+function pay_zboard($params = []) {
     global $config, $mysql, $catz, $catmap, $SUPRESS_TEMPLATE_SHOW, $SYSTEM_FLAGS;
 
 	$SUPRESS_TEMPLATE_SHOW = 1;
@@ -381,7 +381,7 @@ function del_zboard($params)
     }
 }
 
-function edit_zboard($params)
+function edit_zboard($params = [])
 {global $tpl, $template, $twig, $mysql, $SYSTEM_FLAGS, $config, $userROW, $lang, $CurrentHandler;
     $tpath = locatePluginTemplates(array('edit_zboard', 'no_access'), 'zboard', pluginGetVariable('zboard', 'localsource'), pluginGetVariable('zboard','localskin'));
     $xt = $twig->loadTemplate($tpath['edit_zboard'].'edit_zboard.tpl');
