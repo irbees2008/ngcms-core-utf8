@@ -348,7 +348,8 @@ function systemDboModify() {
 		 $slist [] = "<br>Converted database <b>$db</b> to <b>utf8</b>: " . sprintf("%.4f", (microtime(true) - $time3)) . ' sec.';
 	 }
 
-	 msg(array('type' => 'success', 'title' => __('dbo')['msgo_' . $mode], 'message' => join("<br>", $slist) . '<hr>Total time: ' . sprintf("%.4f", (microtime(true) - $time))));
+	 msg(array('type' => 'success', 'title' => $lang['dbo']['msgo_' . $mode]
+ , 'message' => join("<br>", $slist) . '<hr>Total time: ' . sprintf("%.4f", (microtime(true) - $time))));
 	 if (count($msg_error))
 		 msg(array('type' => 'danger', 'title' => __('dbo')['msge_' . $mode], 'message' => join("<br>", $msg_error)));
 
