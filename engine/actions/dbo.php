@@ -303,7 +303,7 @@ function systemDboModify()
             $create_table_scheme = str_ireplace('cp1251', 'utf8', $row1['Create Table']);
             // ENGINE=MyISAM для импортируемых с другой версии таблиц
             $create_table_scheme = str_ireplace('ENGINE=InnoDB', 'ENGINE=MyISAM', $create_table_scheme);
-            $create_table_scheme .= ' COLLATE utf8_general_ci';
+            // $create_table_scheme .= " COLLATE 'utf8_general_ci'"; // Ошибка при соединении `latin1_swedish_ci`
             $mysqli->query($create_table_scheme);
             if ($mysqli->errno) {
                 $msg_error[] = secure_html('Select Error (' . $mysqli->errno . ') ' . $mysqli->error . ' - LINE ' . __LINE__);
@@ -377,6 +377,14 @@ function systemDboModify()
             msg(array("type" => "error", "text" => $lang['dbo']['msge_restore'], "info" => $lang['dbo']['msgi_restore']));
         } else {
             $fp = gzopen(root . 'backups/' . $filename . '.gz', "r");
+
+            // Если архив БД в кодировке 1251, то изменяем набор символов на сеанс соединения.
+            // Устанавливает три переменные
+            // `character_set_client`, `character_set_connection` и `character_set_results`
+            // Установка `character_set_connection` также устанавливает `collation_connection`.
+            if (! empty($_POST['cp1251'])) {
+                $db->query("SET NAMES 'cp1251'");
+            }
 
             $query = '';
             while (!gzeof($fp)) {
