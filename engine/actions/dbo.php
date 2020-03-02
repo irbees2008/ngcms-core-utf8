@@ -351,7 +351,7 @@ function systemDboModify() {
 	 msg(array('type' => 'success', 'title' => $lang['dbo']['msgo_' . $mode]
  , 'message' => join("<br>", $slist) . '<hr>Total time: ' . sprintf("%.4f", (microtime(true) - $time))));
 	 if (count($msg_error))
-		 msg(array('type' => 'danger', 'title' => __('dbo')['msge_' . $mode], 'message' => join("<br>", $msg_error)));
+		 msg(array('type' => 'danger', 'title' => $lang['dbo']['msgo_' . $mode], 'message' => join("<br>", $msg_error)));
 
 	 mysqli_free_result($rs);
  }
