@@ -178,7 +178,7 @@ function news_showone($newsID, $alt_name, $callingParams = array()) {
 	foreach ($row['#images'] as $k => $v) {
 		if ($v['linked_id'] == $row['id']) {
 			$callingParams['linkedImages']['ids']  [] = $k;
-			$callingParams['linkedImages']['data'] [] = $v;
+			$callingParams['linkedImages']['data'][$v['id']] = $v;
 			$tvars['vars']['_images'] [] = array(
 				'plugin'      => $v['plugin'],
 				'pidentity'   => $v['pidentity'],
@@ -699,8 +699,8 @@ function news_showlist($filterConditions = array(), $paginationParams = array(),
 		if (isset($linkedImages['data']) && is_array($linkedImages['data']))
 			foreach ($linkedImages['data'] as $k => $v) {
 				if ($v['linked_id'] == $row['id']) {
-					$callingParams['linkedImages']['ids']  [] = $v['id'];
-					$callingParams['linkedImages']['data'] [] = $v;
+					//$callingParams['linkedImages']['ids']  [] = $v['id'];
+					//$callingParams['linkedImages']['data'] [] = $v;
 					$tvars['vars']['_images'] [] = array(
 						'plugin'      => $v['plugin'],
 						'pidentity'   => $v['pidentity'],
