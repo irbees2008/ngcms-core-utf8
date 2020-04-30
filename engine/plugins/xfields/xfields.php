@@ -394,7 +394,7 @@ class XFieldsNewsFilter extends NewsFilter {
 			$mysql->query("update " . prefix . "_news set xfields = " . db_squote(xf_encode($xdata)) . " where id = " . db_squote($newsID));
 		}
 		// Prepare table data [if needed]
-		if (isset($xf['tdata']) && is_array($xf['tdata']) && isset($_POST['xftable']) && is_array($xft = json_decode(iconv('Windows-1251', 'UTF-8', $_POST['xftable']), true))) {
+		if (isset($xf['tdata']) && is_array($xf['tdata']) && isset($_POST['xftable']) && is_array($xft = json_decode($_POST['xftable'], true))) {
 			$xft = arrayCharsetConvert(1, $xft);
 			//print "<pre>[".(is_array($xft)?'ARR':'NOARR')."]INCOMING ARRAY: ".var_export($xft, true)."</pre>";
 			$recList = array();
@@ -693,7 +693,7 @@ class XFieldsNewsFilter extends NewsFilter {
 		}
 		// Prepare table data [if needed]
 		$haveTable = false;
-		if (isset($xf['tdata']) && is_array($xf['tdata']) && isset($_POST['xftable']) && is_array($xft = json_decode(iconv('Windows-1251', 'UTF-8', $_POST['xftable']), true))) {
+		if (isset($xf['tdata']) && is_array($xf['tdata']) && isset($_POST['xftable']) && is_array($xft = json_decode($_POST['xftable'], true))) {
 			$xft = arrayCharsetConvert(1, $xft);
 			//print "<pre>[".(is_array($xft)?'ARR':'NOARR')."]INCOMING ARRAY: ".var_export($xft, true)."</pre>";
 			$recList = array();
@@ -1396,4 +1396,3 @@ class XFieldsCoreFilter extends CoreFilter {
 register_filter('news', 'xfields', new XFieldsNewsFilter);
 register_filter('core.registerUser', 'xfields', new XFieldsCoreFilter);
 register_admin_filter('categories', 'xfields', new XFieldsFilterAdminCategories);
-

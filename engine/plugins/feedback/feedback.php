@@ -122,7 +122,7 @@ function plugin_feedback_showScreen($mode = 0, $errorText = '') {
 			'title' => $fInfo['title'],
 			'type'  => $fInfo['type'],
 		);
-		$FBF_DATA[$fName] = array($fInfo['type'], intval($fInfo['required']), iconv('Windows-1251', 'UTF-8', $fInfo['title']));
+		$FBF_DATA[$fName] = array($fInfo['type'], intval($fInfo['required']), $fInfo['title']);
 		// Fill value
 		$setValue = '';
 		if ($mode && (!$fInfo['block'])) {
