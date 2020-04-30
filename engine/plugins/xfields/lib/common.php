@@ -47,15 +47,19 @@ function xf_configSave($xf = null)
     return true;
 }
 
-// Decode fields from text
-function xf_decode(string $text)
+/**
+ * Декодирование поля из текстовой строки.
+ * @param  string/null  $text
+ * @return array
+ */
+function xf_decode(string $text = null): array
 {
     // Если строка пустая, то и массив возвращаем пустым.
     if (empty($text)) {
         return [];
     }
 
-    // Если предоставлена строка является псевдо-серилизованной строкой.
+    // Если предоставленая строка является псевдо-серилизованной строкой.
     if (mb_substr($text, 0, 4) == "SER|") {
         // Обрезаем маркер серилизованной строки.
         $serialized = mb_substr($text, 4);
