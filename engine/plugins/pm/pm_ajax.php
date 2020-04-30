@@ -7,7 +7,7 @@ if (!defined('NGCMS')) {
 
 rpcRegisterFunction('pm_get_username', 'plugin_pm_ajax_get_username');
 
-function plugin_pm_ajax_get_username($params)
+function plugin_pm_ajax_get_username($searchName)
 {
     global $userROW, $mysql;
 
@@ -21,8 +21,6 @@ function plugin_pm_ajax_get_username($params)
 		];
     }
 
-    $searchName = iconv('UTF-8', 'Windows-1251', $params);
-
     // Return a list of users
     $SQL = 'SELECT name FROM ' . uprefix . '_users WHERE name LIKE ' . db_squote('%' . $searchName . '%') . ' ORDER BY name DESC LIMIT 20';
 
@@ -31,7 +29,7 @@ function plugin_pm_ajax_get_username($params)
 
     foreach ($mysql->select($SQL) as $row) {
         $output[] = [
-			iconv('Windows-1251', 'UTF-8', $row['name']),
+			$row['name'],
 
 		];
     }
@@ -40,7 +38,7 @@ function plugin_pm_ajax_get_username($params)
 		'status' => 1,
 		'errorCode' => 0,
 		'data' => [
-			$params,
+			$searchName,
 			$output
 		],
 

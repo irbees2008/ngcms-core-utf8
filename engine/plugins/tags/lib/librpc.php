@@ -1,7 +1,7 @@
 <?php
 
 // Suggest helper for Add/Edit news
-function tagsSuggest($params)
+function tagsSuggest($searchTag)
 {
     global $userROW, $DSlist, $mysql, $twig;
 
@@ -26,12 +26,12 @@ function tagsSuggest($params)
     }
 
     // Check if tag is specified
-    if ($params == '') {
+    if ($searchTag == '') {
         return [
 			'status' => 1,
 			'errorCode' => 0,
 			'data' => [
-				$params,
+				$searchTag,
 				[],
 
 			],
@@ -39,14 +39,12 @@ function tagsSuggest($params)
 		];
     }
 
-    $searchTag = iconv('UTF-8', 'Windows-1251', $params);
-
     $output = [];
 
     foreach ($mysql->select("select * from ".prefix."_tags where tag like ".db_squote($searchTag.'%')." order by posts desc limit 20") as $row) {
         $output[] = [
-			iconv('Windows-1251', 'UTF-8', $row['tag']),
-			iconv('Windows-1251', 'UTF-8', $row['posts'] . ' постов'),
+			$row['tag'],
+			$row['posts'] . ' постов',
 
 		];
     }
@@ -55,7 +53,7 @@ function tagsSuggest($params)
 		'status' => 1,
 		'errorCode' => 0,
 		'data' => [
-			$params,
+			$searchTag,
 			$output,
 
 		],
