@@ -62,8 +62,7 @@
 </script>
 <div class="title">Добавить комментарий</div>
 <div class="respond">
-	<form id="comment" method="post" action="{post_url}" name="form" [ajax]onsubmit="add_comment(); return false;" [
-	/ajax]>
+	<form id="comment" method="post" action="{post_url}" name="form" [ajax]onsubmit="add_comment(); return false;" [/ajax]>
 	<input type="hidden" name="newsid" value="{newsid}"/>
 	<input type="hidden" name="referer" value="{request_uri}"/>
 	[not-logged]
