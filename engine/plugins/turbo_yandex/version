@@ -5,10 +5,14 @@
 ID: turbo_yandex
 Name: RSS поток для Yandex Turbo
 Name_EN: RSS export for Yandex Turbo
-Version: 0.01
+Version: 0.6.0
 Acts: ppages
 File: turbo_yandex.php
 Config: config.php
+Install: install.php
+Deinstall: deinstall.php
+Library: lib; lib/TurboYandex.php
+Library: helpers; lib/helpers.php
 Type: plugin
 Description: RSS поток для Yandex Turbo
 Description_EN: RSS export for Yandex Turbo
