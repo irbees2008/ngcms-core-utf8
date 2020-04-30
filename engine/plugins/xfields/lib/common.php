@@ -49,7 +49,7 @@ function xf_configSave($xf = null)
 
 /**
  * Декодирование поля из текстовой строки.
- * @param  string/null  $text
+ * @param  string|null  $text
  * @return array
  */
 function xf_decode(string $text = null): array
