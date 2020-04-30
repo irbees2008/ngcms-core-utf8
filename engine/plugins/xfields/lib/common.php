@@ -50,42 +50,42 @@ function xf_configSave($xf = null)
 // Decode fields from text
 function xf_decode(string $text)
 {
-	// Если строка пустая, то и массив возвращаем пустым.
+    // Если строка пустая, то и массив возвращаем пустым.
     if (empty($text)) {
         return [];
     }
 
-	// Если предоставлена строка является псевдо-серилизованной строкой.
-	if (mb_substr($text, 0, 4) == "SER|") {
-		// Обрезаем маркер серилизованной строки.
-		$serialized = mb_substr($text, 4);
+    // Если предоставлена строка является псевдо-серилизованной строкой.
+    if (mb_substr($text, 0, 4) == "SER|") {
+        // Обрезаем маркер серилизованной строки.
+        $serialized = mb_substr($text, 4);
 
-		// Пытаемся десериализовать строку.
-		$xfields = unserialize($serialized);
+        // Пытаемся десериализовать строку.
+        $xfields = unserialize($serialized);
 
-		// Если успешно десериализовали, то возвращаем.
-		if (is_array($xfields)) {
-			return $xfields;
-		}
+        // Если успешно десериализовали, то возвращаем.
+        if (is_array($xfields)) {
+            return $xfields;
+        }
 
-		// Если не получилось конвертировать, то пытаемся изменить кодировку.
-		$converted = mb_convert_encoding($serialized, 'CP1251');
+        // Если не получилось конвертировать, то пытаемся изменить кодировку.
+        $converted = mb_convert_encoding($serialized, 'CP1251');
 
-		// Пытаемся десериализовать строку.
-		$xfields = unserialize($converted);
+        // Пытаемся десериализовать строку.
+        $xfields = unserialize($converted);
 
-		// Если успешно десериализовали, то проблема была в кодировке.
-		if (is_array($xfields)) {
-			return array_map(function ($xfield) {
-				// Обратно конвертируем и возвращаем каждое поле.
-				return mb_convert_encoding($xfield, 'UTF-8', 'CP1251');
-			}, $xfields);
-		}
+        // Если успешно десериализовали, то проблема была в кодировке.
+        if (is_array($xfields)) {
+            return array_map(function ($xfield) {
+                // Обратно конвертируем и возвращаем каждое поле.
+                return mb_convert_encoding($xfield, 'UTF-8', 'CP1251');
+            }, $xfields);
+        }
 
-		// Если ничего не помогло, возвращаем пустой массив.
-		return [];
-	}
-    
+        // Если ничего не помогло, возвращаем пустой массив.
+        return [];
+    }
+
     // OLD METHOD. OBSOLETE but supported for reading
     $xfieldsdata = explode("||", $text);
     foreach ($xfieldsdata as $xfielddata) {
