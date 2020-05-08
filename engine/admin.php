@@ -74,7 +74,7 @@ if (!is_array($userROW)) {
 		'error'			=> ($SYSTEM_FLAGS['auth_fail']) ? $lang['msge_login'] : '',
 		'is_error'		=> ($SYSTEM_FLAGS['auth_fail']) ? '$1' : '',
 	);
-	
+
 	$xt = $twig->loadTemplate(tpl_actions . 'login.tpl');
 	echo $xt->render($tVars);
 	exit;
@@ -157,14 +157,14 @@ if (isset($permissions[$mod]) && ($permissions[$mod])) {
 // Load skin language
 //function LoadLang_Askin() {
 //	global $config;
-//	
+//
 //	$filename = root . 'skins/default/lang/' . $config['default_lang'] . '/admin/index.ini';
-//	
+//
 //	if (!$content = parse_ini_file($filename, true)) {
 //		$filename = root . 'skins/default/lang/english/admin/index.ini';
 //		$content = parse_ini_file($filename, true);
 //	}
-	
+
 //	return $content;
 //}
 
@@ -193,10 +193,10 @@ if (is_array($userROW)) {
 	$newpm = '';
 	$unapp1 = '';
 	$unapp2 = '';
-	
+
 	$newpm = $mysql->result("SELECT count(pmid) FROM ".prefix."_users_pm WHERE to_id = ".db_squote($userROW['id'])." AND viewed = '0'");
 	$newpmText = ($newpm != "0") ? $newpm . ' ' . Padeg($newpm, $lang['head_pm_skl']) : $lang['head_pm_no'];
-	
+
 	// Calculate number of un-approved news
 	if ( $userROW['status'] == 1 || $userROW['status'] == 2 ) {
 		$unapp1 = $mysql->result("SELECT count(id) FROM ".prefix."_news WHERE approve = '-1'");
@@ -209,7 +209,7 @@ if (is_array($userROW)) {
 		if ($unapp3)
 			$unapproved3 = '<li><a href="'.$PHP_SELF.'?mod=static"><i class="fa fa-times"></i> ' . $unapp3 . ' ' . Padeg($unapp3, $lang['head_stat_pending_skl']) . '</a></li>';
 	}
-	
+
 	$unnAppCount = (int)$newpm + (int)$unapp1 + (int)$unapp2 + (int)$unapp3;
 	$unnAppLabel = ($unnAppCount != "0" ) ? '<span class="label label-danger">' . $unnAppCount . '</span>' : '';
 	$unnAppText = $lang['head_notify'] . (($unnAppCount != "0") ? $unnAppCount . ' ' . Padeg($unnAppCount, $lang['head_notify_skl']) : $lang['head_notify_no'] );
@@ -261,7 +261,7 @@ $tVars = array(
                 'hasAvatar' => $config['use_avatars'] and $userAvatar,
             ),
         ),
-	'newpmText' => $newpmText,	
+	'newpmText' => $newpmText,
 );
 
 if (!$mod || ($mod && $mod != "preview")) {
