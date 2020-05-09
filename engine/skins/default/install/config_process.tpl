@@ -5,10 +5,10 @@
 				<input type="hidden" name="action" id="action" value="config">
 				<input type="hidden" name="stage" id="stage" value="4">
 				{hinput}
-				
+
 				<p></p>
 				<fieldset>
-					<legend>—писок выполненных действий:</legend>
+					<legend>Список выполненных действий:</legend>
 					<div class="form-group">
 						<div class="col-sm-12">{actions}<!--/div>
 					</div>
