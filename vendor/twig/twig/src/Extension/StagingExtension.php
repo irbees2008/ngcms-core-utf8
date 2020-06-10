@@ -89,11 +89,6 @@ class StagingExtension extends AbstractExtension
         $this->globals[$name] = $value;
     }
 
-    public function addGlobalRef($name, &$value)
-    {
-        $this->globals[$name] = &$value;
-    }
-
     public function getGlobals()
     {
         return $this->globals;
