@@ -49,7 +49,7 @@ function comments_add() {
 
 		return;
 	}
-	$SQL['text'] = secure_html(convert(trim($_POST['content'])));
+	$SQL['text'] = secure_html(trim($_POST['content']));
 	// If user is not logged, make some additional tests
 	if (!$is_member) {
 		// Check if unreg are allowed to make comments
