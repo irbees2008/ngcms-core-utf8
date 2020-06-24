@@ -1,19 +1,21 @@
 {
     "config": {
-        "optimize-autoloader": true,
         "preferred-install": "source",
-        "sort-packages": true,
         "vendor-dir": "vendor"
     },
     "require": {
-        "php": "^7.2.5",
-        "cweagans/composer-patches": "1.*",
+        "php": ">=5.6",
+        "twig/twig": "1.40.1",
         "phpmailer/phpmailer": "6.*",
-        "twig/twig": "1.40.1"
+        "cweagans/composer-patches": "1.*"
     },
     "extra": {
-        "enable-patching": true,
         "composer-exit-on-patch-failure": true,
-        "patches-file": "composer.patches.json"
+        "patches": {
+            "twig/twig": {
+                "P-1: addGlobalRef": "patches/composer/1.diff",
+                "P-2: addGlobalRef": "patches/composer/2.diff"
+            }
+        }
     }
 }
